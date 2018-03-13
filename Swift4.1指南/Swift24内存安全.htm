@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<!-- saved from url=(0161)https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID567 -->
+<html lang="en" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+  <title>Swift编程语言（Swift 4.1）：内存安全</title>
+  <link rel="stylesheet" type="text/css" href="./Swift编程语言（Swift 4.1）：内存安全_files/style-1.6.3.css">
+  <link rel="stylesheet" type="text/css" href="./Swift编程语言（Swift 4.1）：内存安全_files/feedback-1.6.3.css">
+   
+<meta id="j-version" name="j-version" content="">
+<meta id="build" name="build" content="2cff7ac52859143a0b42c92c22d84718">
+<meta id="document-version" name="document-version" content="10.3.3">
+<meta id="book-assignments" name="book-assignments" content="{Type/Guide}, {Topic/Swift}">
+<meta scheme="apple_ref" id="identifier" name="identifier" content="//apple_ref/doc/uid/TP40014097">
+<meta id="chapterId" name="chapterId" content="TP40014097-CH46">
+<meta id="book-title" name="book-title" content="The Swift Programming Language (Swift 4.1)">
+<meta id="book-resource-type" name="book-resource-type" content="Guide">
+<meta id="book-root" name="book-root" content="./">
+<meta id="book-json" name="book-json" content="book.json">
+<meta id="date" name="date" content="2018-02-20">
+<meta id="description" name="description" content="The definitive guide to Swift, Apple’s programming language for building iOS, macOS, watchOS, and tvOS apps.">
+<meta id="IndexTitle" name="IndexTitle" content="">
+<meta id="resources-uri" name="resources-uri" content="../../../../Resources/1277">
+<link id="book-index-page" rel="Start" title="" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html">
+<!-- , next_chapter: next_chapter, previous_chapter: previous_chapter -->
+<link id="next-page" rel="Next" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html">
+<link id="previous-page" rel="Prev" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html">
+<meta id="devcenter" name="devcenter" content="&lt;!-- DEVCENTER_NAME --&gt;">
+<meta id="devcenter-url" name="devcenter-url" content="&lt;!-- DEVCENTER_URL --&gt;">
+<meta id="reflib" name="reflib" content="&lt;!-- REFLIB_NAME --&gt;">
+
+<meta id="xcode-display" name="xcode-display" content="render">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta id="platforms" name="platforms" content="Xcode Developer Tools">
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./Swift编程语言（Swift 4.1）：内存安全_files/translateelement.css"></head>
+
+  <body id="conceptual_flow_with_tasks" class="jazz">
+    
+    <header id="ios_header" class="hideOnPrint hideInXcode">
+  <div class="content-wrapper">
+    <p class="header-text">
+    	<a href="https://developer.apple.com/library/content/navigation/" onclick="s_objectID=&quot;https://developer.apple.com/library/content/navigation/_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指南和示例代码
+ 		</font></font></a>
+ </p>
+    <p id="wwdr"><img id="apple_logo" src="./Swift编程语言（Swift 4.1）：内存安全_files/apple2.png" height="14px" width="12px" aria-hidden="true"><a href="https://developer.apple.com/" onclick="s_objectID=&quot;https://developer.apple.com/_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发人员</font></font></a></p>
+  </div>
+</header>
+
+    <section id="valence">
+  <div class="content-wrapper">
+    <p id="hierarchial_navigation">
+      <span id="book_title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swift编程语言（Swift 4.1）</font></font></span>
+    </p>
+    <form id="search" class="hideInXcode" method="get" action="https://developer.apple.com/search/index.php" accept-charset="utf-8" autocomplete="off">
+  <input type="search" id="ssi_SearchField" placeholder="Search Guides and Sample Code" name="q" autocomplete="off" tabindex="2">
+</form>
+
+      
+   
+   
+
+
+
+
+    <span class="download-text hideInXcode">
+      <a href="https://itunes.apple.com/us/book/the-swift-programming-language/id1002622538?mt=11" onclick="s_objectID=&quot;https://itunes.apple.com/us/book/the-swift-programming-language/id1002622538?mt=11_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的iBooks</font></font></a>
+    </span>
+
+    
+
+    <img id="shortstack" src="./Swift编程语言（Swift 4.1）：内存安全_files/shortstack_2x.png">
+  </div>
+</section>
+    <div class="content-wrapper">
+      <nav id="navigator" class="book-parts hideInXcode" role="navigation">
+    <ul class="nav-parts">
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH1-ID2" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欢迎来到Swift</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_2&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于Swift</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Compatibility.html#//apple_ref/doc/uid/TP40014097-CH45-ID561" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH45-ID561" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_3&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版本兼容性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html#//apple_ref/doc/uid/TP40014097-CH2-ID1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH2-ID1" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_4&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速游览</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH4-ID233" class="part-name nav-part-active open-part">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_5&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言指南</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_6&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基础</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID60" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH6-ID60" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_7&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本操作员</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/StringsAndCharacters.html#//apple_ref/doc/uid/TP40014097-CH7-ID285" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH7-ID285" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_8&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字符串和字符</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/CollectionTypes.html#//apple_ref/doc/uid/TP40014097-CH8-ID105" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH8-ID105" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_9&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集合类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html#//apple_ref/doc/uid/TP40014097-CH9-ID120" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH9-ID120" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_10&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">控制流</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID158" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_11&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH11-ID94" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_12&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关闭</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html#//apple_ref/doc/uid/TP40014097-CH12-ID145" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH12-ID145" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_13&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">枚举</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-ID82" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH13-ID82" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_14&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类和结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html#//apple_ref/doc/uid/TP40014097-CH14-ID254" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH14-ID254" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_15&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Methods.html#//apple_ref/doc/uid/TP40014097-CH15-ID234" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH15-ID234" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_16&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Subscripts.html#//apple_ref/doc/uid/TP40014097-CH16-ID305" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH16-ID305" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_17&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">标</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Inheritance.html#//apple_ref/doc/uid/TP40014097-CH17-ID193" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH17-ID193" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_18&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">遗产</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID203" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH18-ID203" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_19&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">初始化</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Deinitialization.html#//apple_ref/doc/uid/TP40014097-CH19-ID142" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH19-ID142" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_20&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反初始化</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID245" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH21-ID245" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_21&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选链接</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html#//apple_ref/doc/uid/TP40014097-CH42-ID508" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH42-ID508" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_22&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">错误处理</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TypeCasting.html#//apple_ref/doc/uid/TP40014097-CH22-ID338" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH22-ID338" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_23&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型铸造</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/NestedTypes.html#//apple_ref/doc/uid/TP40014097-CH23-ID242" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH23-ID242" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_24&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嵌套类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html#//apple_ref/doc/uid/TP40014097-CH24-ID151" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH24-ID151" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_25&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扩展</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html#//apple_ref/doc/uid/TP40014097-CH25-ID267" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH25-ID267" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_26&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协议</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH26-ID179" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_27&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">泛型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID48" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH20-ID48" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_28&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动引用计数</font></font></a>
+              </li>
+              <li class="nav-chapter nav-current-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID567" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH46-ID567" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_29&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内存安全</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID3" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH41-ID3" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_30&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问控制</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID28" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID28" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_31&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级操作员</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH28-ID427" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_32&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言参考</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_33&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于语言参考</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/LexicalStructure.html#//apple_ref/doc/uid/TP40014097-CH30-ID410" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH30-ID410" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_34&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">词汇结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Types.html#//apple_ref/doc/uid/TP40014097-CH31-ID445" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH31-ID445" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_35&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Expressions.html#//apple_ref/doc/uid/TP40014097-CH32-ID383" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH32-ID383" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_36&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表达式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Statements.html#//apple_ref/doc/uid/TP40014097-CH33-ID428" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH33-ID428" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_37&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID351" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH34-ID351" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_38&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Attributes.html#//apple_ref/doc/uid/TP40014097-CH35-ID347" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH35-ID347" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_39&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Patterns.html#//apple_ref/doc/uid/TP40014097-CH36-ID419" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH36-ID419" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_40&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GenericParametersAndArguments.html#//apple_ref/doc/uid/TP40014097-CH37-ID406" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH37-ID406" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_41&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通用参数和参数</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html#//apple_ref/doc/uid/TP40014097-CH38-ID458" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH38-ID458" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_42&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语法概要</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH39-ID460" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_43&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修订记录</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_44&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档修订历史</font></font></a>
+              </li>
+          </ul>
+        </li>
+    </ul>
+</nav>
+
+      <menu id="bashful" type="toolbar">
+  <div class="shield"></div>
+  <menuitem id="jump_to" class="menu-bar-item closed">
+  <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在本页</font></font></span>
+  <div class="chevron">
+    <div class="chevy chevron-left"></div>
+    <div class="chevy chevron-right"></div>
+  </div>
+  <menu type="list" class="details">
+      <ul class="list-bullet">
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID568" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_45&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解对内存的冲突访问</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID569" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_46&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">冲突访问输入输出参数</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID570" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_47&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在方法中冲突访问自我</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID571" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_48&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对属性的访问冲突</font></font></a>
+          </li>
+      </ul>
+  </menu>
+</menuitem>
+
+</menu>
+<div class="pixel-line"></div>
+<div class="rubber-band-gap"></div>
+<article class="chapter">
+  <a name="//apple_ref/doc/uid/TP40014097-CH46"></a><a name="//apple_ref/doc/uid/TP40014097-CH46-ID567"></a>
+
+  <h2 class="chapter-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内存安全</font></font></h2>
+
+
+  
+  	<section class="section">
+  		<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  默认情况下，Swift可以防止代码中出现不安全的行为。</font><font style="vertical-align: inherit;">例如，Swift确保变量在被使用之前被初始化，在被释放之后内存不被访问，并且检查数组索引的出界错误。
+</font></font></p>
+<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift还可以确保对同一区域内存的多次访问不会发生冲突，因为需要修改内存中某个位置的代码才能独占访问该内存。</font><font style="vertical-align: inherit;">由于Swift自动管理内存，因此大部分时间您根本不必考虑访问内存。</font><font style="vertical-align: inherit;">但是，了解潜在冲突发生的位置很重要，这样可以避免编写与内存冲突的代码。</font><font style="vertical-align: inherit;">如果你的代码确实包含冲突，你会得到一个编译时或运行时错误。
+</font></font></p>
+
+		</section> 
+
+
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH46-ID568"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">了解对内存的冲突访问</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  当你设置变量的值或将参数传递给函数时，访问内存发生在你的代码中。</font><font style="vertical-align: inherit;">例如，下面的代码包含读取访问权限和写入访问权限：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// A write access to the memory where one is stored.</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">one</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// A read access from the memory where one is stored.</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">"We're number </span>\(<span class="vc">one</span>)<span class="s">!"</span>)</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  当代码的不同部分试图同时访问内存中的相同位置时，可能会发生冲突的内存访问。</font><font style="vertical-align: inherit;">同时多次访问内存中的某个位置可能会产生不可预知或不一致的行为。</font><font style="vertical-align: inherit;">在Swift中，有多种方法可以修改跨越多行代码的值，从而可以尝试在自己的修改过程中访问某个值。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以通过考虑如何更新写在纸上的预算来看到类似的问题。</font><font style="vertical-align: inherit;">更新预算分为两个步骤：首先添加项目的名称和价格，然后更改总金额以反映列表中当前的项目。</font><font style="vertical-align: inherit;">更新之前和之后，您可以阅读预算中的任何信息并获得正确答案，如下图所示。
+</font></font></p><figure class="figure">
+  
+  <span class="caption"></span>
+  <img src="./Swift编程语言（Swift 4.1）：内存安全_files/memory_shopping_2x.png" alt="image：../Art/memory_shopping_2x.png" width="430" height="158">
+</figure><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在将项目添加到预算时，它处于临时无效状态，因为总金额尚未更新以反映新添加的项目。</font><font style="vertical-align: inherit;">在添加项目过程中读取总金额会给您提供不正确的信息。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这个例子还说明了在解决对内存的冲突访问时可能遇到的挑战：有时有多种方法可以解决产生不同答案的冲突，而且哪种答案是正确的并不总是显而易见的。</font><font style="vertical-align: inherit;">在这个例子中，根据您是想要原始总金额还是更新的总金额，5美元或320美元可能是正确的答案。</font><font style="vertical-align: inherit;">在修复冲突的访问之前，您必须确定要执行的操作。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH46-NoLink_195"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您编写了并发或多线程代码，则对内存的访问冲突可能是一个熟悉的问题。</font><font style="vertical-align: inherit;">但是，这里讨论的冲突访问可能发生在单个线程上，</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并且不</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">涉及并发或多线程代码。
+    	</font></font></p>
+    <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您在单个线程内存在对内存的访问冲突，Swift保证您在编译时或运行时都会出现错误。</font><font style="vertical-align: inherit;">对于多线程代码，使用</font></font><a href="https://developer.apple.com/documentation/code_diagnostics/thread_sanitizer" onclick="s_objectID=&quot;https://developer.apple.com/documentation/code_diagnostics/thread_sanitizer_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Thread Sanitizer</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来帮助检测跨线程的冲突访问。
+</font></font></p>
+
+  </aside>
+</div>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH46-ID573"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内存访问特性</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在访问冲突的情况下，需要考虑内存访问的三个特性：访问是读取还是写入，访问的持续时间以及正在访问的内存中的位置。</font><font style="vertical-align: inherit;">具体而言，如果您有两次访问满足以下所有条件，则会发生冲突：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  至少有一个是写入权限。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  他们访问内存中的相同位置。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  他们的持续时间重叠。
+</font></font></p>
+</li>
+</ul><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  读取和写入访问之间的区别通常很明显：写入访问会更改内存中的位置，但读取访问不会。</font><font style="vertical-align: inherit;">内存中的位置指正在访问的内容，例如变量，常量或属性。</font><font style="vertical-align: inherit;">内存访问的持续时间可以是瞬时的，也可以是长期的。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果其他代码在访问开始后但结束之前无法运行，则</font><font style="vertical-align: inherit;">
+  访问是</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">即时</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的。</font><font style="vertical-align: inherit;">就其性质而言，两次即时访问不能同时发生。</font><font style="vertical-align: inherit;">大多数内存访问是即时的。</font><font style="vertical-align: inherit;">例如，以下代码清单中的所有读取和写入访问都是即时的：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">oneMore</span>(<span class="vc">than</span> <span class="vc">number</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">number</span> + <span class="m">1</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">myNumber</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="vc">myNumber</span> = <span class="vc">oneMore</span>(<span class="vc">than</span>: <span class="vc">myNumber</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">myNumber</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "2"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  但是，有几种访问内存的方法，称为</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">长期</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问，跨越其他代码的执行。</font><font style="vertical-align: inherit;">即时访问和长期访问之间的区别在于，其他代码可能在长期访问开始之后但结束之前运行，这称为</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重叠</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">长期访问可以与其他长期访问和即时访问重叠。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  重叠访问主要出现在使用函数和方法中的进出参数或结构的变异方法的代码中。</font><font style="vertical-align: inherit;">下面将讨论使用长期访问的Swift代码的具体类型。
+</font></font></p>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH46-ID569"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">冲突访问输入输出参数</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  一个函数可以长期写入其所有输入参数。</font><font style="vertical-align: inherit;">对所有非入出参数进行求值并在该函数调用的整个持续时间内持续进行入出参数的写入访问。</font><font style="vertical-align: inherit;">如果有多个输入输出参数，则写入访问将按照参数出现的顺序开始。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这种长期写入访问的一个结果是，即使作用域规则和访问控制允许它访问原始变量（即使作用域规则和访问控制会允许它），对原始访问的任何访问都会产生冲突。</font><font style="vertical-align: inherit;">例如：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">stepSize</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">incrementInPlace</span>(<span class="kt">_</span> <span class="vc">number</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">number</span> += <span class="vc">stepSize</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">incrementInPlace</span>(&amp;<span class="vc">stepSize</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Error: conflicting accesses to stepSize</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在上面的代码中，</font></font><code class="code-voice">stepSize</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个全局变量，它通常可以从内部访问</font></font><code class="code-voice">incrementInPlace(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">但是，读访问</font></font><code class="code-voice">stepSize</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与写访问重叠</font></font><code class="code-voice">number</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如在下文中的图所示，两者</font></font><code class="code-voice">number</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并</font></font><code class="code-voice">stepSize</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指代相同的位置在存储器中。</font><font style="vertical-align: inherit;">读取和写入访问引用相同的内存并且它们重叠，产生冲突。
+</font></font></p><figure class="figure">
+  
+  <span class="caption"></span>
+  <img src="./Swift编程语言（Swift 4.1）：内存安全_files/memory_increment_2x.png" alt="image：../Art/memory_increment_2x.png" width="384" height="135">
+</figure><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  解决这一冲突的一种方法是制作一份明确的副本</font></font><code class="code-voice">stepSize</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// Make an explicit copy.</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">copyOfStepSize</span> = <span class="vc">stepSize</span></code></li>
+            <li><code class="code-voice"><span class="vc">incrementInPlace</span>(&amp;<span class="vc">copyOfStepSize</span>)</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// Update the original.</span></code></li>
+            <li><code class="code-voice"><span class="vc">stepSize</span> = <span class="vc">copyOfStepSize</span></code></li>
+            <li><code class="code-voice"><span class="c">// stepSize is now 2</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">stepSize</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在调用之前</font><font style="vertical-align: inherit;">
+  制作副本时</font></font><code class="code-voice">incrementInPlace(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，很明显该值</font></font><code class="code-voice">copyOfStepSize</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">会增加当前步长。</font><font style="vertical-align: inherit;">在写访问开始之前读访问结束，所以没有冲突。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  对输入输出参数进行长期写入访问的另一个后果是将单个变量作为参数传递给同一个函数的多个输入输出参数会产生冲突。</font><font style="vertical-align: inherit;">例如：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">balance</span>(<span class="kt">_</span> <span class="vc">x</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>, <span class="kt">_</span> <span class="vc">y</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Int<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">sum</span> = <span class="vc">x</span> + <span class="vc">y</span></code></li>
+            <li><code class="code-voice">    <span class="vc">x</span> = <span class="vc">sum</span> / <span class="m">2</span></code></li>
+            <li><code class="code-voice">    <span class="vc">y</span> = <span class="vc">sum</span> - <span class="vc">x</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">playerOneScore</span> = <span class="m">42</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">playerTwoScore</span> = <span class="m">30</span></code></li>
+            <li><code class="code-voice"><span class="vc">balance</span>(&amp;<span class="vc">playerOneScore</span>, &amp;<span class="vc">playerTwoScore</span>)  <span class="c">// OK</span></code></li>
+            <li><code class="code-voice"><span class="vc">balance</span>(&amp;<span class="vc">playerOneScore</span>, &amp;<span class="vc">playerOneScore</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Error: Conflicting accesses to playerOneScore</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">balance(_:_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上面</font><font style="vertical-align: inherit;">
+  的</font><font style="vertical-align: inherit;">函数修改了它的两个参数，以便在它们之间均匀地划分总值。</font><font style="vertical-align: inherit;">使用</font></font><code class="code-voice">playerOneScore</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">playerTwoScore</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为参数</font><font style="vertical-align: inherit;">调用它</font><font style="vertical-align: inherit;">并不会产生冲突 - 有两个写入访问时间重叠，但它们访问内存中的不同位置。</font><font style="vertical-align: inherit;">相反，</font></font><code class="code-voice">playerOneScore</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为两个参数的值</font><font style="vertical-align: inherit;">传递</font><font style="vertical-align: inherit;">会产生冲突，因为它会尝试同时对内存中的同一位置执行两次写入访问。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH46-NoLink_196"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">由于操作员是功能，他们也可以长期访问其输入参数。</font><font style="vertical-align: inherit;">例如，如果</font></font><code class="code-voice">balance(_:_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个名为运算符的函数</font></font><code class="code-voice">&lt;^&gt;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，写入</font></font><code class="code-voice">playerOneScore &lt;^&gt; playerOneScore</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">会导致与之相同的冲突</font></font><code class="code-voice">balance(&amp;playerOneScore, &amp;playerOneScore)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH46-ID570"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在方法中冲突访问自我</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  结构上的变异方法在</font></font><code class="code-voice">self</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法调用期间</font><font style="vertical-align: inherit;">具有写访问权限</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">例如，考虑一种游戏，其中每个玩家具有在受到伤害时减少的健康量和在使用特殊能力时减少的能量量。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">Player</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">health</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">energy</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">static</span> <span class="kt">let</span> <span class="vc">maxHealth</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">restoreHealth</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">health</span> = <span class="vc">Player</span>.<span class="vc">maxHealth</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在</font></font><code class="code-voice">restoreHealth()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上面</font><font style="vertical-align: inherit;">的</font><font style="vertical-align: inherit;">方法中，写入权限</font></font><code class="code-voice">self</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从方法的开始处开始并持续到方法返回。</font><font style="vertical-align: inherit;">在这种情况下，没有其他代码</font></font><code class="code-voice">restoreHealth()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以对</font></font><code class="code-voice">Player</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例</font><font style="vertical-align: inherit;">的属性进行重叠访问</font><font style="vertical-align: inherit;">。</font></font><code class="code-voice">shareHealth(with:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下面</font><font style="vertical-align: inherit;">的</font><font style="vertical-align: inherit;">方法将另一个</font></font><code class="code-voice">Player</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例用作输入输出参数，从而创建重叠访问的可能性。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->Player<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">mutating</span> <span class="kt">func</span> <span class="vc">shareHealth</span>(<span class="vc">with</span> <span class="vc">teammate</span>: <span class="kt">inout</span> <span class="n"><!-- a href="" -->Player<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">        <span class="vc">balance</span>(&amp;<span class="vc">teammate</span>.<span class="vc">health</span>, &amp;<span class="vc">health</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">oscar</span> = <span class="vc">Player</span>(<span class="vc">name</span>: <span class="s">"Oscar"</span>, <span class="vc">health</span>: <span class="m">10</span>, <span class="vc">energy</span>: <span class="m">10</span>)</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">maria</span> = <span class="vc">Player</span>(<span class="vc">name</span>: <span class="s">"Maria"</span>, <span class="vc">health</span>: <span class="m">5</span>, <span class="vc">energy</span>: <span class="m">10</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">oscar</span>.<span class="vc">shareHealth</span>(<span class="vc">with</span>: &amp;<span class="vc">maria</span>)  <span class="c">// OK</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在上面的例子中，调用</font></font><code class="code-voice">shareHealth(with:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">奥斯卡玩家与玛丽亚玩家分享健康</font><font style="vertical-align: inherit;">的</font><font style="vertical-align: inherit;">方法不会导致冲突。</font></font><code class="code-voice">oscar</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在方法调用期间</font><font style="vertical-align: inherit;">有一个写访问权限，</font><font style="vertical-align: inherit;">因为它</font></font><code class="code-voice">oscar</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">self</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变异方法中</font><font style="vertical-align: inherit;">的值</font><font style="vertical-align: inherit;">，并且</font></font><code class="code-voice">maria</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在相同的持续时间内</font><font style="vertical-align: inherit;">有一个写访问权限，</font><font style="vertical-align: inherit;">因为它</font></font><code class="code-voice">maria</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是作为输入参数传递的。</font><font style="vertical-align: inherit;">如下图所示，他们访问内存中的不同位置。</font><font style="vertical-align: inherit;">即使这两个写入访问时间重叠，它们也不会发生冲突。
+</font></font></p><figure class="figure">
+  
+  <span class="caption"></span>
+  <img src="./Swift编程语言（Swift 4.1）：内存安全_files/memory_share_health_maria_2x.png" alt="image：../Art/memory_share_health_maria_2x.png" width="506" height="158">
+</figure><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  但是，如果你</font></font><code class="code-voice">oscar</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为参数</font><font style="vertical-align: inherit;">传递</font><font style="vertical-align: inherit;">给它</font></font><code class="code-voice">shareHealth(with:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，会有冲突：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">oscar</span>.<span class="vc">shareHealth</span>(<span class="vc">with</span>: &amp;<span class="vc">oscar</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Error: conflicting accesses to oscar</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在方法</font></font><code class="code-voice">self</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的持续时间内，</font><font style="vertical-align: inherit;">变异方法需要写入权限，</font><font style="vertical-align: inherit;">输入输出参数需要写入权限</font></font><code class="code-voice">teammate</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的时间相同。</font><font style="vertical-align: inherit;">在该方法中，无论是</font></font><code class="code-voice">self</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">teammate</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指的是相同的位置在内存如示于下图中。</font><font style="vertical-align: inherit;">这两个写访问指的是相同的内存，它们重叠，产生冲突。
+</font></font></p><figure class="figure">
+  
+  <span class="caption"></span>
+  <img src="./Swift编程语言（Swift 4.1）：内存安全_files/memory_share_health_oscar_2x.png" alt="image：../Art/memory_share_health_oscar_2x.png" width="506" height="156">
+</figure>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH46-ID571"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对属性的访问冲突</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  结构，元组和枚举类型由各个组成元素组成，例如结构的属性或元组的元素。</font><font style="vertical-align: inherit;">因为这些是值类型，所以对任何一个值进行变异都会改变整个值，这意味着对其中一个属性的读取或写入访问需要读取或写入整个值。</font><font style="vertical-align: inherit;">例如，对元组的元素进行重叠写访问会产生冲突：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">playerInformation</span> = (<span class="vc">health</span>: <span class="m">10</span>, <span class="vc">energy</span>: <span class="m">20</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">balance</span>(&amp;<span class="vc">playerInformation</span>.<span class="vc">health</span>, &amp;<span class="vc">playerInformation</span>.<span class="vc">energy</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Error: conflicting access to properties of playerInformation</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在上面的例子中，调用</font></font><code class="code-voice">balance(_:_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元组的元素会产生冲突，因为存在重叠的写入访问</font></font><code class="code-voice">playerInformation</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">两者</font></font><code class="code-voice">playerInformation.health</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">playerInformation.energy</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">都作为输入参数传递，这意味着</font></font><code class="code-voice">balance(_:_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">需要在函数调用期间对它们进行写入访问。</font><font style="vertical-align: inherit;">在这两种情况下，对元组元素的写访问都需要对整个元组进行写访问。</font><font style="vertical-align: inherit;">这意味着有两个写入访问</font></font><code class="code-voice">playerInformation</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">时间重叠，导致冲突。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面的代码显示，对于存储在全局变量中的结构的属性进行重叠写入访问时会出现相同的错误。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">holly</span> = <span class="vc">Player</span>(<span class="vc">name</span>: <span class="s">"Holly"</span>, <span class="vc">health</span>: <span class="m">10</span>, <span class="vc">energy</span>: <span class="m">10</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">balance</span>(&amp;<span class="vc">holly</span>.<span class="vc">health</span>, &amp;<span class="vc">holly</span>.<span class="vc">energy</span>)  <span class="c">// Error</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  实际上，大多数对结构属性的访问都可以安全地重叠。</font><font style="vertical-align: inherit;">例如，如果上述示例中的变量</font></font><code class="code-voice">holly</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更改为局部变量而不是全局变量，则编译器可以证明对结构的存储属性的重叠访问是安全的：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunction</span>() {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">oscar</span> = <span class="vc">Player</span>(<span class="vc">name</span>: <span class="s">"Oscar"</span>, <span class="vc">health</span>: <span class="m">10</span>, <span class="vc">energy</span>: <span class="m">10</span>)</code></li>
+            <li><code class="code-voice">    <span class="vc">balance</span>(&amp;<span class="vc">oscar</span>.<span class="vc">health</span>, &amp;<span class="vc">oscar</span>.<span class="vc">energy</span>)  <span class="c">// OK</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在上面的例子中，奥斯卡的健康和能量是作为两个输入参数传递给的</font></font><code class="code-voice">balance(_:_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">编译器可以证明内存安全性被保留，因为两个存储的属性不以任何方式进行交互。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  对重叠访问结构属性的限制并不总是需要保持内存安全。</font><font style="vertical-align: inherit;">内存安全是所需的保证，但独占访问是比内存安全更严格的要求 - 这意味着某些代码保留内存安全，即使它违反了对内存的独占访问。</font><font style="vertical-align: inherit;">如果编译器可以证明对存储器的非独占访问仍然安全，那么Swift允许这种内存安全的代码。</font><font style="vertical-align: inherit;">具体而言，如果满足以下条件，它可以证明重叠访问结构的属性是安全的：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您只访问实例的存储属性，而不是计算属性或类属性。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该结构是局部变量的值，而不是全局变量。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该结构要么不被任何闭包捕获，要么仅通过非闭包闭包捕获。
+</font></font></p>
+</li>
+</ul><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果编译器无法证明访问是安全的，则不允许访问。
+</font></font></p>
+  
+</section>
+
+  	
+ 	<section id="next_previous" class="">
+    		<p class="previous-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID48" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH20-ID48" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_49&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动引用计数</font></font></a></p>
+  			<p class="next-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID3" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH41-ID3" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_50&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问控制</font></font></a></p>
+
+    <p class="copyright"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright©2018 Apple Inc.保留所有权利。 
+  </font></font><a class="link" href="http://www.apple.com/legal/terms/site.html" target="_blank" rel="external" onclick="s_objectID=&quot;http://www.apple.com/legal/terms/site.html_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用条款</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | 
+  </font></font><a class="link" href="http://www.apple.com/privacy/" target="_blank" rel="external" onclick="s_objectID=&quot;http://www.apple.com/privacy/_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">隐私政策</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font><font style="vertical-align: inherit;">更新日期：2018-02-20
+</font></font></p>
+  </section>
+</article>
+
+    </div>
+    <div id="big_button"></div>
+    <footer id="footer">
+  <div class="content-wrapper">
+  	<div id="leave_feedback" class="button" role="button" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反馈</font></font></div>
+  </div>
+  <script src="./Swift编程语言（Swift 4.1）：内存安全_files/devpubs-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./Swift编程语言（Swift 4.1）：内存安全_files/feedback-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <div id="_omniture_top">
+<!-- SiteCatalyst code version: H.8. Copyright 1997-2006 Omniture, Inc. -->
+<script type="text/javascript">
+/* RSID: */
+var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+</script>
+
+<script type="text/javascript" src="./Swift编程语言（Swift 4.1）：内存安全_files/s_code_h.js"></script>
+<script type="text/javascript">
+s.pageName=AC.Tracking.pageName();
+s.channel="www.us.developer"
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+<!-- End SiteCatalyst code version: H.8. -->
+</div>
+
+</footer>
+
+    
+  
+    <div id="blackout">
+    <div id="preload"></div>
+</div>
+<div id="modal" aria-hidden="true">
+    <div id="closebox" tabindex="0" aria-label="Close feedback form" role="button"></div>
+    <div id="sending" class="hidden">
+        <h2 tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发送反馈...</font></font></h2>
+        <div id="sending_img"></div>
+    </div>
+    <div id="error" class="hidden">
+        <h2 tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们很抱歉发生了错误。</font></font></h2>
+        <p>Please try submitting your feedback later.</p>
+        <div id="error_icon"></div>
+    </div>
+    <div id="success" class="hidden">
+        <h2 tabindex="0">Thank you for providing feedback!</h2>
+        <p>Your input helps improve our developer documentation.</p>
+        <div id="thank_you_icon"></div>
+    </div>
+    
+    <form id="feedback" action="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#" method="post">
+        <div class="left-leaf">
+            <h2 id="helpful_title" data-asterisk="a1" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这份文件有多大帮助？</font></font></h2>     
+            <sup id="a1" class="asterisk" aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></sup>
+
+            <div id="star_group" role="radiogroup" aria-required="true">
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    很有帮助
+                </font></font></label>
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    有点帮助
+                </font></font></label>
+                <label>
+                    <input class="radio" type="radio" name="helped" value="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    没有帮助
+                </font></font></label>
+            </div>
+        </div>
+        <div class="right-leaf">
+            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们如何改进这个文件？</font></font></h2>
+            <div id="improve" class="checkboxes">
+                <label>
+                    <input type="checkbox" name="typo"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    修正错别字或链接
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="infoIncorrect"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    修正错误的信息
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="needs_examples"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    添加或更新代码示例
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="needs_art"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    添加或更新插图
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="missingInfo"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    添加有关...的信息
+                </font></font></label>
+            </div>
+        </div>
+
+        <textarea id="comment" name="problem" cols="70" rows="8" placeholder="Please tell us more about your experience with this document" data-asterisk="a2" required=""></textarea>
+        <sup id="a2" class="asterisk" aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></sup>
+
+        <p class="fineprint">
+            <em aria-hidden="true"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">必填信息</font></font></em>
+        </p> 
+
+        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input id="submit" type="button" value="发送"></font></font>
+
+        <section id="legal">
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                要提交产品错误或增强请求，请访问 
+                 </font></font><a href="https://developer.apple.com/bugreporter/" target="_blank" onclick="s_objectID=&quot;https://developer.apple.com/bugreporter/_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bug Reporter</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">  
+                页面。
+            </font></font></p>
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                在您向我们发送反馈之前，</font><font style="vertical-align: inherit;">
+                请阅读</font></font><a href="http://www.apple.com/legal/policies/ideas.html" target="_blank" onclick="s_objectID=&quot;http://www.apple.com/legal/policies/ideas.html_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apple的未经请求的意见提交政策</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+            </font></font></p> 
+        </section>
+    </form>
+</div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Swift编程语言（Swift 4.1）：内存安全_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

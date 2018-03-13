@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<!-- saved from url=(0156)https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94 -->
+<html lang="en" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+  <title>The Swift Programming Language (Swift 4.1): Closures</title>
+  <link rel="stylesheet" type="text/css" href="./The Swift Programming Language (Swift 4.1)_ 闭包_files/style-1.6.3.css">
+  <link rel="stylesheet" type="text/css" href="./The Swift Programming Language (Swift 4.1)_ 闭包_files/feedback-1.6.3.css">
+   
+<meta id="j-version" name="j-version" content="">
+<meta id="build" name="build" content="2cff7ac52859143a0b42c92c22d84718">
+<meta id="document-version" name="document-version" content="10.3.3">
+<meta id="book-assignments" name="book-assignments" content="{Type/Guide}, {Topic/Swift}">
+<meta scheme="apple_ref" id="identifier" name="identifier" content="//apple_ref/doc/uid/TP40014097">
+<meta id="chapterId" name="chapterId" content="TP40014097-CH11">
+<meta id="book-title" name="book-title" content="The Swift Programming Language (Swift 4.1)">
+<meta id="book-resource-type" name="book-resource-type" content="Guide">
+<meta id="book-root" name="book-root" content="./">
+<meta id="book-json" name="book-json" content="book.json">
+<meta id="date" name="date" content="2018-02-20">
+<meta id="description" name="description" content="The definitive guide to Swift, Apple’s programming language for building iOS, macOS, watchOS, and tvOS apps.">
+<meta id="IndexTitle" name="IndexTitle" content="">
+<meta id="resources-uri" name="resources-uri" content="../../../../Resources/1277">
+<link id="book-index-page" rel="Start" title="" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html">
+<!-- , next_chapter: next_chapter, previous_chapter: previous_chapter -->
+<link id="next-page" rel="Next" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html">
+<link id="previous-page" rel="Prev" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html">
+<meta id="devcenter" name="devcenter" content="&lt;!-- DEVCENTER_NAME --&gt;">
+<meta id="devcenter-url" name="devcenter-url" content="&lt;!-- DEVCENTER_URL --&gt;">
+<meta id="reflib" name="reflib" content="&lt;!-- REFLIB_NAME --&gt;">
+
+<meta id="xcode-display" name="xcode-display" content="render">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta id="platforms" name="platforms" content="Xcode Developer Tools">
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./The Swift Programming Language (Swift 4.1)_ 闭包_files/translateelement.css"></head>
+
+  <body id="conceptual_flow_with_tasks" class="jazz">
+    
+    <header id="ios_header" class="hideOnPrint hideInXcode">
+  <div class="content-wrapper">
+    <p class="header-text">
+    	<a href="https://developer.apple.com/library/content/navigation/" onclick="s_objectID=&quot;https://developer.apple.com/library/content/navigation/_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指南和示例代码
+ 		</font></font></a>
+ </p>
+    <p id="wwdr"><img id="apple_logo" src="./The Swift Programming Language (Swift 4.1)_ 闭包_files/apple2.png" height="14px" width="12px" aria-hidden="true"><a href="https://developer.apple.com/" onclick="s_objectID=&quot;https://developer.apple.com/_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发人员</font></font></a></p>
+  </div>
+</header>
+
+    <section id="valence">
+  <div class="content-wrapper">
+    <p id="hierarchial_navigation">
+      <span id="book_title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swift编程语言（Swift 4.1）</font></font></span>
+    </p>
+    <form id="search" class="hideInXcode" method="get" action="https://developer.apple.com/search/index.php" accept-charset="utf-8" autocomplete="off">
+  <input type="search" id="ssi_SearchField" placeholder="Search Guides and Sample Code" name="q" autocomplete="off" tabindex="2">
+</form>
+
+      
+   
+   
+
+
+
+
+    <span class="download-text hideInXcode">
+      <a href="https://itunes.apple.com/us/book/the-swift-programming-language/id1002622538?mt=11" onclick="s_objectID=&quot;https://itunes.apple.com/us/book/the-swift-programming-language/id1002622538?mt=11_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的iBooks</font></font></a>
+    </span>
+
+    
+
+    <img id="shortstack" src="./The Swift Programming Language (Swift 4.1)_ 闭包_files/shortstack_2x.png">
+  </div>
+</section>
+    <div class="content-wrapper">
+      <nav id="navigator" class="book-parts hideInXcode" role="navigation">
+    <ul class="nav-parts">
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH1-ID2" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欢迎来到Swift</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_2&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于Swift</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Compatibility.html#//apple_ref/doc/uid/TP40014097-CH45-ID561" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH45-ID561" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_3&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版本兼容性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html#//apple_ref/doc/uid/TP40014097-CH2-ID1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH2-ID1" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_4&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速游览</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH4-ID233" class="part-name nav-part-active open-part">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_5&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言指南</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_6&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基础</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID60" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH6-ID60" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_7&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本操作员</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/StringsAndCharacters.html#//apple_ref/doc/uid/TP40014097-CH7-ID285" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH7-ID285" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_8&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字符串和字符</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/CollectionTypes.html#//apple_ref/doc/uid/TP40014097-CH8-ID105" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH8-ID105" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_9&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集合类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html#//apple_ref/doc/uid/TP40014097-CH9-ID120" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH9-ID120" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_10&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">控制流</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID158" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_11&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能</font></font></a>
+              </li>
+              <li class="nav-chapter nav-current-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH11-ID94" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_12&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关闭</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html#//apple_ref/doc/uid/TP40014097-CH12-ID145" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH12-ID145" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_13&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">枚举</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-ID82" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH13-ID82" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_14&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类和结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html#//apple_ref/doc/uid/TP40014097-CH14-ID254" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH14-ID254" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_15&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Methods.html#//apple_ref/doc/uid/TP40014097-CH15-ID234" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH15-ID234" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_16&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Subscripts.html#//apple_ref/doc/uid/TP40014097-CH16-ID305" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH16-ID305" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_17&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">标</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Inheritance.html#//apple_ref/doc/uid/TP40014097-CH17-ID193" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH17-ID193" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_18&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">遗产</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID203" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH18-ID203" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_19&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">初始化</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Deinitialization.html#//apple_ref/doc/uid/TP40014097-CH19-ID142" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH19-ID142" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_20&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反初始化</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID245" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH21-ID245" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_21&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选链接</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html#//apple_ref/doc/uid/TP40014097-CH42-ID508" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH42-ID508" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_22&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">错误处理</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TypeCasting.html#//apple_ref/doc/uid/TP40014097-CH22-ID338" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH22-ID338" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_23&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型铸造</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/NestedTypes.html#//apple_ref/doc/uid/TP40014097-CH23-ID242" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH23-ID242" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_24&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嵌套类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html#//apple_ref/doc/uid/TP40014097-CH24-ID151" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH24-ID151" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_25&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扩展</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html#//apple_ref/doc/uid/TP40014097-CH25-ID267" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH25-ID267" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_26&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协议</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH26-ID179" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_27&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">泛型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID48" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH20-ID48" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_28&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动引用计数</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID567" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH46-ID567" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_29&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内存安全</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID3" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH41-ID3" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_30&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问控制</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID28" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID28" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_31&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级操作员</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH28-ID427" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_32&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言参考</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_33&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于语言参考</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/LexicalStructure.html#//apple_ref/doc/uid/TP40014097-CH30-ID410" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH30-ID410" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_34&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">词汇结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Types.html#//apple_ref/doc/uid/TP40014097-CH31-ID445" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH31-ID445" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_35&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Expressions.html#//apple_ref/doc/uid/TP40014097-CH32-ID383" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH32-ID383" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_36&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表达式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Statements.html#//apple_ref/doc/uid/TP40014097-CH33-ID428" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH33-ID428" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_37&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID351" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH34-ID351" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_38&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Attributes.html#//apple_ref/doc/uid/TP40014097-CH35-ID347" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH35-ID347" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_39&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Patterns.html#//apple_ref/doc/uid/TP40014097-CH36-ID419" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH36-ID419" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_40&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GenericParametersAndArguments.html#//apple_ref/doc/uid/TP40014097-CH37-ID406" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH37-ID406" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_41&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通用参数和参数</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html#//apple_ref/doc/uid/TP40014097-CH38-ID458" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH38-ID458" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_42&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语法概要</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH39-ID460" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_43&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修订记录</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_44&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档修订历史</font></font></a>
+              </li>
+          </ul>
+        </li>
+    </ul>
+</nav>
+
+      <menu id="bashful" type="toolbar">
+  <div class="shield"></div>
+  <menuitem id="jump_to" class="menu-bar-item closed">
+  <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在本页</font></font></span>
+  <div class="chevron">
+    <div class="chevy chevron-left"></div>
+    <div class="chevy chevron-right"></div>
+  </div>
+  <menu type="list" class="details">
+      <ul class="list-bullet">
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID95" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_45&quot;;return this.s_oc?this.s_oc(e):true">Closure Expressions</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID102" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_46&quot;;return this.s_oc?this.s_oc(e):true">Trailing Closures</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID103" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_47&quot;;return this.s_oc?this.s_oc(e):true">Capturing Values</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID104" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_48&quot;;return this.s_oc?this.s_oc(e):true">Closures Are Reference Types</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID546" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_49&quot;;return this.s_oc?this.s_oc(e):true">Escaping Closures</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID543" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_50&quot;;return this.s_oc?this.s_oc(e):true">Autoclosures</a>
+          </li>
+      </ul>
+  </menu>
+</menuitem>
+
+</menu>
+<div class="pixel-line"></div>
+<div class="rubber-band-gap"></div>
+<article class="chapter">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11"></a><a name="//apple_ref/doc/uid/TP40014097-CH11-ID94"></a>
+
+  <h2 class="chapter-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关闭</font></font></h2>
+
+
+  
+  	<section class="section">
+  		<p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">闭包</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是自包含的功能块，可以在代码中传递和使用。</font><font style="vertical-align: inherit;">Swift中的闭包与C和Objective-C中的块以及其他编程语言中的lambda类似。
+</font></font></p>
+<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  闭包可以从定义的上下文中捕获和存储对任何常量和变量的引用。</font><font style="vertical-align: inherit;">这被称为</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关闭</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">那些常量和变量。</font><font style="vertical-align: inherit;">Swift处理所有为你捕获的内存管理。
+</font></font></p>
+<div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-NoLink_94"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您不熟悉捕捉概念，请不要担心。</font><font style="vertical-align: inherit;">它在下面的</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID103" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH11-ID103" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_51&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">捕获值</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中有详细的解释</font><font style="vertical-align: inherit;">。
+    	</font></font></p>
+    
+  </aside>
+</div>
+<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID158" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_52&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数中</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引入的全局函数和嵌套函数</font><font style="vertical-align: inherit;">实际上是闭包的特例。</font><font style="vertical-align: inherit;">闭包采取以下三种形式之一：
+</font></font></p>
+<ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  全局函数是具有名称并且不捕获任何值的闭包。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  嵌套函数是具有名称的闭包，可以从其封闭函数中捕获值。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Closure表达式是以轻量级语法编写的未命名的闭包，可以捕获周围环境中的值。
+</font></font></p>
+</li>
+</ul>
+<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift的闭包表达式具有干净清晰的风格，优化可以在常见场景中促进简洁，无混乱的语法。</font><font style="vertical-align: inherit;">这些优化包括：
+</font></font></p>
+<ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  从上下文中推断参数和返回值类型
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  来自单表达式闭包的隐式返回
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  速记参数名称
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  尾随闭包语法
+</font></font></p>
+</li>
+</ul>
+
+		</section> 
+
+
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID95"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">闭包表达式</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  嵌套函数中引入的</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID178" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID178" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_53&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嵌套函数</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一种方便的方法，可以将自包含的代码块作为更大函数的一部分进行命名和定义。</font><font style="vertical-align: inherit;">但是，编写较短版本的类似功能的结构（没有完整的声明和名称）有时很有用。</font><font style="vertical-align: inherit;">当您使用将函数作为一个或多个参数的函数或方法时，尤其如此。
+</font></font></p><p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Closure表达式</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一种用简短的聚焦语法编写内联闭包的方法。</font><font style="vertical-align: inherit;">Closure表达式提供了几种语法优化，用于以缩写形式编写闭包，而不会损失清晰度或意图。</font><font style="vertical-align: inherit;">下面的闭包表达式示例通过</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在几次迭代中</font><font style="vertical-align: inherit;">完善该</font><font style="vertical-align: inherit;">方法</font><font style="vertical-align: inherit;">的单个示例来说明这些优化</font><font style="vertical-align: inherit;">，每个迭代都以更简洁的方式表达相同的功能。
+</font></font></p>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID96"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">排序方法</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift的标准库提供了一种称为的方法</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，它基于您提供的排序闭包的输出对已知类型的值的数组进行排序。</font><font style="vertical-align: inherit;">一旦完成排序过程，该</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法将返回一个与旧的相同类型和大小的新数组，其元素按正确的排序顺序排列。</font><font style="vertical-align: inherit;">原始数组不被该</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法</font><font style="vertical-align: inherit;">修改</font><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面的闭包表达式示例使用该</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法以</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反向字母顺序</font><font style="vertical-align: inherit;">对</font><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">数组进行</font><font style="vertical-align: inherit;">排序。</font><font style="vertical-align: inherit;">这是要排序的初始数组：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">names</span> = [<span class="s">"Chris"</span>, <span class="s">"Alex"</span>, <span class="s">"Ewa"</span>, <span class="s">"Barry"</span>, <span class="s">"Daniella"</span>]</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法接受一个闭包，该闭包接受与数组内容相同类型的两个参数，并返回一个</font></font><code class="code-voice">Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值，以表示一旦值排序后，第一个值应该出现在第二个值之前还是之后。</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果第一个值应该出现</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第二个值</font><em><font style="vertical-align: inherit;">之前</font></em><font style="vertical-align: inherit;">，</font><font style="vertical-align: inherit;">则</font><font style="vertical-align: inherit;">排序闭包需要返回</font><font style="vertical-align: inherit;">，</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">否则。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这个例子是排序</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">的数组</font><font style="vertical-align: inherit;">，因此排序闭包需要是类型的函数</font></font><code class="code-voice">(String, String) -&gt; Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  提供排序闭包的一种方法是编写正确类型的正常函数，并将其作为参数传递给</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">backward</span>(<span class="kt">_</span> <span class="vc">s1</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="kt">_</span> <span class="vc">s2</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Bool<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">s1</span> &gt; <span class="vc">s2</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>(<span class="vc">by</span>: <span class="vc">backward</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// reversedNames is equal to ["Ewa", "Daniella", "Chris", "Barry", "Alex"]</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果第一个字符串（</font></font><code class="code-voice">s1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）大于第二个字符串（</font></font><code class="code-voice">s2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">），则该</font></font><code class="code-voice">backward(_:_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数将返回</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，指示</font></font><code class="code-voice">s1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">应</font></font><code class="code-voice">s2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在排序数组</font><font style="vertical-align: inherit;">之前出现</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">对于字符串中的字符，“大于”意味着“字母后面出现比”。</font><font style="vertical-align: inherit;">这意味着该字母</font></font><code class="code-voice">"B"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“大于”该字母</font></font><code class="code-voice">"A"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并且该字符串</font></font><code class="code-voice">"Tom"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">大于该字符串</font></font><code class="code-voice">"Tim"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这给出了一个反向字母排序，</font></font><code class="code-voice">"Barry"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">放在之前</font></font><code class="code-voice">"Alex"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，等等。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  然而，这是写一个基本上是单表达式函数（</font></font><code class="code-voice">a &gt; b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">的相当冗长的方法</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">在这个例子中，最好使用闭包表达式语法来内联编写排序闭包。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID97"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">闭包表达式语法</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Closure表达式语法具有以下一般形式：
+</font></font></p><span class="caption"></span>
+<div class="code-outline">
+  <ul class="code-outline-lines">
+    <li><pre class="code-voice"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{（</font></font><em class="variable-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">） - &gt; </font></font><em class="variable-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">返回类型</font></font></em> <span class="kt"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在</font></font></span></pre></li><li><pre class="code-voice">    <em class="variable-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></em></pre></li><li><pre class="code-voice"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">}</font></font></pre></li>
+  </ul>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在封闭表达式语法可以在输出参数，但是他们不能有一个默认值。</font><font style="vertical-align: inherit;">如果命名可变参数，可以使用变量参数。</font><font style="vertical-align: inherit;">元组也可以用作参数类型和返回类型。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面的例子显示了</font></font><code class="code-voice">backward(_:_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">早期函数</font><font style="vertical-align: inherit;">的闭包表达式版本</font><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>(<span class="vc">by</span>: { (<span class="vc">s1</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">s2</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Bool<!-- /a --></span> <span class="kt">in</span></code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">s1</span> &gt; <span class="vc">s2</span></code></li>
+            <li><code class="code-voice">})</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  请注意，此内联关闭的参数声明和返回类型与</font></font><code class="code-voice">backward(_:_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数</font><font style="vertical-align: inherit;">声明相同</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">在这两种情况下，它都被写为</font></font><code class="code-voice">(s1: String, s2: String) -&gt; Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">但是，对于内联闭包表达式，参数和返回类型写</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">花括号内，而不是外部。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">in</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关键字</font><font style="vertical-align: inherit;">
+  引入了封闭体的开始</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这个关键字表示闭包的参数和返回类型的定义已经完成，闭包的主体即将开始。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  由于封闭体的体积非常短，所以它甚至可以写在一行上：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>(<span class="vc">by</span>: { (<span class="vc">s1</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>, <span class="vc">s2</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Bool<!-- /a --></span> <span class="kt">in</span> <span class="kt">return</span> <span class="vc">s1</span> &gt; <span class="vc">s2</span> } )</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这说明对该方法的整体调用</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">保持不变。</font><font style="vertical-align: inherit;">一对圆括号仍然包含了该方法的整个参数。</font><font style="vertical-align: inherit;">但是，这个论点现在是一个内联关闭。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID98"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从上下文推断类型</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  因为排序闭包作为参数传递给方法，所以Swift可以推断它的参数类型和它返回的值的类型。</font><font style="vertical-align: inherit;">该</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法在一个字符串数组上被调用，所以它的参数必须是一个类型的函数</font></font><code class="code-voice">(String, String) -&gt; Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这意味着</font></font><code class="code-voice">(String, String)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型不需要被写为闭包表达式定义的一部分。</font><font style="vertical-align: inherit;">由于可以推断所有类型，</font></font><code class="code-voice">-&gt;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因此也可以省略</font><font style="vertical-align: inherit;">返回箭头（</font><font style="vertical-align: inherit;">）和参数名称周围的括号。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>(<span class="vc">by</span>: { <span class="vc">s1</span>, <span class="vc">s2</span> <span class="kt">in</span> <span class="kt">return</span> <span class="vc">s1</span> &gt; <span class="vc">s2</span> } )</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在将闭包作为内联闭包表达式传递给函数或方法时，始终可以推断参数类型和返回类型。</font><font style="vertical-align: inherit;">因此，当闭包用作函数或方法参数时，您绝不需要以最充分的形式编写内联闭包。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  尽管如此，如果你愿意的话，你仍然可以明确类型，如果它避免了你的代码的读者含糊不清，那就鼓励它。</font><font style="vertical-align: inherit;">在该</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法</font><font style="vertical-align: inherit;">的情况下，</font><font style="vertical-align: inherit;">封闭的目的从排序发生的事实中清晰可见，并且读者认为封闭可能与</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">一起工作是安全的</font><font style="vertical-align: inherit;">，因为它正在协助排序的字符串数组。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID99"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来自单表达式闭包的隐式返回</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  单个表达式闭包可以通过</font></font><code class="code-voice">return</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从声明中</font><font style="vertical-align: inherit;">省略</font><font style="vertical-align: inherit;">关键字</font><font style="vertical-align: inherit;">来隐式地返回单个表达式的结果</font><font style="vertical-align: inherit;">，就像前面示例的这个版本一样：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>(<span class="vc">by</span>: { <span class="vc">s1</span>, <span class="vc">s2</span> <span class="kt">in</span> <span class="vc">s1</span> &gt; <span class="vc">s2</span> } )</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在这里，</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法参数</font><font style="vertical-align: inherit;">的函数类型</font><font style="vertical-align: inherit;">清楚地表明了一个</font></font><code class="code-voice">Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值必须由闭包返回。</font><font style="vertical-align: inherit;">因为闭包的主体包含一个</font></font><code class="code-voice">s1 &gt; s2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">返回</font></font><code class="code-voice">Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">的单个表达式（</font><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">，所以没有歧义，</font></font><code class="code-voice">return</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关键字可以省略。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID100"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">速记参数名称</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  雨燕自动提供速记参数名内联闭包，它可以使用的名称，指的是关闭的参数值</font></font><code class="code-voice">$0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">$1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">$2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，等等。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果在闭包表达式中使用这些简写参数名称，则可以从其定义中省略闭包的参数列表，并且将从预期的函数类型中推断简写参数名称的数量和类型。</font><font style="vertical-align: inherit;">的</font></font><code class="code-voice">in</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关键字也可以被省略，因为封闭件表达是由完全其身体的：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>(<span class="vc">by</span>: { <span class="vc">$0</span> &gt; <span class="vc">$1</span> } )</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在这里，</font></font><code class="code-voice">$0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并</font></font><code class="code-voice">$1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请参阅关闭的第一和第二个</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID101"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符方法</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  实际上有一个更</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">短的</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法来编写上面的闭包表达式。</font><font style="vertical-align: inherit;">Swift的</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型定义了它</font></font><code class="code-voice">&gt;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为具有两个类型参数的方法</font><font style="vertical-align: inherit;">的大于运算符（</font><font style="vertical-align: inherit;">）的</font><font style="vertical-align: inherit;">字符串特定实现</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并返回一个类型值</font></font><code class="code-voice">Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这与该方法所需的方法类型完全匹配</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">因此，你可以简单地传入大于运算符，Swift会推断你想使用它的字符串特定实现：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>(<span class="vc">by</span>: &gt;)</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  欲了解更多有关操作方法，请参阅</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID42" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID42" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_54&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">操作方法</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID102"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">追踪关闭</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您需要将闭包表达式作为函数的最终参数传递给函数，并且闭包表达式很长，那么将其作为</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">尾部闭包</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编写可能会很有用</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">尾随闭包在函数调用的括号后面写入，尽管它仍然是该函数的参数。</font><font style="vertical-align: inherit;">在使用尾随闭包语法时，不要将闭包的参数标签作为函数调用的一部分写入。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunctionThatTakesAClosure</span>(<span class="vc">closure</span>: () -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="c">// function body goes here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// Here's how you call this function without using a trailing closure:</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">someFunctionThatTakesAClosure</span>(<span class="vc">closure</span>: {</code></li>
+            <li><code class="code-voice">    <span class="c">// closure's body goes here</span></code></li>
+            <li><code class="code-voice">})</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="c">// Here's how you call this function with a trailing closure instead:</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">someFunctionThatTakesAClosure</span>() {</code></li>
+            <li><code class="code-voice">    <span class="c">// trailing closure's body goes here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上面</font><font style="vertical-align: inherit;">
+  的</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID97" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH11-ID97" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_55&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Closure Expression Syntax</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">部分</font><font style="vertical-align: inherit;">的字符串排序闭</font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID97" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH11-ID97" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_55&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;">包</font></a></span><font style="vertical-align: inherit;">可以在</font></font><code class="code-voice">sorted(by:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法的括号</font><font style="vertical-align: inherit;">之外写</font><font style="vertical-align: inherit;">为尾部闭包：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span>() { <span class="vc">$0</span> &gt; <span class="vc">$1</span> }</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果将闭包表达式作为函数或方法的唯一参数提供，并且将该表达式作为尾随闭包提供，那么</font></font><code class="code-voice">()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在调用该函数时</font><font style="vertical-align: inherit;">，无需</font><font style="vertical-align: inherit;">在函数或方法名称</font><font style="vertical-align: inherit;">后面编写一对括号</font><font style="vertical-align: inherit;">。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">reversedNames</span> = <span class="vc">names</span>.<span class="vc">sorted</span> { <span class="vc">$0</span> &gt; <span class="vc">$1</span> }</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  当封闭足够长以至于不可能在一行上写入时，尾随封闭非常有用。</font><font style="vertical-align: inherit;">作为一个例子，Swift的</font></font><code class="code-voice">Array</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型有一个</font></font><code class="code-voice">map(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法，它把一个闭包表达式作为它的单个参数。</font><font style="vertical-align: inherit;">对数组中的每个项目调用一次闭包，并为该项目返回一个替代映射值（可能是某种其他类型）。</font><font style="vertical-align: inherit;">映射的本质和返回值的类型留给闭包来指定。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  将提供的闭包应用于每个数组元素后，该</font></font><code class="code-voice">map(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法返回一个包含所有新映射值的新数组，其顺序与原始数组中的对应值相同。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  以下是如何使用</font></font><code class="code-voice">map(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">具有尾随闭包</font><font style="vertical-align: inherit;">的</font><font style="vertical-align: inherit;">方法将</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">数组转换为</font><font style="vertical-align: inherit;">值数组</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">该数组</font></font><code class="code-voice">[16, 58, 510]</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于创建新数组</font></font><code class="code-voice">["OneSix", "FiveEight", "FiveOneZero"]</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">digitNames</span> = [</code></li>
+            <li><code class="code-voice">    <span class="m">0</span>: <span class="s">"Zero"</span>, <span class="m">1</span>: <span class="s">"One"</span>, <span class="m">2</span>: <span class="s">"Two"</span>,   <span class="m">3</span>: <span class="s">"Three"</span>, <span class="m">4</span>: <span class="s">"Four"</span>,</code></li>
+            <li><code class="code-voice">    <span class="m">5</span>: <span class="s">"Five"</span>, <span class="m">6</span>: <span class="s">"Six"</span>, <span class="m">7</span>: <span class="s">"Seven"</span>, <span class="m">8</span>: <span class="s">"Eight"</span>, <span class="m">9</span>: <span class="s">"Nine"</span></code></li>
+            <li><code class="code-voice">]</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">numbers</span> = [<span class="m">16</span>, <span class="m">58</span>, <span class="m">510</span>]</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  上面的代码创建了一个整数数字和英文版名称之间映射的字典。</font><font style="vertical-align: inherit;">它还定义了一个整数数组，可以将其转换为字符串。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您现在可以使用该</font></font><code class="code-voice">numbers</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数组创建一个</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">数组</font><font style="vertical-align: inherit;">，方法是将闭包表达式</font></font><code class="code-voice">map(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为尾部闭包</font><font style="vertical-align: inherit;">传递给数组的</font><font style="vertical-align: inherit;">方法：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">strings</span> = <span class="vc">numbers</span>.<span class="vc">map</span> { (<span class="vc">number</span>) -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span> <span class="kt">in</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">number</span> = <span class="vc">number</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">output</span> = <span class="s">""</span></code></li>
+            <li><code class="code-voice">    <span class="kt">repeat</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">output</span> = <span class="vc">digitNames</span>[<span class="vc">number</span> % <span class="m">10</span>]! + <span class="vc">output</span></code></li>
+            <li><code class="code-voice">        <span class="vc">number</span> /= <span class="m">10</span></code></li>
+            <li><code class="code-voice">    } <span class="kt">while</span> <span class="vc">number</span> &gt; <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">output</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// strings is inferred to be of type [String]</span></code></li>
+            <li><code class="code-voice"><span class="c">// its value is ["OneSix", "FiveEight", "FiveOneZero"]</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><code class="code-voice">map(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法为数组中的每个项调用闭包表达式一次。</font><font style="vertical-align: inherit;">您不需要指定闭包的输入参数</font></font><code class="code-voice">number</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的类型，因为可以从要映射的数组中的值中推断出该类型。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在这个例子中，变量</font></font><code class="code-voice">number</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用闭包</font></font><code class="code-voice">number</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数</font><font style="vertical-align: inherit;">的值进行初始化</font><font style="vertical-align: inherit;">，以便可以在闭包体中修改该值。</font><font style="vertical-align: inherit;">（函数和闭包的参数始终是常量。）闭包表达式还指定了返回类型</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，以指示将存储在映射的输出数组中的类型。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  闭包表达式会在</font></font><code class="code-voice">output</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每次</font><font style="vertical-align: inherit;">调用</font><font style="vertical-align: inherit;">时创建</font><font style="vertical-align: inherit;">一个字符串</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">它</font></font><code class="code-voice">number</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用余数运算符（</font></font><code class="code-voice">number % 10</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">计算最后一位数字</font><font style="vertical-align: inherit;">，并使用此数字在</font></font><code class="code-voice">digitNames</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字典中</font><font style="vertical-align: inherit;">查找适当的字符串</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">闭包可以用来创建任何大于零的整数的字符串表示。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-NoLink_95"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对</font></font><code class="code-voice">digitNames</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字典下标的</font><font style="vertical-align: inherit;">调用</font><font style="vertical-align: inherit;">后面跟着一个感叹号（</font></font><code class="code-voice">!</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">），因为字典下标返回一个可选值，表示如果该键不存在，字典查找可能会失败。</font><font style="vertical-align: inherit;">在上面的例子中，保证</font><font style="vertical-align: inherit;">字典</font></font><code class="code-voice">number % 10</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">总是一个有效的下标键</font></font><code class="code-voice">digitNames</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，因此使用感叹号来强制解开</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">存储</font><font style="vertical-align: inherit;">在下</font><font style="vertical-align: inherit;">标可选返回值中的值。
+    	</font></font></p>
+    
+  </aside>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  从检索到的字符串</font></font><code class="code-voice">digitNames</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">辞典被添加到</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">前面</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的</font></font><code class="code-voice">output</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，有效地建立反向一数目的字符串版本。</font><font style="vertical-align: inherit;">（该表达式</font></font><code class="code-voice">number % 10</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">给出了</font></font><code class="code-voice">6</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">for </font></font><code class="code-voice">16</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">8</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">for </font></font><code class="code-voice">58</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">for的值</font></font><code class="code-voice">510</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。）
+</font></font></p><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">number</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">然后</font><font style="vertical-align: inherit;">
+  这个</font><font style="vertical-align: inherit;">变量除以</font></font><code class="code-voice">10</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">因为它是一个整数，它在划分期间被舍入，所以</font></font><code class="code-voice">16</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变成</font></font><code class="code-voice">1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">58</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变成</font></font><code class="code-voice">5</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">510</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变成</font></font><code class="code-voice">51</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  重复该过程直至</font></font><code class="code-voice">number</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">等于</font></font><code class="code-voice">0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，此时</font></font><code class="code-voice">output</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字符串由闭包返回，并通过该</font></font><code class="code-voice">map(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法</font><font style="vertical-align: inherit;">添加到输出数组中</font><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在上面的例子中，使用尾部闭包语法在闭包支持的函数后立即封闭闭包的功能，而不需要将整个闭包封装在</font></font><code class="code-voice">map(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法的外部圆括号内。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID103"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">捕捉价值观</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  闭包可以</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">捕获</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">定义它的周围环境中的常量和变量。</font><font style="vertical-align: inherit;">即使定义常量和变量的原始范围不再存在，闭包也可以引用并修改其正文中的那些常量和变量的值。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在Swift中，可以捕获值的闭包的最简单形式是嵌套函数，写在另一个函数的主体中。</font><font style="vertical-align: inherit;">嵌套函数可以捕获任何外部函数的参数，也可以捕获外部函数中定义的任何常量和变量。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这是一个叫做函数的例子</font></font><code class="code-voice">makeIncrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，它包含一个叫做嵌套函数</font></font><code class="code-voice">incrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">嵌套</font></font><code class="code-voice">incrementer()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数捕获两个值，</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并</font></font><code class="code-voice">amount</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从其周围的上下文中</font><font style="vertical-align: inherit;">捕获</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">在捕获这些值后，</font><font style="vertical-align: inherit;">作为闭包</font></font><code class="code-voice">incrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">返回</font><font style="vertical-align: inherit;">，</font><font style="vertical-align: inherit;">每次调用时都会</font></font><code class="code-voice">makeIncrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">递增</font><font style="vertical-align: inherit;">。
+</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"></font><code class="code-voice">amount</code><font style="vertical-align: inherit;"></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">makeIncrementer</span>(<span class="vc">forIncrement</span> <span class="vc">amount</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; () -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">runningTotal</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">incrementer</span>() -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">runningTotal</span> += <span class="vc">amount</span></code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">runningTotal</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">incrementer</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  返回类型</font></font><code class="code-voice">makeIncrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">() -&gt; Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这意味着它返回一个</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，而不是一个简单的值。</font><font style="vertical-align: inherit;">它返回的函数没有参数，</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每次调用时都会</font><font style="vertical-align: inherit;">返回一个</font><font style="vertical-align: inherit;">值。</font><font style="vertical-align: inherit;">要了解函数如何返回其他函数，请参阅</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID177" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID177" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_56&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数类型作为返回类型</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><code class="code-voice">makeIncrementer(forIncrement:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数定义了一个称为的整数变量</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，用于存储将返回的增量器的当前运行总数。</font><font style="vertical-align: inherit;">该变量的初始值为</font></font><code class="code-voice">0</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><code class="code-voice">makeIncrementer(forIncrement:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数具有单个</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数，参数标签为</font></font><code class="code-voice">forIncrement</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，参数名称为</font></font><code class="code-voice">amount</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">传递给此参数的参数值指定</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每次调用返回的增量函数时应递增</font><font style="vertical-align: inherit;">多少</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">该</font></font><code class="code-voice">makeIncrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数定义一个名为的嵌套函数</font></font><code class="code-voice">incrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，它执行实际递增。</font><font style="vertical-align: inherit;">该功能仅添加</font></font><code class="code-voice">amount</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">到</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并返回结果。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  当单独考虑时，嵌套</font></font><code class="code-voice">incrementer()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数可能看起来很不寻常：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">incrementer</span>() -&gt; <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">runningTotal</span> += <span class="vc">amount</span></code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">runningTotal</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><code class="code-voice">incrementer()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数没有任何参数，但它指的是</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">amount</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">其函数体内。</font><font style="vertical-align: inherit;">它通过捕获做到这一点</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参考</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，以</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">amount</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从周围的功能和其自身的函数体中使用它们。</font><font style="vertical-align: inherit;">通过参考捕捉保证</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">amount</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不消失的时候调用</font></font><code class="code-voice">makeIncrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">结束，而且也保证了</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可用下一次</font></font><code class="code-voice">incrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数被调用。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-NoLink_96"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为一个优化，Swift可以取而代之地捕获并存储一个</font><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">副本</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，如果该值没有被闭包变异，并且该值在闭包创建后没有变异。
+    	</font></font></p>
+    <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift还处理所有涉及处理变量时不再需要的内存管理。
+</font></font></p>
+
+  </aside>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  以下是一个实例</font></font><code class="code-voice">makeIncrementer</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">incrementByTen</span> = <span class="vc">makeIncrementer</span>(<span class="vc">forIncrement</span>: <span class="m">10</span>)</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这个例子设置了一个常量，</font></font><code class="code-voice">incrementByTen</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于引用一个增量函数，</font><font style="vertical-align: inherit;">每次调用它时都会</font><font style="vertical-align: inherit;">添加</font></font><code class="code-voice">10</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">到它的</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变量中。</font><font style="vertical-align: inherit;">多次调用该函数会显示此行为的实际行为：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">incrementByTen</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 10</span></code></li>
+            <li><code class="code-voice"><span class="vc">incrementByTen</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 20</span></code></li>
+            <li><code class="code-voice"><span class="vc">incrementByTen</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 30</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您创建了第二个增量器，它将拥有自己的对新的单独</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变量</font><font style="vertical-align: inherit;">的存储引用</font><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">incrementBySeven</span> = <span class="vc">makeIncrementer</span>(<span class="vc">forIncrement</span>: <span class="m">7</span>)</code></li>
+            <li><code class="code-voice"><span class="vc">incrementBySeven</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 7</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">incrementByTen</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">再次</font><font style="vertical-align: inherit;">
+  调用原始增量（</font><font style="vertical-align: inherit;">）再继续递增其自己的</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变量，并且不影响通过</font></font><code class="code-voice">incrementBySeven</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下方式</font><font style="vertical-align: inherit;">捕获的变量</font><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">incrementByTen</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 40</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-NoLink_97"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果将闭包分配给类实例的属性，并且闭包通过引用实例或其成员来捕获该实例，则将在闭包和实例之间创建一个强引用循环。</font><font style="vertical-align: inherit;">Swift使用</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">捕获列表</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来打破这些强大的参考周期。</font><font style="vertical-align: inherit;">有关更多信息，请参阅</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID56" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH20-ID56" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_57&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">闭合强参考周期</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID104"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">闭包是参考类型</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在上面的例子中，</font></font><code class="code-voice">incrementBySeven</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">incrementByTen</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是常量，但是这些常量指的是封闭仍然能够递增</font></font><code class="code-voice">runningTotal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，他们已抓获的变量。</font><font style="vertical-align: inherit;">这是因为函数和闭包是</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引用类型</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  无论何时将函数或闭包分配给常量或变量，实际上都是将该常量或变量设置</font><font style="vertical-align: inherit;">为对函数或闭包</font><font style="vertical-align: inherit;">的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引用</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">在上面的例子中，闭包的选择是</font></font><code class="code-voice">incrementByTen</code> <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">常量，而不是闭包本身的内容。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这也意味着，如果将一个闭包分配给两个不同的常量或变量，那么这两个常量或变量将引用相同的闭包：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">alsoIncrementByTen</span> = <span class="vc">incrementByTen</span></code></li>
+            <li><code class="code-voice"><span class="vc">alsoIncrementByTen</span>()</code></li>
+            <li><code class="code-voice"><span class="c">// returns a value of 50</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID546"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逃逸关闭</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  闭包是说</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逃避</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当封盖作为参数传递给函数，但在函数返回之后被调用的函数。</font><font style="vertical-align: inherit;">当你声明一个将闭包作为其参数的函数时，你可以</font></font><code class="code-voice">@escaping</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在参数的类型之前</font><font style="vertical-align: inherit;">写入</font><font style="vertical-align: inherit;">，以表明允许闭包。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  闭包可以逃脱的一种方式是存储在函数外部定义的变量中。</font><font style="vertical-align: inherit;">作为例子，许多启动异步操作的函数都将闭包参数作为完成处理程序。</font><font style="vertical-align: inherit;">该函数在开始操作后返回，但在操作完成之前不会调用闭包 - 闭包需要转义，稍后调用。</font><font style="vertical-align: inherit;">例如：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">completionHandlers</span>: [() -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>] = []</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunctionWithEscapingClosure</span>(<span class="vc">completionHandler</span>: @<span class="kt">escaping</span> () -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">completionHandlers</span>.<span class="vc">append</span>(<span class="vc">completionHandler</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><code class="code-voice">someFunctionWithEscapingClosure(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数将闭包作为参数，并将其添加到在函数外声明的数组。</font><font style="vertical-align: inherit;">如果你没有标记这个函数的参数</font></font><code class="code-voice">@escaping</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，你会得到一个编译时错误。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  标记闭包</font></font><code class="code-voice">@escaping</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">意味着你必须</font></font><code class="code-voice">self</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在闭包中明确</font><font style="vertical-align: inherit;">提及</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">例如，在下面的代码中，传递给的闭包</font></font><code class="code-voice">someFunctionWithEscapingClosure(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个转义闭包，这意味着它需要</font></font><code class="code-voice">self</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">明确</font><font style="vertical-align: inherit;">引用</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">相比之下，传递给</font></font><code class="code-voice">someFunctionWithNonescapingClosure(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">它的闭包是一个nonescaping闭包，这意味着它可以</font></font><code class="code-voice">self</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">隐式</font><font style="vertical-align: inherit;">引用</font><font style="vertical-align: inherit;">。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunctionWithNonescapingClosure</span>(<span class="vc">closure</span>: () -&gt; <span class="n"><!-- a href="" -->Void<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">closure</span>()</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeClass</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">x</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">doSomething</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">someFunctionWithEscapingClosure</span> { <span class="kt">self</span>.<span class="vc">x</span> = <span class="m">100</span> }</code></li>
+            <li><code class="code-voice">        <span class="vc">someFunctionWithNonescapingClosure</span> { <span class="vc">x</span> = <span class="m">200</span> }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">instance</span> = <span class="vc">SomeClass</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">instance</span>.<span class="vc">doSomething</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">instance</span>.<span class="vc">x</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "200"</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">completionHandlers</span>.<span class="vc">first</span>?()</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">instance</span>.<span class="vc">x</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "100"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-ID543"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Autoclosures</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  一个</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">autoclosure</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是自动创建来包装被真实作为参数传递给函数的表达式的封闭件。</font><font style="vertical-align: inherit;">它不需要任何参数，当它被调用时，它会返回包装在其中的表达式的值。</font><font style="vertical-align: inherit;">这种语法上的便利可以让你通过写一个普通的表达式而不是显式的闭包来省略函数参数的大括号。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  通常</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">调用</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">采用自动屏蔽的函数，但</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实现</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这种功能</font><font style="vertical-align: inherit;">并不常见</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">例如，该</font></font><code class="code-voice">assert(condition:message:file:line:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数为其</font><font style="vertical-align: inherit;">参数</font></font><code class="code-voice">condition</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">message</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数</font><font style="vertical-align: inherit;">进行autoclosure </font><font style="vertical-align: inherit;">; </font><font style="vertical-align: inherit;">它</font></font><code class="code-voice">condition</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">仅在调试参数进行评估，并建立其</font></font><code class="code-voice">message</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">仅在参数评估</font></font><code class="code-voice">condition</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  autoclosure让你延迟评估，因为在你调用闭包之前，里面的代码不会运行。</font><font style="vertical-align: inherit;">延迟评估对于有副作用或计算成本较高的代码非常有用，因为它可以让您控制代码的评估时间。</font><font style="vertical-align: inherit;">下面的代码显示了封闭延迟评估的方式。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">customersInLine</span> = [<span class="s">"Chris"</span>, <span class="s">"Alex"</span>, <span class="s">"Ewa"</span>, <span class="s">"Barry"</span>, <span class="s">"Daniella"</span>]</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">customersInLine</span>.<span class="vc">count</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "5"</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">customerProvider</span> = { <span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>) }</code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">customersInLine</span>.<span class="vc">count</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "5"</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">"Now serving </span>\(<span class="vc">customerProvider</span>())<span class="s">!"</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Now serving Chris!"</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="vc">customersInLine</span>.<span class="vc">count</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "4"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  即使</font></font><code class="code-voice">customersInLine</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数组</font><font style="vertical-align: inherit;">的第一个元素</font><font style="vertical-align: inherit;">被闭包中的代码删除，数组元素也不会被删除，直到实际调用闭包为止。</font><font style="vertical-align: inherit;">如果闭包永远不会被调用，闭包内的表达式永远不会被计算，这意味着数组元素永远不会被移除。</font><font style="vertical-align: inherit;">请注意，类型</font></font><code class="code-voice">customerProvider</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是不是</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，但</font></font><code class="code-voice">() -&gt; String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不带任何参数，返回一个字符串-a功能。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  当您将闭包作为参数传递给函数时，您会得到延迟评估的相同行为。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// customersInLine is ["Alex", "Ewa", "Barry", "Daniella"]</span></code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">serve</span>(<span class="vc">customer</span> <span class="vc">customerProvider</span>: () -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Now serving </span>\(<span class="vc">customerProvider</span>())<span class="s">!"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">serve</span>(<span class="vc">customer</span>: { <span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>) } )</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Now serving Alex!"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">serve(customer:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">上面列表中</font><font style="vertical-align: inherit;">
+  的</font><font style="vertical-align: inherit;">函数使用显式闭包来返回客户的名字。</font><font style="vertical-align: inherit;">下面的版本</font></font><code class="code-voice">serve(customer:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">执行相同的操作，但不是采用显式闭包，而是通过用参数的</font></font><code class="code-voice">@autoclosure</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">标记其参数类型来采用autoclosure </font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">现在你可以调用函数，就好像它使用了一个</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数而不是闭包。</font><font style="vertical-align: inherit;">该参数会自动转换为闭包，因为该</font></font><code class="code-voice">customerProvider</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数的类型是用</font></font><code class="code-voice">@autoclosure</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">标记的</font><font style="vertical-align: inherit;">。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// customersInLine is ["Ewa", "Barry", "Daniella"]</span></code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">serve</span>(<span class="vc">customer</span> <span class="vc">customerProvider</span>: @<span class="kt">autoclosure</span> () -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Now serving </span>\(<span class="vc">customerProvider</span>())<span class="s">!"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">serve</span>(<span class="vc">customer</span>: <span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>))</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Now serving Ewa!"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH11-NoLink_98"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">过度使用自动遮挡会使您的代码难以理解。</font><font style="vertical-align: inherit;">上下文和函数名称应该明确表示评估正在推迟。
+    	</font></font></p>
+    
+  </aside>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您想要允许转义的自动关闭，请使用</font></font><code class="code-voice">@autoclosure</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">@escaping</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性。</font><font style="vertical-align: inherit;">该</font></font><code class="code-voice">@escaping</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性在上面的</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID546" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH11-ID546" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_58&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">转义闭包中</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">描述</font><font style="vertical-align: inherit;">。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="c">// customersInLine is ["Barry", "Daniella"]</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">customerProviders</span>: [() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>] = []</code></li>
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">collectCustomerProviders</span>(<span class="kt">_</span> <span class="vc">customerProvider</span>: @<span class="kt">autoclosure</span> @<span class="kt">escaping</span> () -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="vc">customerProviders</span>.<span class="vc">append</span>(<span class="vc">customerProvider</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">collectCustomerProviders</span>(<span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>))</code></li>
+            <li><code class="code-voice"><span class="vc">collectCustomerProviders</span>(<span class="vc">customersInLine</span>.<span class="vc">remove</span>(<span class="vc">at</span>: <span class="m">0</span>))</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">"Collected </span>\(<span class="vc">customerProviders</span>.<span class="vc">count</span>)<span class="s"> closures."</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Collected 2 closures."</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">customerProvider</span> <span class="kt">in</span> <span class="vc">customerProviders</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Now serving </span>\(<span class="vc">customerProvider</span>())<span class="s">!"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Now serving Barry!"</span></code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Now serving Daniella!"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在上面的代码，而不是调用传递给它作为它的闭合</font></font><code class="code-voice">customerProvider</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数，该</font></font><code class="code-voice">collectCustomerProviders(_:)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数将所述封闭的</font></font><code class="code-voice">customerProviders</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阵列。</font><font style="vertical-align: inherit;">数组声明在函数范围之外，这意味着数组中的闭包可以在函数返回后执行。</font><font style="vertical-align: inherit;">结果，</font></font><code class="code-voice">customerProvider</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参数</font><font style="vertical-align: inherit;">的值</font><font style="vertical-align: inherit;">必须被允许转义该函数的作用域。
+</font></font></p>
+  
+</section>
+
+  	
+ 	<section id="next_previous" class="">
+    		<p class="previous-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID158" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_59&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能</font></font></a></p>
+  			<p class="next-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html#//apple_ref/doc/uid/TP40014097-CH12-ID145" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH12-ID145" onclick="s_objectID=&quot;https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Lang_60&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">枚举</font></font></a></p>
+
+    <p class="copyright"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright©2018 Apple Inc.保留所有权利。 
+  </font></font><a class="link" href="http://www.apple.com/legal/terms/site.html" target="_blank" rel="external" onclick="s_objectID=&quot;http://www.apple.com/legal/terms/site.html_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用条款</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | 
+  </font></font><a class="link" href="http://www.apple.com/privacy/" target="_blank" rel="external" onclick="s_objectID=&quot;http://www.apple.com/privacy/_1&quot;;return this.s_oc?this.s_oc(e):true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">隐私政策</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font><font style="vertical-align: inherit;">更新日期：2018-02-20
+</font></font></p>
+  </section>
+</article>
+
+    </div>
+    <div id="big_button"></div>
+    <footer id="footer">
+  <div class="content-wrapper">
+  	<div id="leave_feedback" class="button" role="button" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反馈</font></font></div>
+  </div>
+  <script src="./The Swift Programming Language (Swift 4.1)_ 闭包_files/devpubs-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./The Swift Programming Language (Swift 4.1)_ 闭包_files/feedback-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <div id="_omniture_top">
+<!-- SiteCatalyst code version: H.8. Copyright 1997-2006 Omniture, Inc. -->
+<script type="text/javascript">
+/* RSID: */
+var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+</script>
+
+<script type="text/javascript" src="./The Swift Programming Language (Swift 4.1)_ 闭包_files/s_code_h.js"></script>
+<script type="text/javascript">
+s.pageName=AC.Tracking.pageName();
+s.channel="www.us.developer"
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+<!-- End SiteCatalyst code version: H.8. -->
+</div>
+
+</footer>
+
+    
+  
+    <div id="blackout">
+    <div id="preload"></div>
+</div>
+<div id="modal" aria-hidden="true">
+    <div id="closebox" tabindex="0" aria-label="Close feedback form" role="button"></div>
+    <div id="sending" class="hidden">
+        <h2 tabindex="0">Sending feedback…</h2>
+        <div id="sending_img"></div>
+    </div>
+    <div id="error" class="hidden">
+        <h2 tabindex="0">We’re sorry, an error has occurred.</h2>
+        <p>Please try submitting your feedback later.</p>
+        <div id="error_icon"></div>
+    </div>
+    <div id="success" class="hidden">
+        <h2 tabindex="0">Thank you for providing feedback!</h2>
+        <p>Your input helps improve our developer documentation.</p>
+        <div id="thank_you_icon"></div>
+    </div>
+    
+    <form id="feedback" action="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#" method="post">
+        <div class="left-leaf">
+            <h2 id="helpful_title" data-asterisk="a1" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这份文件有多大帮助？</font></font></h2>     
+            <sup id="a1" class="asterisk" aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></sup>
+
+            <div id="star_group" role="radiogroup" aria-required="true">
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="1"> 
+                    Very helpful
+                </label>
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="2"> 
+                    Somewhat helpful
+                </label>
+                <label>
+                    <input class="radio" type="radio" name="helped" value="3"> 
+                    Not helpful
+                </label>
+            </div>
+        </div>
+        <div class="right-leaf">
+            <h2>How can we improve this document?</h2>
+            <div id="improve" class="checkboxes">
+                <label>
+                    <input type="checkbox" name="typo"> 
+                    Fix typos or links
+                </label>
+                <label>
+                    <input type="checkbox" name="infoIncorrect"> 
+                    Fix incorrect information
+                </label>
+                <label>
+                    <input type="checkbox" name="needs_examples"> 
+                    Add or update code samples
+                </label>
+                <label>
+                    <input type="checkbox" name="needs_art"> 
+                    Add or update illustrations
+                </label>
+                <label>
+                    <input type="checkbox" name="missingInfo"> 
+                    Add information about...
+                </label>
+            </div>
+        </div>
+
+        <textarea id="comment" name="problem" cols="70" rows="8" placeholder="Please tell us more about your experience with this document" data-asterisk="a2" required=""></textarea>
+        <sup id="a2" class="asterisk" aria-hidden="true">*</sup>
+
+        <p class="fineprint">
+            <em aria-hidden="true"><span>*</span> Required information</em>
+        </p> 
+
+        <input id="submit" type="button" value="Send">
+
+        <section id="legal">
+            <p>
+                To submit a product bug or enhancement request, please visit the 
+                <a href="https://developer.apple.com/bugreporter/" target="_blank" onclick="s_objectID=&quot;https://developer.apple.com/bugreporter/_1&quot;;return this.s_oc?this.s_oc(e):true">Bug Reporter</a> 
+                page.
+            </p>
+            <p>
+                Please read <a href="http://www.apple.com/legal/policies/ideas.html" target="_blank" onclick="s_objectID=&quot;http://www.apple.com/legal/policies/ideas.html_1&quot;;return this.s_oc?this.s_oc(e):true">Apple's Unsolicited Idea Submission Policy</a> 
+                before you send us your feedback.
+            </p> 
+        </section>
+    </form>
+</div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./The Swift Programming Language (Swift 4.1)_ 闭包_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

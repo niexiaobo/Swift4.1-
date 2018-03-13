@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<!-- saved from url=(0160)https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID3 -->
+<html lang="en" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+  <title>The Swift Programming Language (Swift 4.1): Access Control</title>
+  <link rel="stylesheet" type="text/css" href="./The Swift Programming Language (Swift 4.1)_访问控制_files/style-1.6.3.css">
+  <link rel="stylesheet" type="text/css" href="./The Swift Programming Language (Swift 4.1)_访问控制_files/feedback-1.6.3.css">
+   
+<meta id="j-version" name="j-version" content="">
+<meta id="build" name="build" content="2cff7ac52859143a0b42c92c22d84718">
+<meta id="document-version" name="document-version" content="10.3.3">
+<meta id="book-assignments" name="book-assignments" content="{Type/Guide}, {Topic/Swift}">
+<meta scheme="apple_ref" id="identifier" name="identifier" content="//apple_ref/doc/uid/TP40014097">
+<meta id="chapterId" name="chapterId" content="TP40014097-CH41">
+<meta id="book-title" name="book-title" content="The Swift Programming Language (Swift 4.1)">
+<meta id="book-resource-type" name="book-resource-type" content="Guide">
+<meta id="book-root" name="book-root" content="./">
+<meta id="book-json" name="book-json" content="book.json">
+<meta id="date" name="date" content="2018-02-20">
+<meta id="description" name="description" content="The definitive guide to Swift, Apple’s programming language for building iOS, macOS, watchOS, and tvOS apps.">
+<meta id="IndexTitle" name="IndexTitle" content="">
+<meta id="resources-uri" name="resources-uri" content="../../../../Resources/1277">
+<link id="book-index-page" rel="Start" title="" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html">
+<!-- , next_chapter: next_chapter, previous_chapter: previous_chapter -->
+<link id="next-page" rel="Next" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html">
+<link id="previous-page" rel="Prev" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html">
+<meta id="devcenter" name="devcenter" content="&lt;!-- DEVCENTER_NAME --&gt;">
+<meta id="devcenter-url" name="devcenter-url" content="&lt;!-- DEVCENTER_URL --&gt;">
+<meta id="reflib" name="reflib" content="&lt;!-- REFLIB_NAME --&gt;">
+
+<meta id="xcode-display" name="xcode-display" content="render">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta id="platforms" name="platforms" content="Xcode Developer Tools">
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./The Swift Programming Language (Swift 4.1)_访问控制_files/translateelement.css"></head>
+
+  <body id="conceptual_flow_with_tasks" class="jazz">
+    
+    <header id="ios_header" class="hideOnPrint hideInXcode">
+  <div class="content-wrapper">
+    <p class="header-text">
+    	<a href="https://developer.apple.com/library/content/navigation/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指南和示例代码
+ 		</font></font></a>
+ </p>
+    <p id="wwdr"><img id="apple_logo" src="./The Swift Programming Language (Swift 4.1)_访问控制_files/apple2.png" height="14px" width="12px" aria-hidden="true"><a href="https://developer.apple.com/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发人员</font></font></a></p>
+  </div>
+</header>
+
+    <section id="valence">
+  <div class="content-wrapper">
+    <p id="hierarchial_navigation">
+      <span id="book_title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swift编程语言（Swift 4.1）</font></font></span>
+    </p>
+    <form id="search" class="hideInXcode" method="get" action="https://developer.apple.com/search/index.php" accept-charset="utf-8" autocomplete="off">
+  <input type="search" id="ssi_SearchField" placeholder="Search Guides and Sample Code" name="q" autocomplete="off" tabindex="2">
+</form>
+
+      
+   
+   
+
+
+
+
+    <span class="download-text hideInXcode">
+      <a href="https://itunes.apple.com/us/book/the-swift-programming-language/id1002622538?mt=11"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的iBooks</font></font></a>
+    </span>
+
+    
+
+    <img id="shortstack" src="./The Swift Programming Language (Swift 4.1)_访问控制_files/shortstack_2x.png">
+  </div>
+</section>
+    <div class="content-wrapper">
+      <nav id="navigator" class="book-parts hideInXcode" role="navigation">
+    <ul class="nav-parts">
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH1-ID2" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欢迎来到Swift</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于Swift</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Compatibility.html#//apple_ref/doc/uid/TP40014097-CH45-ID561" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH45-ID561"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版本兼容性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html#//apple_ref/doc/uid/TP40014097-CH2-ID1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH2-ID1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速游览</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH4-ID233" class="part-name nav-part-active open-part">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言指南</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基础</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID60" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH6-ID60"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本操作员</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/StringsAndCharacters.html#//apple_ref/doc/uid/TP40014097-CH7-ID285" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH7-ID285"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字符串和字符</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/CollectionTypes.html#//apple_ref/doc/uid/TP40014097-CH8-ID105" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH8-ID105"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集合类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html#//apple_ref/doc/uid/TP40014097-CH9-ID120" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH9-ID120"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">控制流</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID158"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH11-ID94"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关闭</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html#//apple_ref/doc/uid/TP40014097-CH12-ID145" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH12-ID145"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">枚举</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-ID82" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH13-ID82"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类和结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html#//apple_ref/doc/uid/TP40014097-CH14-ID254" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH14-ID254"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Methods.html#//apple_ref/doc/uid/TP40014097-CH15-ID234" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH15-ID234"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Subscripts.html#//apple_ref/doc/uid/TP40014097-CH16-ID305" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH16-ID305"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">标</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Inheritance.html#//apple_ref/doc/uid/TP40014097-CH17-ID193" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH17-ID193"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">遗产</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID203" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH18-ID203"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">初始化</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Deinitialization.html#//apple_ref/doc/uid/TP40014097-CH19-ID142" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH19-ID142"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反初始化</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID245" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH21-ID245"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选链接</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html#//apple_ref/doc/uid/TP40014097-CH42-ID508" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH42-ID508"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">错误处理</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TypeCasting.html#//apple_ref/doc/uid/TP40014097-CH22-ID338" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH22-ID338"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型铸造</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/NestedTypes.html#//apple_ref/doc/uid/TP40014097-CH23-ID242" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH23-ID242"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嵌套类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html#//apple_ref/doc/uid/TP40014097-CH24-ID151" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH24-ID151"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扩展</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html#//apple_ref/doc/uid/TP40014097-CH25-ID267" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH25-ID267"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协议</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH26-ID179"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">泛型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID48" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH20-ID48"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动引用计数</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID567" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH46-ID567"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内存安全</font></font></a>
+              </li>
+              <li class="nav-chapter nav-current-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID3" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH41-ID3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问控制</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID28" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID28"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级操作员</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH28-ID427" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言参考</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于语言参考</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/LexicalStructure.html#//apple_ref/doc/uid/TP40014097-CH30-ID410" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH30-ID410"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">词汇结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Types.html#//apple_ref/doc/uid/TP40014097-CH31-ID445" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH31-ID445"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Expressions.html#//apple_ref/doc/uid/TP40014097-CH32-ID383" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH32-ID383"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表达式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Statements.html#//apple_ref/doc/uid/TP40014097-CH33-ID428" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH33-ID428"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID351" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH34-ID351"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Attributes.html#//apple_ref/doc/uid/TP40014097-CH35-ID347" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH35-ID347"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Patterns.html#//apple_ref/doc/uid/TP40014097-CH36-ID419" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH36-ID419"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GenericParametersAndArguments.html#//apple_ref/doc/uid/TP40014097-CH37-ID406" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH37-ID406"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通用参数和参数</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html#//apple_ref/doc/uid/TP40014097-CH38-ID458" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH38-ID458"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语法概要</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH39-ID460" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修订记录</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档修订历史</font></font></a>
+              </li>
+          </ul>
+        </li>
+    </ul>
+</nav>
+
+      <menu id="bashful" type="toolbar">
+  <div class="shield"></div>
+  <menuitem id="jump_to" class="menu-bar-item closed">
+  <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在本页</font></font></span>
+  <div class="chevron">
+    <div class="chevy chevron-left"></div>
+    <div class="chevy chevron-right"></div>
+  </div>
+  <menu type="list" class="details">
+      <ul class="list-bullet">
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID4">Modules and Source Files</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID5">Access Levels</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID10">Access Control Syntax</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID11">Custom Types</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID16">Subclassing</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID17">Constants, Variables, Properties, and Subscripts</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID19">Initializers</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID22">Protocols</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID25">Extensions</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID26">Generics</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID27">Type Aliases</a>
+          </li>
+      </ul>
+  </menu>
+</menuitem>
+
+</menu>
+<div class="pixel-line"></div>
+<div class="rubber-band-gap"></div>
+<article class="chapter">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41"></a><a name="//apple_ref/doc/uid/TP40014097-CH41-ID3"></a>
+
+  <h2 class="chapter-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问控制</font></font></h2>
+
+
+  
+  	<section class="section">
+  		<p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问控制</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">限制从其他源文件和模块中的代码访问部分代码。</font><font style="vertical-align: inherit;">此功能使您可以隐藏代码的实现细节，并指定可以访问和使用该代码的首选接口。
+</font></font></p>
+<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以为单个类型（类，结构和枚举）以及属于这些类型的属性，方法，初始化程序和下标分配特定的访问级别。</font><font style="vertical-align: inherit;">协议可以限制在某个上下文中，全局常量，变量和函数也可以。
+</font></font></p>
+<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  除了提供各种级别的访问控制之外，Swift通过为典型场景提供默认访问级别，减少了指定显式访问控制级别的需求。</font><font style="vertical-align: inherit;">事实上，如果您正在编写单目标应用程序，则可能根本不需要指定显式访问控制级别。
+</font></font></p>
+<div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-NoLink_198"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为简洁起见，您的代码的各个方面（可以具有应用于它们的访问控制（属性，类型，函数等））在下面的部分中称为“实体”。
+    	</font></font></p>
+    
+  </aside>
+</div>
+
+		</section> 
+
+
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID4"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模块和源文件</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift的访问控制模型基于模块和源文件的概念。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  一个</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模块</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个代码分发单元 - 一个框架或应用程序，它是作为一个单元构建和交付的，并且可以由另一个模块通过Swift的</font></font><code class="code-voice">import</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关键字</font><font style="vertical-align: inherit;">导入</font><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Xcode中的每个构建目标（如应用程序包或框架）都被视为Swift中的独立模块。</font><font style="vertical-align: inherit;">如果将应用程序代码的各个方面作为独立框架组合在一起（也许是将这些代码封装并重复使用到多个应用程序中），那么您在该框架中定义的所有内容都将在应用程序中导入和使用时成为单独模块的一部分，或者当它在另一个框架内使用时。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  甲</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">源文件</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个模块内的单个夫特源代码文件（实际上，一个应用程序或框架内的一个单独的文件）。</font><font style="vertical-align: inherit;">尽管在单独的源文件中定义单个类型是很常见的，但单个源文件可以包含多种类型，函数等的定义。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID5"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问级别</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift为</font><font style="vertical-align: inherit;">代码中的实体</font><font style="vertical-align: inherit;">提供了五种不同的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问级别</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这些访问级别与实体定义的源文件相关，也与源文件所属的模块有关。
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开放访问</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">公共访问</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使实体可以在来自其定义模块的任何源文件中使用，也可以在来自另一个导入定义模块的模块的源文件中使用。</font><font style="vertical-align: inherit;">在为框架指定公共接口时，通常使用开放或公共访问。</font><font style="vertical-align: inherit;">下面介绍开放和公共访问之间的区别。
+</font></font></p>
+</li><li class="item"><p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内部访问</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使实体可以在其定义模块的任何源文件中使用，但不能在该模块之外的任何源文件中使用。</font><font style="vertical-align: inherit;">定义应用程序或框架的内部结构时，通常使用内部访问。
+</font></font></p>
+</li><li class="item"><p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文件私有访问</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">限制了实体对其自己定义的源文件的使用。</font><font style="vertical-align: inherit;">当在整个文件中使用这些详细信息时，使用文件私有访问来隐藏特定功能块的实现细节。
+</font></font></p>
+</li><li class="item"><p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">私人访问</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">限制了实体对封闭声明的使用，并限制了该声明在同一文件中的扩展。</font><font style="vertical-align: inherit;">当这些细节仅在单个声明中使用时，使用私有访问来隐藏特定功能的实现细节。
+</font></font></p>
+</li>
+</ul><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  开放访问是最高（限制最少）的访问级别，私人访问是最低（限制最多）的访问级别。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  开放访问只适用于类和类成员，它与公共访问的区别如下：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  具有公共访问权限的类别或任何更具限制性的访问级别只能在其定义的模块中进行分类。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  具有公共访问权限或具有更多限制性访问级别的类成员只能由其定义的模块内的子类覆盖。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  打开的类可以在定义它们的模块内以及在任何导入定义模块的模块中进行子类化。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  开放类成员可以被它们定义的模块中的子类覆盖，也可以在导入定义模块的任何模块中覆盖。
+</font></font></p>
+</li>
+</ul><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  将一个类标记为open明确指出你已经考虑了来自其他模块的代码作为超类的影响，并且已经相应地设计了你的类的代码。
+</font></font></p>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID6"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问级别的指导原则</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift中的访问级别遵循总体指导原则：</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">没有实体可以用另一个具有较低（更具限制性）访问级别的实体来定义。</font></font></em>
+</p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  例如：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  公共变量不能被定义为具有内部，文件私有或私有类型，因为该类型在使用公共变量的任何地方都可能不可用。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  函数不能具有比其参数类型和返回类型更高的访问级别，因为该函数可用于其构成类型对于周围代码不可用的情况。
+</font></font></p>
+</li>
+</ul><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面详细介绍这一指导原则对语言不同方面的具体含义。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID7"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">默认访问级别</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您没有自己指定明确的访问级别，那么代码中的所有实体（具有一些特定的例外，如本章后面所述）都具有默认的内部访问级别。</font><font style="vertical-align: inherit;">因此，在许多情况下，您不需要在代码中指定明确的访问级别。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID8"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单目标应用程序的访问级别</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  当您编写简单的单目标应用程序时，应用程序中的代码通常是自包含在应用程序中，并且不需要在应用程序模块之外提供。</font><font style="vertical-align: inherit;">内部的默认访问级别已经符合此要求。</font><font style="vertical-align: inherit;">因此，您不需要指定自定义访问级别。</font><font style="vertical-align: inherit;">但是，您可能希望将代码的某些部分标记为私有文件或私有文件，以便将应用程序模块中的其他代码的实现细节隐藏起来。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID9"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">框架访问级别</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在开发框架时，将面向公众的界面标记为open或public，以便可以被其他模块（例如导入框架的应用程序）查看和访问。</font><font style="vertical-align: inherit;">这个面向公众的接口是框架的应用程序编程接口（或API）。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-NoLink_199"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">你的框架的任何内部实现细节仍然可以使用默认的内部访问级别，或者如果你想隐藏框架内部代码的其他部分，可以将其标记为私有或私有文件。</font><font style="vertical-align: inherit;">只有当您希望它成为框架API的一部分时，才需要将实体标记为公开或公开。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID519"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单元测试目标的访问级别</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  当您使用单元测试目标编写应用程序时，应用程序中的代码需要提供给该模块才能进行测试。</font><font style="vertical-align: inherit;">默认情况下，只有标记为open或public的实体可以被其他模块访问。</font><font style="vertical-align: inherit;">但是，如果您标记具有该</font></font><code class="code-voice">@testable</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">的产品模块的导入声明</font><font style="vertical-align: inherit;">并且启用了测试编译该产品模块</font><font style="vertical-align: inherit;">，则单元测试目标可以访问任何内部实体</font><font style="vertical-align: inherit;">。
+</font></font></p>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID10"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问控制语法</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  通过放置的一个定义实体的访问级别</font></font><code class="code-voice">open</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">public</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">internal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">fileprivate</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，或</font></font><code class="code-voice">private</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实体的导入前修饰语：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">class</span> <span class="vc">SomePublicClass</span> {}</code></li>
+            <li><code class="code-voice"><span class="kt">internal</span> <span class="kt">class</span> <span class="vc">SomeInternalClass</span> {}</code></li>
+            <li><code class="code-voice"><span class="kt">fileprivate</span> <span class="kt">class</span> <span class="vc">SomeFilePrivateClass</span> {}</code></li>
+            <li><code class="code-voice"><span class="kt">private</span> <span class="kt">class</span> <span class="vc">SomePrivateClass</span> {}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">var</span> <span class="vc">somePublicVariable</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">internal</span> <span class="kt">let</span> <span class="vc">someInternalConstant</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice"><span class="kt">fileprivate</span> <span class="kt">func</span> <span class="vc">someFilePrivateFunction</span>() {}</code></li>
+            <li><code class="code-voice"><span class="kt">private</span> <span class="kt">func</span> <span class="vc">somePrivateFunction</span>() {}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  除非另有说明，否则默认访问级别是内部的，如</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID7" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH41-ID7"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">默认访问级别中所述</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这意味着</font></font><code class="code-voice">SomeInternalClass</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并且</font></font><code class="code-voice">someInternalConstant</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以在没有显式访问级别修饰符的情况下编写，并且仍然具有内部访问级别：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeInternalClass</span> {}              <span class="c">// implicitly internal</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">someInternalConstant</span> = <span class="m">0</span>            <span class="c">// implicitly internal</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID11"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自定义类型</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果要为自定义类型指定显式访问级别，请在定义类型的位置执行此操作。</font><font style="vertical-align: inherit;">然后可以在访问级别允许的地方使用新类型。</font><font style="vertical-align: inherit;">例如，如果您定义了一个文件私有类，则该类只能用作定义文件私有类的源文件中的属性类型，或者用作函数参数或返回类型。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  类型的访问控制级别还会影响该类型</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">成员</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（其属性，方法，初始化程序和下标）</font><font style="vertical-align: inherit;">的默认访问级别</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如果您将类型的访问级别定义为私有或私有文件，则其成员的默认访问级别也将为私有或私有文件。</font><font style="vertical-align: inherit;">如果将类型的访问级别定义为内部或公共级别（或者使用内部的默认访问级别而不明确指定访问级别），则类型成员的默认访问级别将为内部级别。
+</font></font></p><div class="important clear">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-DontLinkElementID_2"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">重要
+    </font></font></p>
+    <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">公共类型默认为拥有内部成员，而不是公共成员。</font><font style="vertical-align: inherit;">如果你想让一个类型成员公开，你必须明确地标记它。</font><font style="vertical-align: inherit;">此要求确保面向公众的API是您选择发布的内容，并避免错误地将类型的内部工作作为公共API呈现。
+    </font></font></p>
+    
+  </aside>
+</div><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">class</span> <span class="vc">SomePublicClass</span> {                  <span class="c">// explicitly public class</span></code></li>
+            <li><code class="code-voice">    <span class="kt">public</span> <span class="kt">var</span> <span class="vc">somePublicProperty</span> = <span class="m">0</span>            <span class="c">// explicitly public class member</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">someInternalProperty</span> = <span class="m">0</span>                 <span class="c">// implicitly internal class member</span></code></li>
+            <li><code class="code-voice">    <span class="kt">fileprivate</span> <span class="kt">func</span> <span class="vc">someFilePrivateMethod</span>() {}  <span class="c">// explicitly file-private class member</span></code></li>
+            <li><code class="code-voice">    <span class="kt">private</span> <span class="kt">func</span> <span class="vc">somePrivateMethod</span>() {}          <span class="c">// explicitly private class member</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">SomeInternalClass</span> {                       <span class="c">// implicitly internal class</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">someInternalProperty</span> = <span class="m">0</span>                 <span class="c">// implicitly internal class member</span></code></li>
+            <li><code class="code-voice">    <span class="kt">fileprivate</span> <span class="kt">func</span> <span class="vc">someFilePrivateMethod</span>() {}  <span class="c">// explicitly file-private class member</span></code></li>
+            <li><code class="code-voice">    <span class="kt">private</span> <span class="kt">func</span> <span class="vc">somePrivateMethod</span>() {}          <span class="c">// explicitly private class member</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">fileprivate</span> <span class="kt">class</span> <span class="vc">SomeFilePrivateClass</span> {        <span class="c">// explicitly file-private class</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">someFilePrivateMethod</span>() {}              <span class="c">// implicitly file-private class member</span></code></li>
+            <li><code class="code-voice">    <span class="kt">private</span> <span class="kt">func</span> <span class="vc">somePrivateMethod</span>() {}          <span class="c">// explicitly private class member</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">private</span> <span class="kt">class</span> <span class="vc">SomePrivateClass</span> {                <span class="c">// explicitly private class</span></code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">somePrivateMethod</span>() {}                  <span class="c">// implicitly private class member</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID12"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元组类型</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  元组类型的访问级别是该元组中使用的所有类型的限制最多的访问级别。</font><font style="vertical-align: inherit;">例如，如果您从两种不同类型组成一个元组，其中一个具有内部访问权限，另一个具有私有访问权限，则该复合元组类型的访问级别将是私有的。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-NoLink_200"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">元组类型没有像类，结构，枚举和函数那样的独立定义。</font><font style="vertical-align: inherit;">元组类型的访问级别在使用元组类型时自动推导出来，并且不能明确指定。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID13"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数类型</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  函数类型的访问级别计算为函数参数类型和返回类型的限制最多的访问级别。</font><font style="vertical-align: inherit;">如果函数的计算访问级别与上下文默认值不匹配，则必须明确指定访问级别作为函数定义的一部分。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面的例子定义了一个全局函数</font></font><code class="code-voice">someFunction()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，没有为函数本身提供一个特定的访问级修饰符。</font><font style="vertical-align: inherit;">您可能会希望此功能具有“内部”的默认访问级别，但事实并非如此。</font><font style="vertical-align: inherit;">实际上，</font></font><code class="code-voice">someFunction()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不会编译为如下所示：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">someFunction</span>() -&gt; (<span class="n"><!-- a href="" -->SomeInternalClass<!-- /a --></span>, <span class="n"><!-- a href="" -->SomePrivateClass<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="c">// function implementation goes here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  函数的返回类型是一个元组类型，由上面</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID11" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH41-ID11"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">定义类型</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中</font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID11" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH41-ID11"><font style="vertical-align: inherit;">定义的</font></a></span><font style="vertical-align: inherit;">两个自定义类组成</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">其中一个类被定义为内部类，另一个类被定义为私有类。</font><font style="vertical-align: inherit;">因此，复合元组类型的整体访问级别是私有的（元组构成类型的最小访问级别）。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  因为函数的返回类型是私有的，所以必须使用</font></font><code class="code-voice">private</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修饰符</font><font style="vertical-align: inherit;">标记函数的整体访问级别，</font><font style="vertical-align: inherit;">以使函数声明有效：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">private</span> <span class="kt">func</span> <span class="vc">someFunction</span>() -&gt; (<span class="n"><!-- a href="" -->SomeInternalClass<!-- /a --></span>, <span class="n"><!-- a href="" -->SomePrivateClass<!-- /a --></span>) {</code></li>
+            <li><code class="code-voice">    <span class="c">// function implementation goes here</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">someFunction()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用</font></font><code class="code-voice">public</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code class="code-voice">internal</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修饰符</font><font style="vertical-align: inherit;">
+  的定义标记</font><font style="vertical-align: inherit;">或使用内部的默认设置是</font><font style="vertical-align: inherit;">无效的</font><font style="vertical-align: inherit;">，因为函数的公共或内部用户可能没有适当的访问函数返回类型中使用的私有类的权限。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID14"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">枚举类型</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  枚举的各种情况自动获得与它们所属的枚举相同的访问级别。</font><font style="vertical-align: inherit;">您无法为单个枚举案例指定不同的访问级别。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在下面的例子中，</font></font><code class="code-voice">CompassPoint</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">枚举具有明确的公共访问级别。</font><font style="vertical-align: inherit;">枚举的情况下</font></font><code class="code-voice">north</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">south</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">east</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，和</font></font><code class="code-voice">west</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因此也有公共的访问级别：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">enum</span> <span class="vc">CompassPoint</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">north</span></code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">south</span></code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">east</span></code></li>
+            <li><code class="code-voice">    <span class="kt">case</span> <span class="vc">west</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID468"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">原始价值和相关价值</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  枚举定义中用于任何原始值或关联值的类型必须具有至少与枚举的访问级别一样高的访问级别。</font><font style="vertical-align: inherit;">例如，您不能将私有类型用作具有内部访问级别的枚举的原始值类型。
+</font></font></p>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID15"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嵌套类型</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在私有类型中定义的嵌套类型具有私有的自动访问级别。</font><font style="vertical-align: inherit;">在文件 - 私有类型中定义的嵌套类型具有文件私有的自动访问级别。</font><font style="vertical-align: inherit;">在公共类型或内部类型中定义的嵌套类型具有内部自动访问级别。</font><font style="vertical-align: inherit;">如果您希望公共类型中的嵌套类型公开可用，那么您必须显式声明嵌套类型为public。
+</font></font></p>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID16"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">子类</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以继承任何可在当前访问上下文中访问的类。</font><font style="vertical-align: inherit;">子类的访问级别不能超过其超类 - 例如，不能写出内部超类的公共子类。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  另外，您可以重写在某个访问上下文中可见的任何类成员（方法，属性，初始值设定项或下标）。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  覆盖可以使继承的类成员比其超类版更易于访问。</font><font style="vertical-align: inherit;">在下面的例子中，class </font></font><code class="code-voice">A</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个带有文件私有方法的公共类</font></font><code class="code-voice">someMethod()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">类</font></font><code class="code-voice">B</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">A</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“内部”访问级别降低</font><font style="vertical-align: inherit;">的子类</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">尽管如此，类</font></font><code class="code-voice">B</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提供了</font></font><code class="code-voice">someMethod()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“内部”访问级别</font><font style="vertical-align: inherit;">的覆盖，</font><font style="vertical-align: inherit;">该级别</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高于</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以下原始实现</font></font><code class="code-voice">someMethod()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">class</span> <span class="vc">A</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">fileprivate</span> <span class="kt">func</span> <span class="vc">someMethod</span>() {}</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">internal</span> <span class="kt">class</span> <span class="vc">B</span>: <span class="n"><!-- a href="" -->A<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">internal</span> <span class="kt">func</span> <span class="vc">someMethod</span>() {}</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  对于子类成员来说，只要对超类成员的调用发生在允许的访问级别上下文中（即，在与源类型相同的源文件中），就可以调用具有比子类成员更低的访问权限的超类成员文件私有成员调用的超类，或与内部成员调用的超类相同的模块中）：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">class</span> <span class="vc">A</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">fileprivate</span> <span class="kt">func</span> <span class="vc">someMethod</span>() {}</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">internal</span> <span class="kt">class</span> <span class="vc">B</span>: <span class="n"><!-- a href="" -->A<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">override</span> <span class="kt">internal</span> <span class="kt">func</span> <span class="vc">someMethod</span>() {</code></li>
+            <li><code class="code-voice">        <span class="kt">super</span>.<span class="vc">someMethod</span>()</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  因为超类</font></font><code class="code-voice">A</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和子类</font></font><code class="code-voice">B</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是在同一个源文件中定义的，所以它对于</font></font><code class="code-voice">B</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实现</font></font><code class="code-voice">someMethod()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">调用</font><font style="vertical-align: inherit;">是有效的</font></font><code class="code-voice">super.someMethod()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID17"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">常量，变量，属性和下标</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  一个常量，变量或属性不能比它的类型更公开。</font><font style="vertical-align: inherit;">例如，编写具有私有类型的公共属性是无效的。</font><font style="vertical-align: inherit;">同样，下标不能比其索引类型或返回类型更公开。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果常量，变量，属性或下标使用私有类型，则常量，变量，属性或下标也必须标记为</font></font><code class="code-voice">private</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">private</span> <span class="kt">var</span> <span class="vc">privateInstance</span> = <span class="vc">SomePrivateClass</span>()</code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID18"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">吸气剂和固化剂</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  常量，变量，属性和下标的访问器和设置器自动获得与它们所属的常量，变量，属性或下标相同的访问级别。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以为setter设置</font><font style="vertical-align: inherit;">比其相应getter </font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更低的</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问级别，以限制该变量，属性或下标的读写范围。</font><font style="vertical-align: inherit;">通过编写分配较低访问级别</font></font><code class="code-voice">fileprivate(set)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">private(set)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code class="code-voice">internal(set)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">前</font></font><code class="code-voice">var</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code class="code-voice">subscript</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">引导。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-NoLink_201"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此规则适用于存储的属性以及计算的属性。</font><font style="vertical-align: inherit;">即使你没有为存储属性写一个明确的getter和setter，Swift仍然会为你提供一个隐含的getter和setter来提供对存储属性后备存储的访问。</font><font style="vertical-align: inherit;">使用</font></font><code class="code-voice">fileprivate(set)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">private(set)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">internal(set)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更改此合成设置器的访问级别，与计算属性中的显式设置器完全相同。
+    	</font></font></p>
+    
+  </aside>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面的例子定义了一个叫做的结构</font></font><code class="code-voice">TrackedString</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，它跟踪一个字符串属性被修改的次数：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">TrackedString</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">private(set)</span> <span class="kt">var</span> <span class="vc">numberOfEdits</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">value</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="s">""</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">didSet</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">numberOfEdits</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><code class="code-voice">TrackedString</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">结构定义了一个名为的存储字符串属性</font></font><code class="code-voice">value</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，初始值为</font></font><code class="code-voice">""</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（空字符串）。</font><font style="vertical-align: inherit;">该结构还定义了一个存储的整数属性</font></font><code class="code-voice">numberOfEdits</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，用于跟踪</font></font><code class="code-voice">value</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修改</font><font style="vertical-align: inherit;">的次数</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这个修改跟踪与执行</font></font><code class="code-voice">didSet</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的财产观察者</font></font><code class="code-voice">value</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性，增加</font></font><code class="code-voice">numberOfEdits</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">每次的时间</font></font><code class="code-voice">value</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性被设置为一个新值。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在</font></font><code class="code-voice">TrackedString</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">结构和</font></font><code class="code-voice">value</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">性能不提供明确的访问级别的修正，所以他们都收到内部默认的访问级别。</font><font style="vertical-align: inherit;">但是，该</font></font><code class="code-voice">numberOfEdits</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">的访问级别</font><font style="vertical-align: inherit;">用一个</font></font><code class="code-voice">private(set)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修饰符</font><font style="vertical-align: inherit;">标记，</font><font style="vertical-align: inherit;">以指示该属性的getter仍具有内部的默认访问级别，但该属性仅可在作为该</font></font><code class="code-voice">TrackedString</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">结构</font><font style="vertical-align: inherit;">的一部分的代码内设置</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这使得</font></font><code class="code-voice">TrackedString</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以在</font></font><code class="code-voice">numberOfEdits</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内部</font><font style="vertical-align: inherit;">修改</font><font style="vertical-align: inherit;">属性，但是在结构的定义之外使用该属性时，将该属性显示为只读属性。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您创建</font></font><code class="code-voice">TrackedString</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例并修改其字符串值几次，您可以看到</font></font><code class="code-voice">numberOfEdits</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性值更新以匹配修改的数量：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">stringToEdit</span> = <span class="vc">TrackedString</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">stringToEdit</span>.<span class="vc">value</span> = <span class="s">"This string will be tracked."</span></code></li>
+            <li><code class="code-voice"><span class="vc">stringToEdit</span>.<span class="vc">value</span> += <span class="s">" This edit will increment numberOfEdits."</span></code></li>
+            <li><code class="code-voice"><span class="vc">stringToEdit</span>.<span class="vc">value</span> += <span class="s">" So will this one."</span></code></li>
+            <li><code class="code-voice"><span class="vc">print</span>(<span class="s">"The number of edits is </span>\(<span class="vc">stringToEdit</span>.<span class="vc">numberOfEdits</span>)<span class="s">"</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "The number of edits is 3"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  尽管您可以</font></font><code class="code-voice">numberOfEdits</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从另一个源文件中</font><font style="vertical-align: inherit;">查询该</font><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">的当前值，但</font><font style="vertical-align: inherit;">不能</font><font style="vertical-align: inherit;">从其他源文件</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修改</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该属性。</font><font style="vertical-align: inherit;">此限制保护</font></font><code class="code-voice">TrackedString</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编辑跟踪功能</font><font style="vertical-align: inherit;">的实现细节</font><font style="vertical-align: inherit;">，同时仍然提供对该功能方面的方便访问。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  请注意，如果需要，您可以为getter和setter分配明确的访问级别。</font><font style="vertical-align: inherit;">下面的例子显示了一个</font></font><code class="code-voice">TrackedString</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">结构</font><font style="vertical-align: inherit;">版本，</font><font style="vertical-align: inherit;">其中结构被定义为明确的公开访问级别。</font><font style="vertical-align: inherit;">因此，结构的成员（包括</font></font><code class="code-voice">numberOfEdits</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性）默认具有内部访问级别。</font><font style="vertical-align: inherit;">您可以将结构的</font></font><code class="code-voice">numberOfEdits</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性getter公众，它的属性setter私人，通过合并</font></font><code class="code-voice">public</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">private(set)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问级别修饰符：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">public</span> <span class="kt">struct</span> <span class="vc">TrackedString</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">public</span> <span class="kt">private(set)</span> <span class="kt">var</span> <span class="vc">numberOfEdits</span> = <span class="m">0</span></code></li>
+            <li><code class="code-voice">    <span class="kt">public</span> <span class="kt">var</span> <span class="vc">value</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span> = <span class="s">""</span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">didSet</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">numberOfEdits</span> += <span class="m">1</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">public</span> <span class="kt">init</span>() {}</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID19"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">初始化器</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  可以为自定义初始化程序分配一个小于或等于它们初始化的类型的访问级别。</font><font style="vertical-align: inherit;">唯一的例外是所需的初始化器（如</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID231" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH18-ID231"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">必需的初始化</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">器中定义的</font><font style="vertical-align: inherit;">）。</font><font style="vertical-align: inherit;">必需的初始化程序必须具有与其所属的类相同的访问级别。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  与函数和方法参数一样，初始值设定项参数的类型不能比初始值设定项自身的访问级别更私有。
+</font></font></p>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID20"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">默认初始化程序</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID213" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH18-ID213"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Default Initializers中所述</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，Swift会自动</font><font style="vertical-align: inherit;">为任何结构或基类</font><font style="vertical-align: inherit;">提供一个</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">默认初始化程序</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，该</font><em><font style="vertical-align: inherit;">初始化程序</font></em><font style="vertical-align: inherit;">不为任何属性提供默认值，也不提供至少一个初始化程序本身。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  默认初始化程序与它初始化的类型具有相同的访问级别，除非该类型被定义为</font></font><code class="code-voice">public</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">对于被定义为的类型，</font></font><code class="code-voice">public</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">默认初始化程序被认为是内部的。</font><font style="vertical-align: inherit;">如果您希望公共类型在使用另一个模块时使用无参数初始值设定项进行初始化，则您必须明确提供一个公共无参数初始值设定项，作为该类型定义的一部分。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID21"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">结构类型的默认成员初始化器</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果结构的任何存储属性都是私有的，则结构类型的默认成员初始值设定项会被视为私有。</font><font style="vertical-align: inherit;">同样，如果任何结构的存储属性都是文件私有的，则初始化程序是文件私有的。</font><font style="vertical-align: inherit;">否则，初始化程序具有内部访问级别。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  与上面的默认初始化程序一样，如果您希望在另一个模块中使用公共结构类型时可以使用成员初始化程序进行初始化，您必须自己提供一个公共成员初始化程序，作为类型定义的一部分。
+</font></font></p>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID22"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协议</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果要为协议类型指定明确的访问级别，请在定义协议的位置执行此操作。</font><font style="vertical-align: inherit;">这使您可以创建只能在特定访问上下文中采用的协议。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  协议定义中每个需求的访问级别会自动设置为与协议相同的访问级别。</font><font style="vertical-align: inherit;">您不能将协议要求设置为与其支持的协议不同的访问级别。</font><font style="vertical-align: inherit;">这确保了所有协议的要求都可以在任何采用该协议的类型上看到。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-NoLink_202"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果您定义了一个公共协议，那么协议的要求在这些要求实施时需要公共访问级别。</font><font style="vertical-align: inherit;">这种行为不同于其他类型，其中公共类型定义意味着类型成员的内部访问级别。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID23"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协议继承</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您定义了一个从现有协议继承的新协议，那么新协议最多可以拥有与其从中继承的协议相同的访问级别。</font><font style="vertical-align: inherit;">例如，您不能编写从内部协议继承的公共协议。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID24"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协议一致性</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  一种类型可以符合比类型本身具有更低访问级别的协议。</font><font style="vertical-align: inherit;">例如，您可以定义可用于其他模块的公共类型，但其内部协议的一致性只能在内部协议的定义模块中使用。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  类型符合特定协议的上下文是类型访问级别和协议访问级别的最小值。</font><font style="vertical-align: inherit;">如果一个类型是公共的，但它符合的协议是内部的，那么这个协议的类型也是内部的。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  当您编写或扩展某个类型以符合协议时，您必须确保每个协议要求的类型实现至少具有与该协议类型一致的访问级别。</font><font style="vertical-align: inherit;">例如，如果公共类型符合内部协议，则每个协议要求的类型实现必须至少为“内部”。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-NoLink_203"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在Swift中，和Objective-C一样，协议一致性是全局的 - 在同一个程序中，类型不可能以两种不同的方式符合协议。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID25"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扩展</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以在类，结构或枚举可用的任何访问上下文中扩展类，结构或枚举。</font><font style="vertical-align: inherit;">在扩展中添加的任何类型成员与在扩展的原始类型中声明的类型成员具有相同的默认访问级别。</font><font style="vertical-align: inherit;">如果您扩展公共或内部类型，则添加的任何新类型成员都具有内部的默认访问级别。</font><font style="vertical-align: inherit;">如果扩展文件私有类型，则添加的任何新类型成员都具有私有文件的默认访问级别。</font><font style="vertical-align: inherit;">如果您扩展私有类型，则您添加的任何新类型成员都具有私有默认访问级别。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  或者，您可以使用明确的访问级别修饰符（例如，</font></font><code class="code-voice">private extension</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）为</font><font style="vertical-align: inherit;">扩展名标记扩展名，</font><font style="vertical-align: inherit;">以便为扩展名中定义的所有成员设置新的默认访问级别。</font><font style="vertical-align: inherit;">这个新的默认值仍然可以在个别类型成员的扩展名中被覆盖。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您使用该扩展来添加协议一致性，则不能为扩展提供明确的访问级别修饰符。</font><font style="vertical-align: inherit;">相反，协议自己的访问级别用于为扩展中的每个协议需求实现提供默认访问级别。
+</font></font></p>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID559"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">私人会员在扩展</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  与它们扩展的类，结构或枚举位于同一个文件中的扩展的行为就好像扩展中的代码已被写入原始类型声明的一部分一样。</font><font style="vertical-align: inherit;">因此，您可以：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在原始声明中声明私有成员，并从同一文件的扩展中访问该成员。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在一个扩展中声明私有成员，并从同一文件中的另一个扩展访问该成员。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在扩展中声明一个私有成员，并从同一个文件的原始声明中访问该成员。
+</font></font></p>
+</li>
+</ul><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这种行为意味着您可以使用扩展以相同的方式组织代码，无论您的类型是否具有私有实体。</font><font style="vertical-align: inherit;">例如，给定以下简单的协议：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">protocol</span> <span class="vc">SomeProtocol</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">doSomething</span>()</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以使用扩展来添加协议一致性，如下所示：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">struct</span> <span class="vc">SomeStruct</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">private</span> <span class="kt">var</span> <span class="vc">privateVariable</span> = <span class="m">12</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">extension</span> <span class="n"><!-- a href="" -->SomeStruct<!-- /a --></span>: <span class="n"><!-- a href="" -->SomeProtocol<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">doSomething</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="vc">privateVariable</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID26"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">泛型</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  泛型类型或泛型函数的访问级别是泛型类型或函数本身的访问级别以及其类型参数的任何类型限制的访问级别的最小值。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-ID27"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型别名</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  出于访问控制的目的，您定义的任何类型别名都被视为不同的类型。</font><font style="vertical-align: inherit;">类型别名可以具有小于或等于其别名类型的访问级别的访问级别。</font><font style="vertical-align: inherit;">例如，私有类型别名可以使用私有类型，文件私有类型，内部类型，公共类型或开放类型，但公用类型别名不能使用内部类型，文件私有类型或私有类型。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH41-NoLink_204"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此规则也适用于用于满足协议一致性的关联类型的类型别名。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  
+</section>
+
+  	
+ 	<section id="next_previous" class="">
+    		<p class="previous-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID567" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH46-ID567"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内存安全</font></font></a></p>
+  			<p class="next-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID28" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID28"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级操作员</font></font></a></p>
+
+    <p class="copyright"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright©2018 Apple Inc.保留所有权利。 
+  </font></font><a class="link" href="http://www.apple.com/legal/terms/site.html" target="_blank" rel="external"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用条款</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | 
+  </font></font><a class="link" href="http://www.apple.com/privacy/" target="_blank" rel="external"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">隐私政策</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font><font style="vertical-align: inherit;">更新日期：2018-02-20
+</font></font></p>
+  </section>
+</article>
+
+    </div>
+    <div id="big_button"></div>
+    <footer id="footer">
+  <div class="content-wrapper">
+  	<div id="leave_feedback" class="button" role="button" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反馈</font></font></div>
+  </div>
+  <script src="./The Swift Programming Language (Swift 4.1)_访问控制_files/devpubs-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./The Swift Programming Language (Swift 4.1)_访问控制_files/feedback-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <div id="_omniture_top">
+<!-- SiteCatalyst code version: H.8. Copyright 1997-2006 Omniture, Inc. -->
+<script type="text/javascript">
+/* RSID: */
+var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+</script>
+
+<script type="text/javascript" src="./The Swift Programming Language (Swift 4.1)_访问控制_files/s_code_h.js"></script>
+<script type="text/javascript">
+s.pageName=AC.Tracking.pageName();
+s.channel="www.us.developer"
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+<!-- End SiteCatalyst code version: H.8. -->
+</div>
+
+</footer>
+
+    
+  
+    <div id="blackout">
+    <div id="preload"></div>
+</div>
+<div id="modal" aria-hidden="true">
+    <div id="closebox" tabindex="0" aria-label="Close feedback form" role="button"></div>
+    <div id="sending" class="hidden">
+        <h2 tabindex="0">Sending feedback…</h2>
+        <div id="sending_img"></div>
+    </div>
+    <div id="error" class="hidden">
+        <h2 tabindex="0">We’re sorry, an error has occurred.</h2>
+        <p>Please try submitting your feedback later.</p>
+        <div id="error_icon"></div>
+    </div>
+    <div id="success" class="hidden">
+        <h2 tabindex="0">Thank you for providing feedback!</h2>
+        <p>Your input helps improve our developer documentation.</p>
+        <div id="thank_you_icon"></div>
+    </div>
+    
+    <form id="feedback" action="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#" method="post">
+        <div class="left-leaf">
+            <h2 id="helpful_title" data-asterisk="a1" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这份文件有多大帮助？</font></font></h2>     
+            <sup id="a1" class="asterisk" aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></sup>
+
+            <div id="star_group" role="radiogroup" aria-required="true">
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    很有帮助
+                </font></font></label>
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    有点帮助
+                </font></font></label>
+                <label>
+                    <input class="radio" type="radio" name="helped" value="3"> 
+                    Not helpful
+                </label>
+            </div>
+        </div>
+        <div class="right-leaf">
+            <h2>How can we improve this document?</h2>
+            <div id="improve" class="checkboxes">
+                <label>
+                    <input type="checkbox" name="typo"> 
+                    Fix typos or links
+                </label>
+                <label>
+                    <input type="checkbox" name="infoIncorrect"> 
+                    Fix incorrect information
+                </label>
+                <label>
+                    <input type="checkbox" name="needs_examples"> 
+                    Add or update code samples
+                </label>
+                <label>
+                    <input type="checkbox" name="needs_art"> 
+                    Add or update illustrations
+                </label>
+                <label>
+                    <input type="checkbox" name="missingInfo"> 
+                    Add information about...
+                </label>
+            </div>
+        </div>
+
+        <textarea id="comment" name="problem" cols="70" rows="8" placeholder="Please tell us more about your experience with this document" data-asterisk="a2" required=""></textarea>
+        <sup id="a2" class="asterisk" aria-hidden="true">*</sup>
+
+        <p class="fineprint">
+            <em aria-hidden="true"><span>*</span> Required information</em>
+        </p> 
+
+        <input id="submit" type="button" value="Send">
+
+        <section id="legal">
+            <p>
+                To submit a product bug or enhancement request, please visit the 
+                <a href="https://developer.apple.com/bugreporter/" target="_blank">Bug Reporter</a> 
+                page.
+            </p>
+            <p>
+                Please read <a href="http://www.apple.com/legal/policies/ideas.html" target="_blank">Apple's Unsolicited Idea Submission Policy</a> 
+                before you send us your feedback.
+            </p> 
+        </section>
+    </form>
+</div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./The Swift Programming Language (Swift 4.1)_访问控制_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

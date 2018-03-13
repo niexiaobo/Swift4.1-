@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<!-- saved from url=(0165)https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID245 -->
+<html lang="en" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+  <title>The Swift Programming Language (Swift 4.1): Optional Chaining</title>
+  <link rel="stylesheet" type="text/css" href="./The Swift Programming Language (Swift 4.1)_可选链接_files/style-1.6.3.css">
+  <link rel="stylesheet" type="text/css" href="./The Swift Programming Language (Swift 4.1)_可选链接_files/feedback-1.6.3.css">
+   
+<meta id="j-version" name="j-version" content="">
+<meta id="build" name="build" content="2cff7ac52859143a0b42c92c22d84718">
+<meta id="document-version" name="document-version" content="10.3.3">
+<meta id="book-assignments" name="book-assignments" content="{Type/Guide}, {Topic/Swift}">
+<meta scheme="apple_ref" id="identifier" name="identifier" content="//apple_ref/doc/uid/TP40014097">
+<meta id="chapterId" name="chapterId" content="TP40014097-CH21">
+<meta id="book-title" name="book-title" content="The Swift Programming Language (Swift 4.1)">
+<meta id="book-resource-type" name="book-resource-type" content="Guide">
+<meta id="book-root" name="book-root" content="./">
+<meta id="book-json" name="book-json" content="book.json">
+<meta id="date" name="date" content="2018-02-20">
+<meta id="description" name="description" content="The definitive guide to Swift, Apple’s programming language for building iOS, macOS, watchOS, and tvOS apps.">
+<meta id="IndexTitle" name="IndexTitle" content="">
+<meta id="resources-uri" name="resources-uri" content="../../../../Resources/1277">
+<link id="book-index-page" rel="Start" title="" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html">
+<!-- , next_chapter: next_chapter, previous_chapter: previous_chapter -->
+<link id="next-page" rel="Next" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html">
+<link id="previous-page" rel="Prev" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html">
+<meta id="devcenter" name="devcenter" content="&lt;!-- DEVCENTER_NAME --&gt;">
+<meta id="devcenter-url" name="devcenter-url" content="&lt;!-- DEVCENTER_URL --&gt;">
+<meta id="reflib" name="reflib" content="&lt;!-- REFLIB_NAME --&gt;">
+
+<meta id="xcode-display" name="xcode-display" content="render">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta id="platforms" name="platforms" content="Xcode Developer Tools">
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./The Swift Programming Language (Swift 4.1)_可选链接_files/translateelement.css"></head>
+
+  <body id="conceptual_flow_with_tasks" class="jazz">
+    
+    <header id="ios_header" class="hideOnPrint hideInXcode">
+  <div class="content-wrapper">
+    <p class="header-text">
+    	<a href="https://developer.apple.com/library/content/navigation/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指南和示例代码
+ 		</font></font></a>
+ </p>
+    <p id="wwdr"><img id="apple_logo" src="./The Swift Programming Language (Swift 4.1)_可选链接_files/apple2.png" height="14px" width="12px" aria-hidden="true"><a href="https://developer.apple.com/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发人员</font></font></a></p>
+  </div>
+</header>
+
+    <section id="valence">
+  <div class="content-wrapper">
+    <p id="hierarchial_navigation">
+      <span id="book_title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swift编程语言（Swift 4.1）</font></font></span>
+    </p>
+    <form id="search" class="hideInXcode" method="get" action="https://developer.apple.com/search/index.php" accept-charset="utf-8" autocomplete="off">
+  <input type="search" id="ssi_SearchField" placeholder="Search Guides and Sample Code" name="q" autocomplete="off" tabindex="2">
+</form>
+
+      
+   
+   
+
+
+
+
+    <span class="download-text hideInXcode">
+      <a href="https://itunes.apple.com/us/book/the-swift-programming-language/id1002622538?mt=11"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的iBooks</font></font></a>
+    </span>
+
+    
+
+    <img id="shortstack" src="./The Swift Programming Language (Swift 4.1)_可选链接_files/shortstack_2x.png">
+  </div>
+</section>
+    <div class="content-wrapper">
+      <nav id="navigator" class="book-parts hideInXcode" role="navigation">
+    <ul class="nav-parts">
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH1-ID2" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欢迎来到Swift</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于Swift</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Compatibility.html#//apple_ref/doc/uid/TP40014097-CH45-ID561" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH45-ID561"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版本兼容性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html#//apple_ref/doc/uid/TP40014097-CH2-ID1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH2-ID1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速游览</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH4-ID233" class="part-name nav-part-active open-part">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言指南</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基础</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID60" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH6-ID60"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本操作员</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/StringsAndCharacters.html#//apple_ref/doc/uid/TP40014097-CH7-ID285" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH7-ID285"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字符串和字符</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/CollectionTypes.html#//apple_ref/doc/uid/TP40014097-CH8-ID105" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH8-ID105"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集合类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html#//apple_ref/doc/uid/TP40014097-CH9-ID120" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH9-ID120"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">控制流</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID158" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID158"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html#//apple_ref/doc/uid/TP40014097-CH11-ID94" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH11-ID94"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关闭</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Enumerations.html#//apple_ref/doc/uid/TP40014097-CH12-ID145" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH12-ID145"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">枚举</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-ID82" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH13-ID82"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类和结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Properties.html#//apple_ref/doc/uid/TP40014097-CH14-ID254" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH14-ID254"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Methods.html#//apple_ref/doc/uid/TP40014097-CH15-ID234" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH15-ID234"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Subscripts.html#//apple_ref/doc/uid/TP40014097-CH16-ID305" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH16-ID305"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">标</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Inheritance.html#//apple_ref/doc/uid/TP40014097-CH17-ID193" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH17-ID193"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">遗产</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID203" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH18-ID203"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">初始化</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Deinitialization.html#//apple_ref/doc/uid/TP40014097-CH19-ID142" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH19-ID142"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反初始化</font></font></a>
+              </li>
+              <li class="nav-chapter nav-current-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID245" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH21-ID245"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选链接</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html#//apple_ref/doc/uid/TP40014097-CH42-ID508" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH42-ID508"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">错误处理</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TypeCasting.html#//apple_ref/doc/uid/TP40014097-CH22-ID338" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH22-ID338"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型铸造</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/NestedTypes.html#//apple_ref/doc/uid/TP40014097-CH23-ID242" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH23-ID242"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嵌套类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html#//apple_ref/doc/uid/TP40014097-CH24-ID151" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH24-ID151"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扩展</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html#//apple_ref/doc/uid/TP40014097-CH25-ID267" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH25-ID267"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协议</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Generics.html#//apple_ref/doc/uid/TP40014097-CH26-ID179" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH26-ID179"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">泛型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AutomaticReferenceCounting.html#//apple_ref/doc/uid/TP40014097-CH20-ID48" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH20-ID48"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动引用计数</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/MemorySafety.html#//apple_ref/doc/uid/TP40014097-CH46-ID567" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH46-ID567"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内存安全</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AccessControl.html#//apple_ref/doc/uid/TP40014097-CH41-ID3" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH41-ID3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问控制</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID28" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID28"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级操作员</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH28-ID427" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言参考</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于语言参考</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/LexicalStructure.html#//apple_ref/doc/uid/TP40014097-CH30-ID410" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH30-ID410"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">词汇结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Types.html#//apple_ref/doc/uid/TP40014097-CH31-ID445" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH31-ID445"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Expressions.html#//apple_ref/doc/uid/TP40014097-CH32-ID383" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH32-ID383"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表达式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Statements.html#//apple_ref/doc/uid/TP40014097-CH33-ID428" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH33-ID428"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID351" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH34-ID351"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Attributes.html#//apple_ref/doc/uid/TP40014097-CH35-ID347" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH35-ID347"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Patterns.html#//apple_ref/doc/uid/TP40014097-CH36-ID419" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH36-ID419"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GenericParametersAndArguments.html#//apple_ref/doc/uid/TP40014097-CH37-ID406" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH37-ID406"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通用参数和参数</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html#//apple_ref/doc/uid/TP40014097-CH38-ID458" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH38-ID458"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语法概要</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH39-ID460" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修订记录</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档修订历史</font></font></a>
+              </li>
+          </ul>
+        </li>
+    </ul>
+</nav>
+
+      <menu id="bashful" type="toolbar">
+  <div class="shield"></div>
+  <menuitem id="jump_to" class="menu-bar-item closed">
+  <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在本页</font></font></span>
+  <div class="chevron">
+    <div class="chevy chevron-left"></div>
+    <div class="chevy chevron-right"></div>
+  </div>
+  <menu type="list" class="details">
+      <ul class="list-bullet">
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID246">Optional Chaining as an Alternative to Forced Unwrapping</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID247">Defining Model Classes for Optional Chaining</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID248">Accessing Properties Through Optional Chaining</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID249">Calling Methods Through Optional Chaining</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID250">Accessing Subscripts Through Optional Chaining</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID252">Linking Multiple Levels of Chaining</a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID253">Chaining on Methods with Optional Return Values</a>
+          </li>
+      </ul>
+  </menu>
+</menuitem>
+
+</menu>
+<div class="pixel-line"></div>
+<div class="rubber-band-gap"></div>
+<article class="chapter">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21"></a><a name="//apple_ref/doc/uid/TP40014097-CH21-ID245"></a>
+
+  <h2 class="chapter-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选链接</font></font></h2>
+
+
+  
+  	<section class="section">
+  		<p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选链</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个查询和调用当前可选的属性，方法和下标的过程</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如果可选包含一个值，则属性，方法或下标调用会成功; </font><font style="vertical-align: inherit;">如果可选</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，则返回属性，方法或下标调用</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">多个查询可以链接在一起，并且链条中的任何链接都会优雅地失败</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+<div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-NoLink_150"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swift中的可选链接类似于</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Objective-C中的</font><font style="vertical-align: inherit;">消息传递</font><font style="vertical-align: inherit;">，但是可以适用于任何类型，并且可以检查成功或失败。
+    	</font></font></p>
+    
+  </aside>
+</div>
+
+		</section> 
+
+
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-ID246"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选链接作为强制解包的替代方案</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以通过在</font></font><code class="code-voice">?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">想要调用属性，方法或下标的可选值</font><font style="vertical-align: inherit;">（</font><font style="vertical-align: inherit;">如果可选为非）后面</font><font style="vertical-align: inherit;">放置问号（</font><font style="vertical-align: inherit;">）来</font><font style="vertical-align: inherit;">指定可选链接</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这与</font></font><code class="code-voice">!</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在可选值后</font><font style="vertical-align: inherit;">放置感叹号（</font><font style="vertical-align: inherit;">）以强制展开其值</font><font style="vertical-align: inherit;">相似</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">主要的区别在于，可选链接在可选项时失败</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，而强制解包会在可选项时触发运行时错误</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  为了反映可以对某个</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">调用可选链接的事实</font><font style="vertical-align: inherit;">，即使正在查询的属性，方法或脚标返回非可选值，可选链接调用的结果也始终为可选值。</font><font style="vertical-align: inherit;">您可以使用此可选返回值来检查可选链接调用是否成功（返回的可选值包含值），或者由于</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">链中</font><font style="vertical-align: inherit;">的</font><font style="vertical-align: inherit;">值（返回的可选值是</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">而不成功</font><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  具体而言，可选链接调用的结果与预期返回值的类型相同，但包含在可选项中。</font><font style="vertical-align: inherit;">通常返回的属性</font><font style="vertical-align: inherit;">在通过可选链接访问时</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将返回一个</font><font style="vertical-align: inherit;">属性</font></font><code class="code-voice">Int?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  接下来的几个代码片段演示了可选链接与强制解包的不同之处，并使您能够检查成功。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  首先，</font><font style="vertical-align: inherit;">定义</font><font style="vertical-align: inherit;">两个类</font></font><code class="code-voice">Person</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">定义：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Person</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">residence</span>: <span class="n"><!-- a href="" -->Residence<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Residence</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">numberOfRooms</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  <code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例有一个</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">名为的属性</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，默认值为</font></font><code class="code-voice">1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font><code class="code-voice">Person</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例具有</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型</font><font style="vertical-align: inherit;">的可选</font><font style="vertical-align: inherit;">属性</font></font><code class="code-voice">Residence?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果你创建一个新的</font></font><code class="code-voice">Person</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例，它的</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性默认是初始化的</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，因为它是可选的。</font><font style="vertical-align: inherit;">在下面的代码中，</font></font><code class="code-voice">john</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有一个</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性值</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">john</span> = <span class="vc">Person</span>()</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您试图访问</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此人的属性</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，通过在后面放置一个感叹号</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来强制展开其值，则会触发运行时错误，因为没有</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">要展开的值：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">roomCount</span> = <span class="vc">john</span>.<span class="vc">residence</span>!.<span class="vc">numberOfRooms</span></code></li>
+            <li><code class="code-voice"><span class="c">// this triggers a runtime error</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  上面的代码在</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">具有非</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值时会</font><font style="vertical-align: inherit;">成功</font><font style="vertical-align: inherit;">，并将设置</font></font><code class="code-voice">roomCount</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包含适当房间数的值。</font><font style="vertical-align: inherit;">然而，当该代码始终触发运行时错误</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，如上述所示。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  可选链接提供了另一种访问值的方法</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">要使用可选链接，请使用问号代替感叹号：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">roomCount</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">numberOfRooms</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"John's residence has </span>\(<span class="vc">roomCount</span>)<span class="s"> room(s)."</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Unable to retrieve the number of rooms."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Unable to retrieve the number of rooms."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这告诉Swift在可选</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">上“链接” </font><font style="vertical-align: inherit;">并检索</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">if </font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">exists </font><font style="vertical-align: inherit;">的值</font><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  由于访问尝试</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有可能失败，因此可选的链接尝试返回类型值</font></font><code class="code-voice">Int?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或“可选</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">”。</font><font style="vertical-align: inherit;">如果</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，如上面的例子中，这个可选的</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">也将是</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，反映事实，这是不可能的访问</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">可选的</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是通过可选的结合访问以解开的整数并分配非可选值的</font></font><code class="code-voice">roomCount</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变量。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  请注意，即使</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是非自选的</font><font style="vertical-align: inherit;">，情况也是如此</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">通过可选链查询的事实意味着调用</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将始终返回一个</font></font><code class="code-voice">Int?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">而不是一个</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以将</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例</font><font style="vertical-align: inherit;">分配给</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">它，以便它不再具有</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span> = <span class="vc">Residence</span>()</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  <code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">现在包含一个实际的</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例，而不是</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如果您尝试使用</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与之前相同的可选链接</font><font style="vertical-align: inherit;">进行访问</font><font style="vertical-align: inherit;">，则它将返回一个</font></font><code class="code-voice">Int?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">包含默认</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值的</font></font><code class="code-voice">1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">roomCount</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">numberOfRooms</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"John's residence has </span>\(<span class="vc">roomCount</span>)<span class="s"> room(s)."</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Unable to retrieve the number of rooms."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "John's residence has 1 room(s)."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-ID247"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为可选链定义模型类</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以使用可选的链接调用属性，方法和深度超过一级的下标。</font><font style="vertical-align: inherit;">这使您可以深入查看相关类型的复杂模型中的子属性，并检查是否可以访问这些子属性上的属性，方法和下标。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  以下代码片段定义了四个模型类，以供后续几个示例使用，其中包括多级可选链的示例。</font><font style="vertical-align: inherit;">这些类在所述展开</font></font><code class="code-voice">Person</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过添加模型从上方</font></font><code class="code-voice">Room</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">Address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类，具有相关联的属性，方法，和下标。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这个</font></font><code class="code-voice">Person</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类的定义和以前一样：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Person</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">residence</span>: <span class="n"><!-- a href="" -->Residence<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这个</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">班比以前更复杂。</font><font style="vertical-align: inherit;">这一次，</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类定义了一个名为的变量属性</font></font><code class="code-voice">rooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，它用一个空类型的数组初始化</font></font><code class="code-voice">[Room]</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Residence</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">rooms</span> = [<span class="vc">Room</span>]()</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">numberOfRooms</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">return</span> <span class="vc">rooms</span>.<span class="vc">count</span></code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">subscript</span>(<span class="vc">i</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span>) -&gt; <span class="n"><!-- a href="" -->Room<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">        <span class="kt">get</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">rooms</span>[<span class="vc">i</span>]</code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">        <span class="kt">set</span> {</code></li>
+            <li><code class="code-voice">            <span class="vc">rooms</span>[<span class="vc">i</span>] = <span class="vc">newValue</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">printNumberOfRooms</span>() {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">"The number of rooms is </span>\(<span class="vc">numberOfRooms</span>)<span class="s">"</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">address</span>: <span class="n"><!-- a href="" -->Address<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  由于此版本</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">存储</font></font><code class="code-voice">Room</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例</font><font style="vertical-align: inherit;">数组</font><font style="vertical-align: inherit;">，因此其</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性将作为计算属性实现，而不是存储的属性。</font><font style="vertical-align: inherit;">计算</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性只是返回</font><font style="vertical-align: inherit;">数组中</font></font><code class="code-voice">count</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">的值</font></font><code class="code-voice">rooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  作为访问其</font></font><code class="code-voice">rooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数组</font><font style="vertical-align: inherit;">的快捷方式</font><font style="vertical-align: inherit;">，此版本</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提供了一个读写下标，可在</font></font><code class="code-voice">rooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数组中</font><font style="vertical-align: inherit;">请求的索引处访问该房间</font><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这个版本</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">也提供了一个叫做的方法</font></font><code class="code-voice">printNumberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，它只是打印房间的房间数量。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  最后，</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">定义一个可选属性，名称为</font></font><code class="code-voice">address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，类型为</font></font><code class="code-voice">Address?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font><code class="code-voice">Address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下面定义了此属性</font><font style="vertical-align: inherit;">的</font><font style="vertical-align: inherit;">类类型。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在</font></font><code class="code-voice">Room</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于类</font></font><code class="code-voice">rooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">阵列是简单的类与一种属性调用</font></font><code class="code-voice">name</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，以及一个初始值设定到该属性设置为一个合适的房间名称：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Room</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span></code></li>
+            <li><code class="code-voice">    <span class="kt">init</span>(<span class="vc">name</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>) { <span class="kt">self</span>.<span class="vc">name</span> = <span class="vc">name</span> }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这个模型中的最后一个类被调用</font></font><code class="code-voice">Address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这个类有三个可选的类型属性</font></font><code class="code-voice">String?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">前两个特性，</font></font><code class="code-voice">buildingName</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">buildingNumber</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，的替代方式，以识别特定建筑物作为地址的一部分。</font><font style="vertical-align: inherit;">第三个属性，</font></font><code class="code-voice">street</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于为该地址命名街道：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">class</span> <span class="vc">Address</span> {</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">buildingName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">buildingNumber</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">var</span> <span class="vc">street</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?</code></li>
+            <li><code class="code-voice">    <span class="kt">func</span> <span class="vc">buildingIdentifier</span>() -&gt; <span class="n"><!-- a href="" -->String<!-- /a --></span>? {</code></li>
+            <li><code class="code-voice">        <span class="kt">if</span> <span class="kt">let</span> <span class="vc">buildingNumber</span> = <span class="vc">buildingNumber</span>, <span class="kt">let</span> <span class="vc">street</span> = <span class="vc">street</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="s">"</span>\(<span class="vc">buildingNumber</span>)<span class="s"> </span>\(<span class="vc">street</span>)<span class="s">"</span></code></li>
+            <li><code class="code-voice">        } <span class="kt">else</span> <span class="kt">if</span> <span class="vc">buildingName</span> != <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="vc">buildingName</span></code></li>
+            <li><code class="code-voice">        } <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">            <span class="kt">return</span> <span class="kt">nil</span></code></li>
+            <li><code class="code-voice">        }</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  所述</font></font><code class="code-voice">Address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类还提供了一个名为方法</font></font><code class="code-voice">buildingIdentifier()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，其具有的返回类型</font></font><code class="code-voice">String?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">此方法检查地址的属性，</font></font><code class="code-voice">buildingName</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果它有值，则</font><font style="vertical-align: inherit;">返回</font></font><code class="code-voice">buildingNumber</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">; </font></font><code class="code-voice">street</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果两者都有值，则将其</font><font style="vertical-align: inherit;">连接</font><font style="vertical-align: inherit;">; </font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">否则</font><font style="vertical-align: inherit;">返回</font><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-ID248"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过可选链访问属性</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  正如在</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID246" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH21-ID246"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">链中</font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID246" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH21-ID246"><font style="vertical-align: inherit;">作为强制解包的替代方法</font></a></span><font style="vertical-align: inherit;">所演示的</font><font style="vertical-align: inherit;">，您可以使用可选链来访问可选值上的属性，并检查该属性访问是否成功。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  使用上面定义的类创建一个新</font></font><code class="code-voice">Person</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例，并</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">像以前一样</font><font style="vertical-align: inherit;">尝试访问它的</font><font style="vertical-align: inherit;">属性：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">john</span> = <span class="vc">Person</span>()</code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">roomCount</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">numberOfRooms</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"John's residence has </span>\(<span class="vc">roomCount</span>)<span class="s"> room(s)."</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Unable to retrieve the number of rooms."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Unable to retrieve the number of rooms."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  因为</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，这个可选的链式调用失败的方式和以前一样。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您还可以尝试通过可选的链接来设置属性的值：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">someAddress</span> = <span class="vc">Address</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">someAddress</span>.<span class="vc">buildingNumber</span> = <span class="s">"29"</span></code></li>
+            <li><code class="code-voice"><span class="vc">someAddress</span>.<span class="vc">street</span> = <span class="s">"Acacia Road"</span></code></li>
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span> = <span class="vc">someAddress</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在这个例子中，设置</font></font><code class="code-voice">address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">的尝试</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">会失败，因为</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当前是</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  赋值是可选链接的一部分，这意味着</font></font><code class="code-voice">=</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">操作符</font><font style="vertical-align: inherit;">右侧没有任何代码</font><font style="vertical-align: inherit;">被评估。</font><font style="vertical-align: inherit;">在前面的例子中，不容易发现它</font></font><code class="code-voice">someAddress</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从来没有被评估过，因为访问一个常量没有任何副作用。</font><font style="vertical-align: inherit;">下面的列表进行相同的分配，但它使用一个函数来创建地址。</font><font style="vertical-align: inherit;">在返回一个值之前，该函数会打印“函数被调用”，从而可以查看是否</font></font><code class="code-voice">=</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">评估</font><font style="vertical-align: inherit;">了</font><font style="vertical-align: inherit;">操作符</font><font style="vertical-align: inherit;">的右侧</font><font style="vertical-align: inherit;">。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">createAddress</span>() -&gt; <span class="n"><!-- a href="" -->Address<!-- /a --></span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Function was called."</span>)</code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">let</span> <span class="vc">someAddress</span> = <span class="vc">Address</span>()</code></li>
+            <li><code class="code-voice">    <span class="vc">someAddress</span>.<span class="vc">buildingNumber</span> = <span class="s">"29"</span></code></li>
+            <li><code class="code-voice">    <span class="vc">someAddress</span>.<span class="vc">street</span> = <span class="s">"Acacia Road"</span></code></li>
+            <li><code class="code-voice">    </code></li>
+            <li><code class="code-voice">    <span class="kt">return</span> <span class="vc">someAddress</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span> = <span class="vc">createAddress</span>()</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以知道该</font></font><code class="code-voice">createAddress()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数未被调用，因为没有打印任何内容。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-ID249"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过可选链接调用方法</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以使用可选的链接来调用可选值的方法，并检查该方法调用是否成功。</font><font style="vertical-align: inherit;">即使该方法未定义返回值，也可以执行此操作。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在</font></font><code class="code-voice">printNumberOfRooms()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对方法</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类打印的当前值</font></font><code class="code-voice">numberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">以下是该方法的外观：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">func</span> <span class="vc">printNumberOfRooms</span>() {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"The number of rooms is </span>\(<span class="vc">numberOfRooms</span>)<span class="s">"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  此方法不指定返回类型。</font><font style="vertical-align: inherit;">但是，没有返回类型的函数和方法具有隐式返回类型</font></font><code class="code-voice">Void</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，如</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Functions.html#//apple_ref/doc/uid/TP40014097-CH10-ID163" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID163"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">函数无返回值中所述</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这意味着它们返回一个值</font></font><code class="code-voice">()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，或者一个空元组。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果使用可选链接调用此方法的可选值，则该方法的返回类型将</font></font><code class="code-voice">Void?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不是</font></font><code class="code-voice">Void</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，因为通过可选链接调用时，返回值始终为可选类型。</font><font style="vertical-align: inherit;">这使您可以使用</font></font><code class="code-voice">if</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语句来检查是否可以调用该</font></font><code class="code-voice">printNumberOfRooms()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法，即使该方法本身没有定义返回值。</font><font style="vertical-align: inherit;">比较来自</font></font><code class="code-voice">printNumberOfRooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">调用</font><font style="vertical-align: inherit;">的返回值</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以查看方法调用是否成功：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">printNumberOfRooms</span>() != <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"It was possible to print the number of rooms."</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"It was not possible to print the number of rooms."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "It was not possible to print the number of rooms."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您尝试通过可选链接设置属性，情况也是如此。</font><font style="vertical-align: inherit;">上面</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#//apple_ref/doc/uid/TP40014097-CH21-ID248" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH21-ID248"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过可选链访问属性</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的示例</font><font style="vertical-align: inherit;">尝试为其设置</font></font><code class="code-voice">address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，即使该</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性为</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">任何通过可选链设置属性的尝试都会返回一个类型值</font></font><code class="code-voice">Void?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，这使您可以比较</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">以查看属性是否设置成功：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> (<span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span> = <span class="vc">someAddress</span>) != <span class="kt">nil</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"It was possible to set the address."</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"It was not possible to set the address."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "It was not possible to set the address."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-ID250"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过可选链访问下标</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以使用可选链来尝试从可选值上的下标中检索和设置值，并检查该下标调用是否成功。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-NoLink_151"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当通过可选链接访问可选值上的下标时，可将问号</font><font style="vertical-align: inherit;">放在下标的括号</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">之前</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，而不是之后。</font><font style="vertical-align: inherit;">可选的链接问号总是紧跟在可选表达式的部分之后。
+    	</font></font></p>
+    
+  </aside>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面的示例尝试</font><font style="vertical-align: inherit;">使用</font><font style="vertical-align: inherit;">类</font><font style="vertical-align: inherit;">上定义的下标</font><font style="vertical-align: inherit;">来检索</font><font style="vertical-align: inherit;">属性</font></font><code class="code-voice">rooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数组中</font><font style="vertical-align: inherit;">第一个房间的名称</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">因为</font><font style="vertical-align: inherit;">目前</font><font style="vertical-align: inherit;">，下标呼叫失败：
+</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">firstRoomName</span> = <span class="vc">john</span>.<span class="vc">residence</span>?[<span class="m">0</span>].<span class="vc">name</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"The first room name is </span>\(<span class="vc">firstRoomName</span>)<span class="s">."</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Unable to retrieve the first room name."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Unable to retrieve the first room name."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  此下标调用中的可选链接问号紧接</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在下标括号之前，因为它</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是可选链接尝试的可选值。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  同样，您可以尝试通过带有可选链接的下标来设置新值：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span>?[<span class="m">0</span>] = <span class="vc">Room</span>(<span class="vc">name</span>: <span class="s">"Bathroom"</span>)</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  此下标设置尝试也失败，因为</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目前</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果创建实际</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例</font><font style="vertical-align: inherit;">并将其分配给</font><font style="vertical-align: inherit;">数组中的</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一个或多个</font></font><code class="code-voice">Room</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例</font></font><code class="code-voice">rooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，则可以使用</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">下标</font></font><code class="code-voice">rooms</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过可选链</font><font style="vertical-align: inherit;">访问</font><font style="vertical-align: inherit;">数组中</font><font style="vertical-align: inherit;">的实际项目</font><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">johnsHouse</span> = <span class="vc">Residence</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">johnsHouse</span>.<span class="vc">rooms</span>.<span class="vc">append</span>(<span class="vc">Room</span>(<span class="vc">name</span>: <span class="s">"Living Room"</span>))</code></li>
+            <li><code class="code-voice"><span class="vc">johnsHouse</span>.<span class="vc">rooms</span>.<span class="vc">append</span>(<span class="vc">Room</span>(<span class="vc">name</span>: <span class="s">"Kitchen"</span>))</code></li>
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span> = <span class="vc">johnsHouse</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">firstRoomName</span> = <span class="vc">john</span>.<span class="vc">residence</span>?[<span class="m">0</span>].<span class="vc">name</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"The first room name is </span>\(<span class="vc">firstRoomName</span>)<span class="s">."</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Unable to retrieve the first room name."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "The first room name is Living Room."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-ID251"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问可选类型的下标</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果下标返回可选类型的值（例如Swift </font></font><code class="code-voice">Dictionary</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型</font><font style="vertical-align: inherit;">的键下标），则在下</font><font style="vertical-align: inherit;">标的闭括号</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">之后</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">放置一个问号</font><font style="vertical-align: inherit;">以链接其可选返回值：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">testScores</span> = [<span class="s">"Dave"</span>: [<span class="m">86</span>, <span class="m">82</span>, <span class="m">84</span>], <span class="s">"Bev"</span>: [<span class="m">79</span>, <span class="m">94</span>, <span class="m">81</span>]]</code></li>
+            <li><code class="code-voice"><span class="vc">testScores</span>[<span class="s">"Dave"</span>]?[<span class="m">0</span>] = <span class="m">91</span></code></li>
+            <li><code class="code-voice"><span class="vc">testScores</span>[<span class="s">"Bev"</span>]?[<span class="m">0</span>] += <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="vc">testScores</span>[<span class="s">"Brian"</span>]?[<span class="m">0</span>] = <span class="m">72</span></code></li>
+            <li><code class="code-voice"><span class="c">// the "Dave" array is now [91, 82, 84] and the "Bev" array is now [80, 94, 81]</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  上面的例子定义了一个名为的字典</font></font><code class="code-voice">testScores</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，其中包含两个将键映射</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">到</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">数组的</font><font style="vertical-align: inherit;">键 - 值对</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">该示例使用可选的链接将</font></font><code class="code-voice">"Dave"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数组中</font><font style="vertical-align: inherit;">的第一项设置</font><font style="vertical-align: inherit;">为</font></font><code class="code-voice">91</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">; </font><font style="vertical-align: inherit;">通过增加</font></font><code class="code-voice">"Bev"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数组中</font><font style="vertical-align: inherit;">的第一项</font></font><code class="code-voice">1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">; </font><font style="vertical-align: inherit;">并尝试将数组中的第一项设置为一个键</font></font><code class="code-voice">"Brian"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">前两个调用成功，因为该</font></font><code class="code-voice">testScores</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字典包含</font></font><code class="code-voice">"Dave"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和的</font><font style="vertical-align: inherit;">键</font></font><code class="code-voice">"Bev"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">第三次调用失败，因为</font></font><code class="code-voice">testScores</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字典中不包含关键字</font></font><code class="code-voice">"Brian"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-ID252"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">链接多个级别的链接</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以将多个可选链接级别链接在一起，以深入到模型中更深的属性，方法和下标。</font><font style="vertical-align: inherit;">但是，多级可选链接不会为返回的值增加更多级别的可选性。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  换一种方式：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您尝试检索的类型不是可选的，则由于可选的链接，它将变为可选。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您尝试检索的类型</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">已经</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font><font style="vertical-align: inherit;">可选的，则</font><font style="vertical-align: inherit;">由于链接</font><font style="vertical-align: inherit;">，它将不会变得</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更加</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选。
+</font></font></p>
+</li>
+</ul><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  因此：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果尝试</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过可选链接</font><font style="vertical-align: inherit;">检索</font><font style="vertical-align: inherit;">值，</font></font><code class="code-voice">Int?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">则无论使用多少级别的链接，总会返回</font><font style="vertical-align: inherit;">一个</font><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">。
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  同样，如果您尝试</font></font><code class="code-voice">Int?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过可选链接</font><font style="vertical-align: inherit;">检索</font><font style="vertical-align: inherit;">值，</font></font><code class="code-voice">Int?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">则无论使用多少级别的链接，总会返回</font><font style="vertical-align: inherit;">一个</font><font style="vertical-align: inherit;">值</font><font style="vertical-align: inherit;">。
+</font></font></p>
+</li>
+</ul><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面的例子试图访问</font></font><code class="code-voice">street</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该财产</font></font><code class="code-voice">address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的财产</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的性质</font></font><code class="code-voice">john</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这里有</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">两个</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选的链接级别来链接</font></font><code class="code-voice">residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性，它们都是可选的类型：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">johnsStreet</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span>?.<span class="vc">street</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"John's street name is </span>\(<span class="vc">johnsStreet</span>)<span class="s">."</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Unable to retrieve the address."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Unable to retrieve the address."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当前</font><font style="vertical-align: inherit;">
+  的值</font><font style="vertical-align: inherit;">包含一个有效的</font></font><code class="code-voice">Residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例。</font><font style="vertical-align: inherit;">但是，</font></font><code class="code-voice">john.residence.address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">目前</font><font style="vertical-align: inherit;">的价值</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">因此，呼叫</font></font><code class="code-voice">john.residence?.address?.street</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">失败。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  请注意，在上面的示例中，您试图检索该</font></font><code class="code-voice">street</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">的值</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这个属性的类型是</font></font><code class="code-voice">String?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font><code class="code-voice">john.residence?.address?.street</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因此</font></font><code class="code-voice">String?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，即使除了属性的基础可选类型之外还应用了两个可选链接级别，</font><font style="vertical-align: inherit;">返回值</font><font style="vertical-align: inherit;">也是</font><font style="vertical-align: inherit;">如此。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您将实际</font></font><code class="code-voice">Address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例</font><font style="vertical-align: inherit;">设置</font><font style="vertical-align: inherit;">为值</font></font><code class="code-voice">john.residence.address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并为该地址的</font></font><code class="code-voice">street</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">设置实际值，则</font><font style="vertical-align: inherit;">可以</font></font><code class="code-voice">street</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通过多级可选链</font><font style="vertical-align: inherit;">访问该</font><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">的值</font><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">johnsAddress</span> = <span class="vc">Address</span>()</code></li>
+            <li><code class="code-voice"><span class="vc">johnsAddress</span>.<span class="vc">buildingName</span> = <span class="s">"The Larches"</span></code></li>
+            <li><code class="code-voice"><span class="vc">johnsAddress</span>.<span class="vc">street</span> = <span class="s">"Laurel Street"</span></code></li>
+            <li><code class="code-voice"><span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span> = <span class="vc">johnsAddress</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">johnsStreet</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span>?.<span class="vc">street</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"John's street name is </span>\(<span class="vc">johnsStreet</span>)<span class="s">."</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Unable to retrieve the address."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "John's street name is Laurel Street."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在这个例子中，设置</font></font><code class="code-voice">address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font><font style="vertical-align: inherit;">的尝试</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">会成功，因为</font></font><code class="code-voice">john.residence</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">当前</font><font style="vertical-align: inherit;">的值</font><font style="vertical-align: inherit;">包含有效的</font></font><code class="code-voice">Address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">实例。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-ID253"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">链接可选返回值的方法</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  前面的示例演示如何通过可选链接检索可选类型的属性的值。</font><font style="vertical-align: inherit;">您还可以使用可选链来调用返回可选类型值的方法，并根据需要链接该方法的返回值。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面的例子</font><font style="vertical-align: inherit;">通过可选链接</font><font style="vertical-align: inherit;">调用</font></font><code class="code-voice">Address</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类的</font></font><code class="code-voice">buildingIdentifier()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法。</font><font style="vertical-align: inherit;">这个方法返回一个类型的值</font></font><code class="code-voice">String?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如上所述，在可选链之后调用此方法的最终返回类型也是</font></font><code class="code-voice">String?</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">buildingIdentifier</span> = <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span>?.<span class="vc">buildingIdentifier</span>() {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"John's building identifier is </span>\(<span class="vc">buildingIdentifier</span>)<span class="s">."</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "John's building identifier is The Larches."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果你想在这个方法的返回值进行进一步的可选链接，将链接可选问号</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">后，</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">该方法的括号：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="kt">let</span> <span class="vc">beginsWithThe</span> =</code></li>
+            <li><code class="code-voice">    <span class="vc">john</span>.<span class="vc">residence</span>?.<span class="vc">address</span>?.<span class="vc">buildingIdentifier</span>()?.<span class="vc">hasPrefix</span>(<span class="s">"The"</span>) {</code></li>
+            <li><code class="code-voice">    <span class="kt">if</span> <span class="vc">beginsWithThe</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">"John's building identifier begins with \"The\"."</span>)</code></li>
+            <li><code class="code-voice">    } <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">        <span class="vc">print</span>(<span class="s">"John's building identifier does not begin with \"The\"."</span>)</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "John's building identifier begins with "The"."</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH21-NoLink_152"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在上面的例子中，您将可选链接问号</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">后</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的括号内，因为你要串联上可选的值是</font></font><code class="code-voice">buildingIdentifier()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法的返回值，而不是</font></font><code class="code-voice">buildingIdentifier()</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法本身。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  
+</section>
+
+  	
+ 	<section id="next_previous" class="">
+    		<p class="previous-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Deinitialization.html#//apple_ref/doc/uid/TP40014097-CH19-ID142" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH19-ID142"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反初始化</font></font></a></p>
+  			<p class="next-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ErrorHandling.html#//apple_ref/doc/uid/TP40014097-CH42-ID508" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH42-ID508"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">错误处理</font></font></a></p>
+
+    <p class="copyright"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright©2018 Apple Inc.保留所有权利。 
+  </font></font><a class="link" href="http://www.apple.com/legal/terms/site.html" target="_blank" rel="external"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用条款</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | 
+  </font></font><a class="link" href="http://www.apple.com/privacy/" target="_blank" rel="external"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">隐私政策</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font><font style="vertical-align: inherit;">更新日期：2018-02-20
+</font></font></p>
+  </section>
+</article>
+
+    </div>
+    <div id="big_button"></div>
+    <footer id="footer">
+  <div class="content-wrapper">
+  	<div id="leave_feedback" class="button" role="button" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反馈</font></font></div>
+  </div>
+  <script src="./The Swift Programming Language (Swift 4.1)_可选链接_files/devpubs-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./The Swift Programming Language (Swift 4.1)_可选链接_files/feedback-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <div id="_omniture_top">
+<!-- SiteCatalyst code version: H.8. Copyright 1997-2006 Omniture, Inc. -->
+<script type="text/javascript">
+/* RSID: */
+var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+</script>
+
+<script type="text/javascript" src="./The Swift Programming Language (Swift 4.1)_可选链接_files/s_code_h.js"></script>
+<script type="text/javascript">
+s.pageName=AC.Tracking.pageName();
+s.channel="www.us.developer"
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+<!-- End SiteCatalyst code version: H.8. -->
+</div>
+
+</footer>
+
+    
+  
+    <div id="blackout">
+    <div id="preload"></div>
+</div>
+<div id="modal" aria-hidden="true">
+    <div id="closebox" tabindex="0" aria-label="Close feedback form" role="button"></div>
+    <div id="sending" class="hidden">
+        <h2 tabindex="0">Sending feedback…</h2>
+        <div id="sending_img"></div>
+    </div>
+    <div id="error" class="hidden">
+        <h2 tabindex="0">We’re sorry, an error has occurred.</h2>
+        <p>Please try submitting your feedback later.</p>
+        <div id="error_icon"></div>
+    </div>
+    <div id="success" class="hidden">
+        <h2 tabindex="0">Thank you for providing feedback!</h2>
+        <p>Your input helps improve our developer documentation.</p>
+        <div id="thank_you_icon"></div>
+    </div>
+    
+    <form id="feedback" action="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/OptionalChaining.html#" method="post">
+        <div class="left-leaf">
+            <h2 id="helpful_title" data-asterisk="a1" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这份文件有多大帮助？</font></font></h2>     
+            <sup id="a1" class="asterisk" aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></sup>
+
+            <div id="star_group" role="radiogroup" aria-required="true">
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    很有帮助
+                </font></font></label>
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    有点帮助
+                </font></font></label>
+                <label>
+                    <input class="radio" type="radio" name="helped" value="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    没有帮助
+                </font></font></label>
+            </div>
+        </div>
+        <div class="right-leaf">
+            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们如何改进这个文件？</font></font></h2>
+            <div id="improve" class="checkboxes">
+                <label>
+                    <input type="checkbox" name="typo"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    修正错别字或链接
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="infoIncorrect"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    修正错误的信息
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="needs_examples"> 
+                    Add or update code samples
+                </label>
+                <label>
+                    <input type="checkbox" name="needs_art"> 
+                    Add or update illustrations
+                </label>
+                <label>
+                    <input type="checkbox" name="missingInfo"> 
+                    Add information about...
+                </label>
+            </div>
+        </div>
+
+        <textarea id="comment" name="problem" cols="70" rows="8" placeholder="Please tell us more about your experience with this document" data-asterisk="a2" required=""></textarea>
+        <sup id="a2" class="asterisk" aria-hidden="true">*</sup>
+
+        <p class="fineprint">
+            <em aria-hidden="true"><span>*</span> Required information</em>
+        </p> 
+
+        <input id="submit" type="button" value="Send">
+
+        <section id="legal">
+            <p>
+                To submit a product bug or enhancement request, please visit the 
+                <a href="https://developer.apple.com/bugreporter/" target="_blank">Bug Reporter</a> 
+                page.
+            </p>
+            <p>
+                Please read <a href="http://www.apple.com/legal/policies/ideas.html" target="_blank">Apple's Unsolicited Idea Submission Policy</a> 
+                before you send us your feedback.
+            </p> 
+        </section>
+    </form>
+</div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./The Swift Programming Language (Swift 4.1)_可选链接_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>

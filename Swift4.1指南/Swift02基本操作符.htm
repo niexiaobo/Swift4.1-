@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<!-- saved from url=(0161)https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID60 -->
+<html lang="en" class="translated-ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+  <title>Swift编程语言（Swift 4.1）：基本操作符</title>
+  <link rel="stylesheet" type="text/css" href="./Swift编程语言（Swift 4.1）：基本操作符_files/style-1.6.3.css">
+  <link rel="stylesheet" type="text/css" href="./Swift编程语言（Swift 4.1）：基本操作符_files/feedback-1.6.3.css">
+   
+<meta id="j-version" name="j-version" content="">
+<meta id="build" name="build" content="2cff7ac52859143a0b42c92c22d84718">
+<meta id="document-version" name="document-version" content="10.3.3">
+<meta id="book-assignments" name="book-assignments" content="{Type/Guide}, {Topic/Swift}">
+<meta scheme="apple_ref" id="identifier" name="identifier" content="//apple_ref/doc/uid/TP40014097">
+<meta id="chapterId" name="chapterId" content="TP40014097-CH6">
+<meta id="book-title" name="book-title" content="The Swift Programming Language (Swift 4.1)">
+<meta id="book-resource-type" name="book-resource-type" content="Guide">
+<meta id="book-root" name="book-root" content="./">
+<meta id="book-json" name="book-json" content="book.json">
+<meta id="date" name="date" content="2018-02-20">
+<meta id="description" name="description" content="The definitive guide to Swift, Apple’s programming language for building iOS, macOS, watchOS, and tvOS apps.">
+<meta id="IndexTitle" name="IndexTitle" content="">
+<meta id="resources-uri" name="resources-uri" content="../../../../Resources/1277">
+<link id="book-index-page" rel="Start" title="" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html">
+<!-- , next_chapter: next_chapter, previous_chapter: previous_chapter -->
+<link id="next-page" rel="Next" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html">
+<link id="previous-page" rel="Prev" type="text/html" href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html">
+<meta id="devcenter" name="devcenter" content="&lt;!-- DEVCENTER_NAME --&gt;">
+<meta id="devcenter-url" name="devcenter-url" content="&lt;!-- DEVCENTER_URL --&gt;">
+<meta id="reflib" name="reflib" content="&lt;!-- REFLIB_NAME --&gt;">
+
+<meta id="xcode-display" name="xcode-display" content="render">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta id="platforms" name="platforms" content="Xcode Developer Tools">
+<link type="text/css" rel="stylesheet" charset="UTF-8" href="./Swift编程语言（Swift 4.1）：基本操作符_files/translateelement.css"></head>
+
+  <body id="conceptual_flow_with_tasks" class="jazz">
+    
+    <header id="ios_header" class="hideOnPrint hideInXcode">
+  <div class="content-wrapper">
+    <p class="header-text">
+    	<a href="https://developer.apple.com/library/content/navigation/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">指南和示例代码
+ 		</font></font></a>
+ </p>
+    <p id="wwdr"><img id="apple_logo" src="./Swift编程语言（Swift 4.1）：基本操作符_files/apple2.png" height="14px" width="12px" aria-hidden="true"><a href="https://developer.apple.com/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发人员</font></font></a></p>
+  </div>
+</header>
+
+    <section id="valence">
+  <div class="content-wrapper">
+    <p id="hierarchial_navigation">
+      <span id="book_title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swift编程语言（Swift 4.1）</font></font></span>
+    </p>
+    <form id="search" class="hideInXcode" method="get" action="https://developer.apple.com/search/index.php" accept-charset="utf-8" autocomplete="off">
+  <input type="search" id="ssi_SearchField" placeholder="Search Guides and Sample Code" name="q" autocomplete="off" tabindex="2">
+</form>
+
+      
+   
+   
+
+
+
+
+    <span class="download-text hideInXcode">
+      <a href="https://itunes.apple.com/us/book/the-swift-programming-language/id1002622538?mt=11"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的iBooks</font></font></a>
+    </span>
+
+    
+
+    <img id="shortstack" src="./Swift编程语言（Swift 4.1）：基本操作符_files/shortstack_2x.png">
+  </div>
+</section>
+    <div class="content-wrapper">
+      <nav id="navigator" class="book-parts hideInXcode" role="navigation">
+    <ul class="nav-parts">
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH1-ID2" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">欢迎来到Swift</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/index.html#//apple_ref/doc/uid/TP40014097-CH3-ID0" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH3-ID0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于Swift</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Compatibility.html#//apple_ref/doc/uid/TP40014097-CH45-ID561" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH45-ID561"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版本兼容性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GuidedTour.html#//apple_ref/doc/uid/TP40014097-CH2-ID1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH2-ID1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">快速游览</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH4-ID233" class="part-name nav-part-active open-part">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言指南</font></font></a>
+         <ul class="nav-chapters">
+              <li class="nav-chapter nav-current-chapter">
+              	<a href="Swift01基础.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基础</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift02基本操作符.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH6-ID60"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本操作员</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift03字符串和字符.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH7-ID285"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字符串和字符</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift04集合类型.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH8-ID105"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">集合类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift05控制流.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH9-ID120"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">控制流</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift06功能.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH10-ID158"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">功能</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift07闭包.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH11-ID94"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关闭</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift08枚举.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH12-ID145"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">枚举</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift09类和结构.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH13-ID82"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类和结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift10属性.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH14-ID254"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift11方法.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH15-ID234"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">方法</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift12标.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH16-ID305"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">标</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift13继承.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH17-ID193"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">遗产</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift14初始化.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH18-ID203"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">初始化</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift15取消初始化.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH19-ID142"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反初始化</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift16可选链接.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH21-ID245"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可选链接</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift17错误处理.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH42-ID508"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">错误处理</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift18类型转换.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH22-ID338"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型铸造</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift19嵌套类型.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH23-ID242"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">嵌套类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift20扩展.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH24-ID151"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">扩展</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift21协议.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH25-ID267"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">协议</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift22泛型.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH26-ID179"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">泛型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift23自动引用计数.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH20-ID48"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">自动引用计数</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift24内存安全.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH46-ID567"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内存安全</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift25访问控制.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH41-ID3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">访问控制</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Swift26高级操作符.htm" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID28"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级操作员</font></font></a>
+              </li>
+          </ul>
+</li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH28-ID427" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语言参考</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AboutTheLanguageReference.html#//apple_ref/doc/uid/TP40014097-CH29-ID345" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH29-ID345"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关于语言参考</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/LexicalStructure.html#//apple_ref/doc/uid/TP40014097-CH30-ID410" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH30-ID410"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">词汇结构</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Types.html#//apple_ref/doc/uid/TP40014097-CH31-ID445" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH31-ID445"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类型</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Expressions.html#//apple_ref/doc/uid/TP40014097-CH32-ID383" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH32-ID383"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">表达式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Statements.html#//apple_ref/doc/uid/TP40014097-CH33-ID428" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH33-ID428"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID351" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH34-ID351"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Attributes.html#//apple_ref/doc/uid/TP40014097-CH35-ID347" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH35-ID347"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属性</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Patterns.html#//apple_ref/doc/uid/TP40014097-CH36-ID419" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH36-ID419"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模式</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/GenericParametersAndArguments.html#//apple_ref/doc/uid/TP40014097-CH37-ID406" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH37-ID406"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">通用参数和参数</font></font></a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/zzSummaryOfTheGrammar.html#//apple_ref/doc/uid/TP40014097-CH38-ID458" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH38-ID458"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语法概要</font></font></a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014097-CH39-ID460" class="part-name">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修订记录</font></font></a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/RevisionHistory.html#//apple_ref/doc/uid/TP40014097-CH40-ID459" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH40-ID459"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档修订历史</font></font></a>
+              </li>
+          </ul>
+        </li>
+    </ul>
+</nav>
+
+      <menu id="bashful" type="toolbar">
+  <div class="shield"></div>
+  <menuitem id="jump_to" class="menu-bar-item closed">
+  <span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在本页</font></font></span>
+  <div class="chevron">
+    <div class="chevy chevron-left"></div>
+    <div class="chevy chevron-right"></div>
+  </div>
+  <menu type="list" class="details">
+      <ul class="list-bullet">
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID61"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">术语</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID62"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作业操作员</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID63"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">算术运算符</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID69"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">复合分配算子</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID70"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">比较运算符</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID71"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">三元条件运算符</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID72"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无合并操作员</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID73"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">范围运算符</font></font></a>
+          </li>
+          <li class="item">
+            <a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#//apple_ref/doc/uid/TP40014097-CH6-ID76"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑运算符</font></font></a>
+          </li>
+      </ul>
+  </menu>
+</menuitem>
+
+</menu>
+<div class="pixel-line"></div>
+<div class="rubber-band-gap"></div>
+<article class="chapter">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6"></a><a name="//apple_ref/doc/uid/TP40014097-CH6-ID60"></a>
+
+  <h2 class="chapter-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基本操作员</font></font></h2>
+
+
+  
+  	<section class="section">
+  		<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  一个</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运营商</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个特殊的符号，或者你使用来检查，更改或合并值的短语。</font><font style="vertical-align: inherit;">例如，加法运算符（</font></font><code class="code-voice">+</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）添加两个数字，如in </font></font><code class="code-voice">let i = 1 + 2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，逻辑AND运算符（</font></font><code class="code-voice">&amp;&amp;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）组合两个布尔值，如in </font></font><code class="code-voice">if enteredDoorCode &amp;&amp; passedRetinaScan</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift支持大多数标准C运算符，并改进了几种消除常见编码错误的功能。</font><font style="vertical-align: inherit;">赋值运算符（</font></font><code class="code-voice">=</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）不会返回值，以防止在等于运算符（</font></font><code class="code-voice">==</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">时错误地使用该</font><font style="vertical-align: inherit;">值。</font><font style="vertical-align: inherit;">算术运算符（</font></font><code class="code-voice">+</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">-</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">*</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">/</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">%</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">等等）检测和禁止值溢出，与变得比存储它们的类型的所允许的值的范围更大或更小数目的工作时避免意外的结果。</font><font style="vertical-align: inherit;">您可以通过使用雨燕的溢出运营商选择在价值溢出行为，如在</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID37" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID37"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">溢出运营商</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift还提供了在C中没有的范围运算符，比如</font></font><code class="code-voice">a..&lt;b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">a...b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，作为表达一系列值的快捷方式。
+</font></font></p>
+<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  本章介绍Swift中的常用操作符。</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID28" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID28"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">高级操作符</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">涵盖了Swift的高级操作符，并描述了如何定义自己的自定义操作符并为您自己的自定义类型实现标准操作符。
+</font></font></p>
+
+		</section> 
+
+
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID61"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">术语</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  运算符是一元，二元或三元运算符：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一元</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符在单个目标上运行（例如</font></font><code class="code-voice">-a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。</font><font style="vertical-align: inherit;">一元</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">前缀</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符紧挨着它们的目标（例如</font></font><code class="code-voice">!b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）出现，而一元</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">后缀</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符出现在它们的目标之后（例如</font></font><code class="code-voice">c!</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。
+</font></font></p>
+</li><li class="item"><p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">二元</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">操作符运行在两个目标上（如</font></font><code class="code-voice">2 + 3</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">），并且是中</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">缀，</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因为它们出现在两个目标之间。
+</font></font></p>
+</li><li class="item"><p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">三元</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运营商在三个目标上运营。</font><font style="vertical-align: inherit;">像C一样，Swift只有一个三元运算符，即三元条件运算符（</font></font><code class="code-voice">a ? b : c</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。
+</font></font></p>
+</li>
+</ul><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  操作符影响的值是</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">操作数</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">在表达式中</font></font><code class="code-voice">1 + 2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">+</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">符号是二元运算符，它的两个操作数是值</font></font><code class="code-voice">1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID62"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作业操作员</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">赋值运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">a = b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）初始化或更新的价值</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">与价值</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">b</span> = <span class="m">10</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">a</span> = <span class="m">5</span></code></li>
+            <li><code class="code-voice"><span class="vc">a</span> = <span class="vc">b</span></code></li>
+            <li><code class="code-voice"><span class="c">// a is now equal to 10</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果赋值的右边是一个具有多个值的元组，则其元素可以一次分解为多个常量或变量：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> (<span class="vc">x</span>, <span class="vc">y</span>) = (<span class="m">1</span>, <span class="m">2</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// x is equal to 1, and y is equal to 2</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  与C和Objective-C中的赋值运算符不同，Swift中的赋值运算符本身不返回值。</font><font style="vertical-align: inherit;">以下声明无效：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">x</span> = <span class="vc">y</span> {</code></li>
+            <li><code class="code-voice">    <span class="c">// This is not valid, because x = y does not return a value.</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  此功能可以防止赋值运算</font></font><code class="code-voice">=</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">符（</font></font><code class="code-voice">==</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）在实际意图</font><font style="vertical-align: inherit;">等于运算符（</font><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">时被意外使用</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">通过使</font></font><code class="code-voice">if x = y</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无效，Swift可以帮助您避免代码中出现这些类型的错误。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID63"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">算术运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift支持</font><font style="vertical-align: inherit;">所有数字类型</font><font style="vertical-align: inherit;">的四个标准</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">算术运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  加法（</font></font><code class="code-voice">+</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  减法（</font></font><code class="code-voice">-</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  乘法（</font></font><code class="code-voice">*</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  司（</font></font><code class="code-voice">/</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li>
+</ul><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="m">1</span> + <span class="m">2</span>       <span class="c">// equals 3</span></code></li>
+            <li><code class="code-voice"><span class="m">5</span> - <span class="m">3</span>       <span class="c">// equals 2</span></code></li>
+            <li><code class="code-voice"><span class="m">2</span> * <span class="m">3</span>       <span class="c">// equals 6</span></code></li>
+            <li><code class="code-voice"><span class="m">10.0</span> / <span class="m">2.5</span>  <span class="c">// equals 4.0</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  与C和Objective-C中的算术运算符不同，Swift算术运算符默认情况下不允许值溢出。</font><font style="vertical-align: inherit;">你可以通过使用Swift的溢出操作符（比如</font></font><code class="code-voice">a &amp;+ b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">来选择赋值溢出行为</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">请参阅</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID37" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH27-ID37"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">溢出操作符</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">连接</font><font style="vertical-align: inherit;">
+  操作还支持</font><font style="vertical-align: inherit;">连接：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="s">"hello, "</span> + <span class="s">"world"</span>  <span class="c">// equals "hello, world"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID64"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">剩余操作员</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">余运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">a % b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）的作品如何的好几倍</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">将适合的内部</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并返回剩下值（被称为</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">剩余部分</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-NoLink_45"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">余数运算符（</font></font><code class="code-voice">%</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font><font style="vertical-align: inherit;">在其他语言中</font><font style="vertical-align: inherit;">也称为</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">模运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">然而，它在Swift中用于负数的行为意味着严格来说，它是一种余数而不是模数运算。
+    	</font></font></p>
+    
+  </aside>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  以下是剩余操作符的工作方式。</font><font style="vertical-align: inherit;">为了计算</font></font><code class="code-voice">9 % 4</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，你首先</font><font style="vertical-align: inherit;">要计算</font><font style="vertical-align: inherit;">出有多少个</font></font><code class="code-voice">4</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">s可以放入里面</font></font><code class="code-voice">9</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><figure class="figure">
+  
+  <span class="caption"></span>
+  <img src="./Swift编程语言（Swift 4.1）：基本操作符_files/remainderInteger_2x.png" alt="image：../Art/remainderInteger_2x.png" width="337" height="66">
+</figure><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  你可以放入两个</font></font><code class="code-voice">4</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">s </font></font><code class="code-voice">9</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，剩下的就是</font></font><code class="code-voice">1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（以橙色显示）。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在Swift中，这会写成：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="m">9</span> % <span class="m">4</span>    <span class="c">// equals 1</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  为了确定答案</font></font><code class="code-voice">a % b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">%</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">操作员计算下面的公式并</font></font><code class="code-voice">remainder</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">作为其输出</font><font style="vertical-align: inherit;">返回</font><font style="vertical-align: inherit;">：
+</font></font></p><p class="para">
+  <code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">=（</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">x </font></font><code class="code-voice">some multiplier</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）+</font></font><code class="code-voice">remainder</code>
+</p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">里面</font></font><code class="code-voice">some multiplier</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最大的倍数是</font><font style="vertical-align: inherit;">
+  哪里</font><font style="vertical-align: inherit;">？
+</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"></font><code class="code-voice">a</code><font style="vertical-align: inherit;"></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  插入</font></font><code class="code-voice">9</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">4</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这个公式得到：
+</font></font></p><p class="para">
+  <code class="code-voice">9</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">=（</font></font><code class="code-voice">4</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">x </font></font><code class="code-voice">2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）+</font></font><code class="code-voice">1</code>
+</p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  计算余数为负值时应用同样的方法</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="m">-9</span> % <span class="m">4</span>   <span class="c">// equals -1</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  插入</font></font><code class="code-voice">-9</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">4</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">代入公式得到：
+</font></font></p><p class="para">
+  <code class="code-voice">-9</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">=（</font></font><code class="code-voice">4</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">x </font></font><code class="code-voice">-2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）+</font></font><code class="code-voice">-1</code>
+</p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  给出一个余数值</font></font><code class="code-voice">-1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">负号的值将忽略</font><font style="vertical-align: inherit;">
+  符号</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这意味着</font></font><code class="code-voice">a % b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并</font></font><code class="code-voice">a % -b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">始终给出相同的答案。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID67"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一元减法运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  数值的符号可以使用前缀</font></font><code class="code-voice">-</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（称为</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一元减运算符）</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来切换</font><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">three</span> = <span class="m">3</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">minusThree</span> = -<span class="vc">three</span>       <span class="c">// minusThree equals -3</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">plusThree</span> = -<span class="vc">minusThree</span>   <span class="c">// plusThree equals 3, or "minus minus three"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  一元减号运算符（</font></font><code class="code-voice">-</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）直接</font><font style="vertical-align: inherit;">位于运算</font><font style="vertical-align: inherit;">值的前面，没有任何空格。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID68"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一元加运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一元加运算</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">+</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）只返回其所操作的价值，没有任何变化：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">minusSix</span> = <span class="m">-6</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">alsoMinusSix</span> = +<span class="vc">minusSix</span>  <span class="c">// alsoMinusSix equals -6</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  虽然一元加运算符实际上并没有做任何事情，但是在使用一元减运算符来表示负数时，也可以使用它来在代码中提供正数的对称性。
+</font></font></p>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID69"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">复合分配算子</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  和C一样，Swift提供了</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">复合赋值操作符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，它将assignment（</font></font><code class="code-voice">=</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）与另一个操作</font><font style="vertical-align: inherit;">结合在一起</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">一个例子是</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">附加赋值运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">+=</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">a</span> = <span class="m">1</span></code></li>
+            <li><code class="code-voice"><span class="vc">a</span> += <span class="m">2</span></code></li>
+            <li><code class="code-voice"><span class="c">// a is now equal to 3</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这个表达方式</font></font><code class="code-voice">a += 2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是速记的</font></font><code class="code-voice">a = a + 2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">实际上，添加和分配组合为一个运算符，可同时执行两个任务。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-NoLink_46"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">复合赋值运算符不返回值。</font><font style="vertical-align: inherit;">例如，你不能写</font></font><code class="code-voice">let b = a += 2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+    	</font></font></p>
+    
+  </aside>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  有关Swift标准库提供的运算符的信息，请参阅</font></font><a href="https://developer.apple.com/documentation/swift/operator_declarations"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符声明</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID70"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">比较运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift支持所有标准的C </font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">比较运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  等于（</font></font><code class="code-voice">a == b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  不等于（</font></font><code class="code-voice">a != b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  大于（</font></font><code class="code-voice">a &gt; b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  小于（</font></font><code class="code-voice">a &lt; b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  大于或等于（</font></font><code class="code-voice">a &gt;= b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  小于或等于（</font></font><code class="code-voice">a &lt;= b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li>
+</ul><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-NoLink_47"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swift还提供了两个</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">身份运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">===</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">!==</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">），用于测试两个对象引用是否都引用同一个对象实例。</font><font style="vertical-align: inherit;">有关更多信息，请参阅</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ClassesAndStructures.html#//apple_ref/doc/uid/TP40014097-CH13-ID82" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH13-ID82"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">类和结构</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+    	</font></font></p>
+    
+  </aside>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  每个比较运算符都会返回一个</font></font><code class="code-voice">Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值来指示该语句是否为真：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="m">1</span> == <span class="m">1</span>   <span class="c">// true because 1 is equal to 1</span></code></li>
+            <li><code class="code-voice"><span class="m">2</span> != <span class="m">1</span>   <span class="c">// true because 2 is not equal to 1</span></code></li>
+            <li><code class="code-voice"><span class="m">2</span> &gt; <span class="m">1</span>    <span class="c">// true because 2 is greater than 1</span></code></li>
+            <li><code class="code-voice"><span class="m">1</span> &lt; <span class="m">2</span>    <span class="c">// true because 1 is less than 2</span></code></li>
+            <li><code class="code-voice"><span class="m">1</span> &gt;= <span class="m">1</span>   <span class="c">// true because 1 is greater than or equal to 1</span></code></li>
+            <li><code class="code-voice"><span class="m">2</span> &lt;= <span class="m">1</span>   <span class="c">// false because 2 is not less than or equal to 1</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  比较运算符经常用于条件语句中，如</font></font><code class="code-voice">if</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">语句：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">name</span> = <span class="s">"world"</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">name</span> == <span class="s">"world"</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"hello, world"</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"I'm sorry </span>\(<span class="vc">name</span>)<span class="s">, but I don't recognize you"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "hello, world", because name is indeed equal to "world".</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  有关该</font></font><code class="code-voice">if</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">声明的</font><font style="vertical-align: inherit;">更多信息</font><font style="vertical-align: inherit;">，请参阅</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html#//apple_ref/doc/uid/TP40014097-CH9-ID120" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH9-ID120"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">控制流程</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  你可以比较两个元组，如果它们具有相同的类型和相同数量的值。</font><font style="vertical-align: inherit;">元组从左到右进行比较，一次一个值，直到比较发现两个不相等的值。</font><font style="vertical-align: inherit;">这两个值进行比较，比较的结果决定了元组比较的总体结果。</font><font style="vertical-align: inherit;">如果所有元素都相等，那么元组本身是相等的。</font><font style="vertical-align: inherit;">例如：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice">(<span class="m">1</span>, <span class="s">"zebra"</span>) &lt; (<span class="m">2</span>, <span class="s">"apple"</span>)   <span class="c">// true because 1 is less than 2; "zebra" and "apple" are not compared</span></code></li>
+            <li><code class="code-voice">(<span class="m">3</span>, <span class="s">"apple"</span>) &lt; (<span class="m">3</span>, <span class="s">"bird"</span>)    <span class="c">// true because 3 is equal to 3, and "apple" is less than "bird"</span></code></li>
+            <li><code class="code-voice">(<span class="m">4</span>, <span class="s">"dog"</span>) == (<span class="m">4</span>, <span class="s">"dog"</span>)      <span class="c">// true because 4 is equal to 4, and "dog" is equal to "dog"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在上面的示例中，您可以在第一行看到从左到右的比较行为。</font><font style="vertical-align: inherit;">因为</font></font><code class="code-voice">1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">小于</font></font><code class="code-voice">2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font></font><code class="code-voice">(1, "zebra")</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">被认为小于</font></font><code class="code-voice">(2, "apple")</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，不管元组中的任何其他值如何。</font><font style="vertical-align: inherit;">没关系，</font></font><code class="code-voice">"zebra"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不小于</font></font><code class="code-voice">"apple"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，因为比较已经由元组的第一个元素决定了。</font><font style="vertical-align: inherit;">然而，当元组的第一个元素是相同的，他们的第二个元素</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">进行</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">比较 - 这是发生在第二和第三行。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  只有当操作符可以应用于各个元组中的每个值时，元组才可以与给定的操作符进行比较。</font><font style="vertical-align: inherit;">例如，这表现在下面的代码，就可以比较类型的两个元组</font></font><code class="code-voice">(String, Int)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，因为这两个</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">Int</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值可以使用进行比较</font></font><code class="code-voice">&lt;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符。</font><font style="vertical-align: inherit;">相比之下，两个元组类型</font></font><code class="code-voice">(String, Bool)</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不能与</font></font><code class="code-voice">&lt;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符</font><font style="vertical-align: inherit;">进行比较，</font><font style="vertical-align: inherit;">因为</font></font><code class="code-voice">&lt;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符不能应用于</font></font><code class="code-voice">Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice">(<span class="s">"blue"</span>, <span class="m">-1</span>) &lt; (<span class="s">"purple"</span>, <span class="m">1</span>)        <span class="c">// OK, evaluates to true</span></code></li>
+            <li><code class="code-voice">(<span class="s">"blue"</span>, <span class="kt">false</span>) &lt; (<span class="s">"purple"</span>, <span class="kt">true</span>)  <span class="c">// Error because &lt; can't compare Boolean values</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-NoLink_48"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Swift标准库包含元组少于7个元组的元组比较运算符。</font><font style="vertical-align: inherit;">要比较具有七个或更多元素的元组，您必须自己实现比较运算符。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID71"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">三元条件运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  所述</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">三元条件算子</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是由三个部分组成，这需要形式的特殊操作</font></font><code class="code-voice">question ? answer1 : answer2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这是根据是否</font></font><code class="code-voice">question</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为真</font><font style="vertical-align: inherit;">来评估两个表达式之一的捷径</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如果</font></font><code class="code-voice">question</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">属实，则评估</font></font><code class="code-voice">answer1</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并返回其值; </font><font style="vertical-align: inherit;">否则，它会评估</font></font><code class="code-voice">answer2</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并返回其值。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  三元条件运算符是下面代码的简写：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">question</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">answer1</span></code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">answer2</span></code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  以下是一个计算表格行高度的示例。</font><font style="vertical-align: inherit;">如果该行有标题，则行高应比内容高度高50个点;如果该行没有标题，则行高应高20个点：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">contentHeight</span> = <span class="m">40</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">hasHeader</span> = <span class="kt">true</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">rowHeight</span> = <span class="vc">contentHeight</span> + (<span class="vc">hasHeader</span> ? <span class="m">50</span> : <span class="m">20</span>)</code></li>
+            <li><code class="code-voice"><span class="c">// rowHeight is equal to 90</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  前面的例子是下面代码的简写：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">contentHeight</span> = <span class="m">40</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">hasHeader</span> = <span class="kt">true</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">rowHeight</span>: <span class="n"><!-- a href="" -->Int<!-- /a --></span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">hasHeader</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">rowHeight</span> = <span class="vc">contentHeight</span> + <span class="m">50</span></code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">rowHeight</span> = <span class="vc">contentHeight</span> + <span class="m">20</span></code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// rowHeight is equal to 90</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  第一个例子使用三元条件运算符意味着</font></font><code class="code-voice">rowHeight</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以在单行代码上设置正确的值，这比第二个例子中使用的代码更简洁。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  三元条件运算符为决定要考虑哪两个表达式提供了有效的速记。</font><font style="vertical-align: inherit;">但是，请谨慎使用三元条件运算符。</font><font style="vertical-align: inherit;">如果过度使用，它的简洁会导致难以阅读的代码。</font><font style="vertical-align: inherit;">避免将三元条件运算符的多个实例组合成一个复合语句。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID72"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无合并操作员</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">零-合并运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">a ?? b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）进行解包的可选</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，如果它包含一个值，或者返回一个默认值</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，如果</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">表达式</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">总是可选的类型。</font><font style="vertical-align: inherit;">表达式</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">必须与存储在里面的类型匹配</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  nil-coalescing运算符是下面代码的简写：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">a</span> != <span class="kt">nil</span> ? <span class="vc">a</span>! : <span class="vc">b</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  上面的代码使用三元条件操作和强制解包（</font></font><code class="code-voice">a!</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）来访问内部包裹的值</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">时</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是不</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并返回</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，否则。</font><font style="vertical-align: inherit;">nil-coalescing运算符提供了一种更简洁的方式来以简明易懂的形式封装这个条件检查和解包。
+</font></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-NoLink_49"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如果值为</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">非</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值，</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">则不评估值。</font><font style="vertical-align: inherit;">这就是所谓</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的短路评估</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+    	</font></font></p>
+    
+  </aside>
+</div><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  下面的示例使用nil-coalescing运算符在默认颜色名称和可选的用户定义颜色名称之间进行选择：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">defaultColorName</span> = <span class="s">"red"</span></code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">userDefinedColorName</span>: <span class="n"><!-- a href="" -->String<!-- /a --></span>?   <span class="c">// defaults to nil</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">var</span> <span class="vc">colorNameToUse</span> = <span class="vc">userDefinedColorName</span> ?? <span class="vc">defaultColorName</span></code></li>
+            <li><code class="code-voice"><span class="c">// userDefinedColorName is nil, so colorNameToUse is set to the default of "red"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该</font></font><code class="code-voice">userDefinedColorName</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变量被定义为可选的</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，默认值为</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">由于</font></font><code class="code-voice">userDefinedColorName</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是可选类型，因此您可以使用nil-coalescing运算符来考虑其值。</font><font style="vertical-align: inherit;">在上面的示例中，运算符用于确定</font></font><code class="code-voice">String</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">调用变量</font><font style="vertical-align: inherit;">的初始值</font></font><code class="code-voice">colorNameToUse</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">因为</font></font><code class="code-voice">userDefinedColorName</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，表达式</font></font><code class="code-voice">userDefinedColorName ?? defaultColorName</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">返回值</font></font><code class="code-voice">defaultColorName</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或</font></font><code class="code-voice">"red"</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果您将一个非</font></font><code class="code-voice">nil</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值赋予</font></font><code class="code-voice">userDefinedColorName</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">并再次执行nil-coalescing操作符检查，则将</font></font><code class="code-voice">userDefinedColorName</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用</font><font style="vertical-align: inherit;">内部包装的值</font><font style="vertical-align: inherit;">而不是缺省值：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="vc">userDefinedColorName</span> = <span class="s">"green"</span></code></li>
+            <li><code class="code-voice"><span class="vc">colorNameToUse</span> = <span class="vc">userDefinedColorName</span> ?? <span class="vc">defaultColorName</span></code></li>
+            <li><code class="code-voice"><span class="c">// userDefinedColorName is not nil, so colorNameToUse is set to "green"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID73"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">范围运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  Swift包含几个</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">范围运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，它们是表示一系列值的捷径。
+</font></font></p>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID74"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">关闭范围操作员</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">封闭范围操作符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">a...b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）限定了从运行范围</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">来</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并且包括这些值</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">值</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不得大于</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在遍历希望使用所有值的范围（例如使用</font></font><code class="code-voice">for</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- </font></font><code class="code-voice">in</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">循环）</font><font style="vertical-align: inherit;">时，闭范围运算符很有用</font><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">index</span> <span class="kt">in</span> <span class="m">1</span>...<span class="m">5</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"</span>\(<span class="vc">index</span>)<span class="s"> times 5 is </span>\(<span class="vc">index</span> * <span class="m">5</span>)<span class="s">"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// 1 times 5 is 5</span></code></li>
+            <li><code class="code-voice"><span class="c">// 2 times 5 is 10</span></code></li>
+            <li><code class="code-voice"><span class="c">// 3 times 5 is 15</span></code></li>
+            <li><code class="code-voice"><span class="c">// 4 times 5 is 20</span></code></li>
+            <li><code class="code-voice"><span class="c">// 5 times 5 is 25</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  欲了解更多有关</font></font><code class="code-voice">for</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">- </font></font><code class="code-voice">in</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">循环，看到</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/ControlFlow.html#//apple_ref/doc/uid/TP40014097-CH9-ID120" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH9-ID120"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">控制流</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID75"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">半开放范围运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  所述</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">半开区间运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">a..&lt;b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）限定了从运行范围</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">到</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，但不包括</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">据说它是</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">半开放的，</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因为它包含了它的第一个值，但不包含它的最终值。</font><font style="vertical-align: inherit;">与封闭范围操作符一样，值</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">不得大于</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">如果值</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">等于</font></font><code class="code-voice">b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，则结果范围将为空。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  当您使用基于零的列表（例如数组）时，半开范围特别有用，可以计算（但不包括）列表长度：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">names</span> = [<span class="s">"Anna"</span>, <span class="s">"Alex"</span>, <span class="s">"Brian"</span>, <span class="s">"Jack"</span>]</code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">count</span> = <span class="vc">names</span>.<span class="vc">count</span></code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">i</span> <span class="kt">in</span> <span class="m">0</span>..&lt;<span class="vc">count</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Person </span>\(<span class="vc">i</span> + <span class="m">1</span>)<span class="s"> is called </span>\(<span class="vc">names</span>[<span class="vc">i</span>])<span class="s">"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Person 1 is called Anna</span></code></li>
+            <li><code class="code-voice"><span class="c">// Person 2 is called Alex</span></code></li>
+            <li><code class="code-voice"><span class="c">// Person 3 is called Brian</span></code></li>
+            <li><code class="code-voice"><span class="c">// Person 4 is called Jack</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  请注意，该数组包含四个项目，但</font></font><code class="code-voice">0..&lt;count</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">只计算</font></font><code class="code-voice">3</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（数组中最后一项的索引），因为它是半开范围。</font><font style="vertical-align: inherit;">有关数组的更多信息，请参阅</font></font><span class="x-name"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/CollectionTypes.html#//apple_ref/doc/uid/TP40014097-CH8-ID107" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH8-ID107"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">数组</font></font></a></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID562"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单面范围</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  闭范围运算符有一种替代形式，用于在一个方向上尽可能延续的范围 - 例如，范围包括从索引2到数组末尾的所有数组元素。</font><font style="vertical-align: inherit;">在这些情况下，可以省略范围运算符一侧的值。</font><font style="vertical-align: inherit;">这种范围被称为</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">单边范围，</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">因为操作员只有一方的价值。</font><font style="vertical-align: inherit;">例如：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">name</span> <span class="kt">in</span> <span class="vc">names</span>[<span class="m">2</span>...] {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Brian</span></code></li>
+            <li><code class="code-voice"><span class="c">// Jack</span></code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">name</span> <span class="kt">in</span> <span class="vc">names</span>[...<span class="m">2</span>] {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Anna</span></code></li>
+            <li><code class="code-voice"><span class="c">// Alex</span></code></li>
+            <li><code class="code-voice"><span class="c">// Brian</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  半开范围的操作符也具有只写入其最终值的单面形式。</font><font style="vertical-align: inherit;">就像在双方包含一个值时一样，最终的值不是范围的一部分。</font><font style="vertical-align: inherit;">例如：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">for</span> <span class="vc">name</span> <span class="kt">in</span> <span class="vc">names</span>[..&lt;<span class="m">2</span>] {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="vc">name</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Anna</span></code></li>
+            <li><code class="code-voice"><span class="c">// Alex</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  片面范围可以用在其他情况下，而不仅仅用于下标。</font><font style="vertical-align: inherit;">您不能迭代忽略第一个值的单侧范围，因为尚不清楚应在哪里开始迭代。</font><font style="vertical-align: inherit;">您</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">遍历一个省略其最终值的单向范围; </font><font style="vertical-align: inherit;">但是，由于范围无限期地继续，因此请确保为循环添加明确的结束条件。</font><font style="vertical-align: inherit;">您还可以检查单侧范围是否包含特定值，如下面的代码所示。
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">range</span> = ...<span class="m">5</span></code></li>
+            <li><code class="code-voice"><span class="vc">range</span>.<span class="vc">contains</span>(<span class="m">7</span>)   <span class="c">// false</span></code></li>
+            <li><code class="code-voice"><span class="vc">range</span>.<span class="vc">contains</span>(<span class="m">4</span>)   <span class="c">// true</span></code></li>
+            <li><code class="code-voice"><span class="vc">range</span>.<span class="vc">contains</span>(<span class="m">-1</span>)  <span class="c">// true</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID76"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑运算符</font></font></h3>
+  <p class="para">
+  <em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">修改或组合布尔逻辑值</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">Swift支持基于C语言中的三种标准逻辑运算符：
+</font></font></p><ul class="list-bullet">
+  <li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  逻辑NOT（</font></font><code class="code-voice">!a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  逻辑与（</font></font><code class="code-voice">a &amp;&amp; b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li><li class="item"><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  逻辑或（</font></font><code class="code-voice">a || b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）
+</font></font></p>
+</li>
+</ul>
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID77"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑NOT运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑非运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">!a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）反转一个布尔值，使得</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">成为</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，和</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">变</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  逻辑NOT运算符是一个前缀运算符，并且在其操作的值之前立即出现，没有任何空格。</font><font style="vertical-align: inherit;">它可以被解读为“不</font></font><code class="code-voice">a</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">”，如下例所示：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">allowedEntry</span> = <span class="kt">false</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> !<span class="vc">allowedEntry</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"ACCESS DENIED"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "ACCESS DENIED"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  该短语</font></font><code class="code-voice">if !allowedEntry</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">可以被理解为“如果不允许进入”。后续行仅在“不允许进入”为真时才被执行; </font><font style="vertical-align: inherit;">那就是，如果</font></font><code class="code-voice">allowedEntry</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  正如在这个例子中，仔细选择布尔常量和变量名称可以帮助保持代码的可读性和简洁性，同时避免双重否定或混淆逻辑语句。
+</font></font></p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID78"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑AND运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑AND运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">a &amp;&amp; b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）创建逻辑表达式，其中这两个值必须</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为整体表达也有</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果任何一个值都是</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，则整体表达式也将是</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">事实上，如果第</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一个</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值是</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">第二个值，那么甚至不会评估第二个值，因为它不可能使整体表达式等于</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">这就是所谓</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的短路评估</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  这个例子考虑两个</font></font><code class="code-voice">Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值，并且只允许访问如果价值观</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">enteredDoorCode</span> = <span class="kt">true</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">passedRetinaScan</span> = <span class="kt">false</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">enteredDoorCode</span> &amp;&amp; <span class="vc">passedRetinaScan</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Welcome!"</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"ACCESS DENIED"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "ACCESS DENIED"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID79"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑OR运算符</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  的</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑OR运算符</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（</font></font><code class="code-voice">a || b</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）是来自两个相邻管字符制成中缀运算符。</font><font style="vertical-align: inherit;">您可以使用它来创建逻辑表达式，其中只有</font></font><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">一个</font></font></em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值必须</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用于整体表达式</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  像上面的逻辑与运算符一样，逻辑或运算符使用短路评估来考虑其表达式。</font><font style="vertical-align: inherit;">如果逻辑或表达式的左侧是</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，右侧不进行评估，因为它不能改变整个表达式的结果。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在下面的例子中，第一个</font></font><code class="code-voice">Bool</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">值（</font></font><code class="code-voice">hasDoorKey</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）是</font></font><code class="code-voice">false</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，但第二个值（</font></font><code class="code-voice">knowsOverridePassword</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）是</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">因为有一个值</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，整体表达式也可以评估</font></font><code class="code-voice">true</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，并且允许访问：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">hasDoorKey</span> = <span class="kt">false</span></code></li>
+            <li><code class="code-voice"><span class="kt">let</span> <span class="vc">knowsOverridePassword</span> = <span class="kt">true</span></code></li>
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">hasDoorKey</span> || <span class="vc">knowsOverridePassword</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Welcome!"</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"ACCESS DENIED"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Welcome!"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID80"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">逻辑运算符的组合</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  您可以组合多个逻辑运算符来创建更长的复合表达式：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> <span class="vc">enteredDoorCode</span> &amp;&amp; <span class="vc">passedRetinaScan</span> || <span class="vc">hasDoorKey</span> || <span class="vc">knowsOverridePassword</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Welcome!"</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"ACCESS DENIED"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Welcome!"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  此示例使用多个</font></font><code class="code-voice">&amp;&amp;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">||</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符来创建较长的复合表达式。</font><font style="vertical-align: inherit;">然而，</font></font><code class="code-voice">&amp;&amp;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">||</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">运算符仍然只能运行两个值，所以这实际上是三个较小的表达式链接在一起。</font><font style="vertical-align: inherit;">该示例可以解读为：
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  如果我们输入了正确的门码并通过了视网膜扫描，或者如果我们有一个有效的门钥匙，或者我们知道紧急改写密码，则允许进入。
+</font></font></p><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  基于</font><font style="vertical-align: inherit;">，和</font><font style="vertical-align: inherit;">的值</font></font><code class="code-voice">enteredDoorCode</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">，</font><font style="vertical-align: inherit;">前两个子表达式是</font><font style="vertical-align: inherit;">。</font><font style="vertical-align: inherit;">但是，紧急重写密码是已知的，因此整体复合表达式仍然会评估为</font><font style="vertical-align: inherit;">。
+</font></font><code class="code-voice">passedRetinaScan</code><font style="vertical-align: inherit;"></font><code class="code-voice">hasDoorKey</code><font style="vertical-align: inherit;"></font><code class="code-voice">false</code><font style="vertical-align: inherit;"></font><code class="code-voice">true</code><font style="vertical-align: inherit;"></font></p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-NoLink_50"></a>
+  <aside class="aside">
+    <p class="aside-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">注意
+    </font></font></p>
+    	<p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">迅捷逻辑运算符</font></font><code class="code-voice">&amp;&amp;</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和</font></font><code class="code-voice">||</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是左结合，这意味着与多个逻辑运算符复合表达式首先评估最左边的子表达式。
+    	</font></font></p>
+    
+  </aside>
+</div>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014097-CH6-ID81"></a>
+  <h3 class="section-name" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">显式括号</font></font></h3>
+  <p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  在不严格需要的情况下包含括号有时很有用，可以使复杂表达式的意图更容易阅读。</font><font style="vertical-align: inherit;">在上面的门访问示例中，在复合表达式的第一部分周围添加圆括号以使其意图明确是有用的：
+</font></font></p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="Swift">
+        <ol class="code-lines">
+            <li><code class="code-voice"><span class="kt">if</span> (<span class="vc">enteredDoorCode</span> &amp;&amp; <span class="vc">passedRetinaScan</span>) || <span class="vc">hasDoorKey</span> || <span class="vc">knowsOverridePassword</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"Welcome!"</span>)</code></li>
+            <li><code class="code-voice">} <span class="kt">else</span> {</code></li>
+            <li><code class="code-voice">    <span class="vc">print</span>(<span class="s">"ACCESS DENIED"</span>)</code></li>
+            <li><code class="code-voice">}</code></li>
+            <li><code class="code-voice"><span class="c">// Prints "Welcome!"</span></code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+  括号清楚地表明前两个值在整体逻辑中被认为是单独的可能状态的一部分。</font><font style="vertical-align: inherit;">复合表达式的输出不变，但整体意图对读者更清楚。</font><font style="vertical-align: inherit;">可读性始终优于简洁性; </font><font style="vertical-align: inherit;">在他们帮助明确你的意图的地方使用括号。
+</font></font></p>
+  
+</section>
+
+</section>
+
+  	
+ 	<section id="next_previous" class="">
+    		<p class="previous-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/TheBasics.html#//apple_ref/doc/uid/TP40014097-CH5-ID309" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH5-ID309"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">基础</font></font></a></p>
+  			<p class="next-link"><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/StringsAndCharacters.html#//apple_ref/doc/uid/TP40014097-CH7-ID285" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014097-CH7-ID285"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">字符串和字符</font></font></a></p>
+
+    <p class="copyright"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Copyright©2018 Apple Inc.保留所有权利。 
+  </font></font><a class="link" href="http://www.apple.com/legal/terms/site.html" target="_blank" rel="external"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">使用条款</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | 
+  </font></font><a class="link" href="http://www.apple.com/privacy/" target="_blank" rel="external"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">隐私政策</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> | </font><font style="vertical-align: inherit;">更新日期：2018-02-20
+</font></font></p>
+  </section>
+</article>
+
+    </div>
+    <div id="big_button"></div>
+    <footer id="footer">
+  <div class="content-wrapper">
+  	<div id="leave_feedback" class="button" role="button" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">反馈</font></font></div>
+  </div>
+  <script src="./Swift编程语言（Swift 4.1）：基本操作符_files/devpubs-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./Swift编程语言（Swift 4.1）：基本操作符_files/feedback-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <div id="_omniture_top">
+<!-- SiteCatalyst code version: H.8. Copyright 1997-2006 Omniture, Inc. -->
+<script type="text/javascript">
+/* RSID: */
+var s_account="appleglobal,appleusdeveloper,dappdeveloperlib"
+</script>
+
+<script type="text/javascript" src="./Swift编程语言（Swift 4.1）：基本操作符_files/s_code_h.js"></script>
+<script type="text/javascript">
+s.pageName=AC.Tracking.pageName();
+s.channel="www.us.developer"
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+<!-- End SiteCatalyst code version: H.8. -->
+</div>
+
+</footer>
+
+    
+  
+    <div id="blackout">
+    <div id="preload"></div>
+</div>
+<div id="modal" aria-hidden="true">
+    <div id="closebox" tabindex="0" aria-label="Close feedback form" role="button"></div>
+    <div id="sending" class="hidden">
+        <h2 tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">发送反馈...</font></font></h2>
+        <div id="sending_img"></div>
+    </div>
+    <div id="error" class="hidden">
+        <h2 tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们很抱歉发生了错误。</font></font></h2>
+        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请稍后尝试提交您的反馈。</font></font></p>
+        <div id="error_icon"></div>
+    </div>
+    <div id="success" class="hidden">
+        <h2 tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">感谢您提供反馈！</font></font></h2>
+        <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您的意见有助于改进我们的开发者文档</font></font></p>
+        <div id="thank_you_icon"></div>
+    </div>
+    
+    <form id="feedback" action="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/BasicOperators.html#" method="post">
+        <div class="left-leaf">
+            <h2 id="helpful_title" data-asterisk="a1" tabindex="0"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这份文件有多大帮助？</font></font></h2>     
+            <sup id="a1" class="asterisk" aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></sup>
+
+            <div id="star_group" role="radiogroup" aria-required="true">
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    很有帮助
+                </font></font></label>
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="2"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    有点帮助
+                </font></font></label>
+                <label>
+                    <input class="radio" type="radio" name="helped" value="3"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    没有帮助
+                </font></font></label>
+            </div>
+        </div>
+        <div class="right-leaf">
+            <h2><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">我们如何改进这个文件？</font></font></h2>
+            <div id="improve" class="checkboxes">
+                <label>
+                    <input type="checkbox" name="typo"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    修正错别字或链接
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="infoIncorrect"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    修正错误的信息
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="needs_examples"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    添加或更新代码示例
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="needs_art"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    添加或更新插图
+                </font></font></label>
+                <label>
+                    <input type="checkbox" name="missingInfo"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                    添加有关...的信息
+                </font></font></label>
+            </div>
+        </div>
+
+        <textarea id="comment" name="problem" cols="70" rows="8" placeholder="Please tell us more about your experience with this document" data-asterisk="a2" required=""></textarea>
+        <sup id="a2" class="asterisk" aria-hidden="true"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></sup>
+
+        <p class="fineprint">
+            <em aria-hidden="true"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">必填信息</font></font></em>
+        </p> 
+
+        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><input id="submit" type="button" value="发送"></font></font>
+
+        <section id="legal">
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                要提交产品错误或增强请求，请访问 
+                 </font></font><a href="https://developer.apple.com/bugreporter/" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bug Reporter</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">  
+                页面。
+            </font></font></p>
+            <p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+                在您向我们发送反馈之前，</font><font style="vertical-align: inherit;">
+                请阅读</font></font><a href="http://www.apple.com/legal/policies/ideas.html" target="_blank"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Apple的未经请求的意见提交政策</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。
+            </font></font></p> 
+        </section>
+    </form>
+</div><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Swift编程语言（Swift 4.1）：基本操作符_files/translate_24dp.png" width="20" height="20" alt="Google 翻译"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">原文</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">提供更好的翻译建议</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div></body></html>
